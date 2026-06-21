@@ -1,6 +1,6 @@
-# Incluir solo Output/Revisiones/ — todo lo demás excluido
+# Incluir solo el portal web — todo lo demás excluido
 *
 !.gitignore
-!Output/
-!Output/Revisiones/
-!Output/Revisiones/**
+!index.html
+!Figuras/
+!Figuras/**
