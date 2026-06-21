@@ -347,6 +347,7 @@
       padding: .2rem .55rem; border-radius: 20px;
     }
     .badge-static { background: rgba(0,0,0,.06); color: var(--muted); border: 1px solid rgba(0,0,0,.1); }
+    .badge-interactive { background: rgba(0,131,143,.12); color: var(--teal); border: 1px solid rgba(0,131,143,.25); }
     .card-lic-bar { height: 4px; }
     .card-body { padding: .9rem 1rem 1rem; flex: 1; display: flex; flex-direction: column; }
     .card-title { font-size: .88rem; font-weight: 700; line-height: 1.3; margin-bottom: .3rem; }
@@ -778,17 +779,19 @@
 
     <div class="read-callout">
       <strong>Cómo usar estas figuras:</strong> haz clic en cualquier tarjeta para
-      ampliar la imagen completa. Las figuras con fondo blanco corresponden a gráficas
-      estáticas de alta resolución generadas con matplotlib y ggplot2.
+      abrirla. Las tarjetas marcadas con <strong style="color:var(--teal)">Interactivo</strong>
+      abren una versión Plotly con hover, zoom y descarga en una pestaña nueva.
+      Las marcadas con <strong>Imagen</strong> corresponden a gráficas estáticas de alta
+      resolución generadas con matplotlib y ggplot2.
     </div>
 
     <p class="subsec-label">Mapas de similitud e t-SNE</p>
     <div class="grid grid-3">
 
-      <div class="card" onclick="openModal('Figuras/heatmap_licenciaturas.png', 'Similitud promedio entre los diez planes de estudio')">
+      <div class="card" onclick="openLink('Figuras/heatmap_licenciaturas.html')">
         <div class="card-thumb">
           <img src="Figuras/heatmap_licenciaturas.png" alt="Mapa de similitud entre licenciaturas">
-          <span class="card-badge badge-static">Imagen</span>
+          <span class="card-badge badge-interactive">Interactivo</span>
         </div>
         <div class="card-body">
           <p class="card-title">Similitud promedio entre los diez planes</p>
@@ -799,7 +802,7 @@
           </p>
           <div class="card-footer">
             <span class="card-meta">10 × 10 licenciaturas</span>
-            <span class="card-btn">Ver <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+            <span class="card-btn">Explorar <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
           </div>
         </div>
       </div>
@@ -823,10 +826,10 @@
         </div>
       </div>
 
-      <div class="card" onclick="openModal('Figuras/scatter_tsne.png', 'Proyección t-SNE del corpus de programas')">
+      <div class="card" onclick="openLink('Figuras/scatter_tsne.html')">
         <div class="card-thumb">
           <img src="Figuras/scatter_tsne.png" alt="Dispersión t-SNE">
-          <span class="card-badge badge-static">Imagen</span>
+          <span class="card-badge badge-interactive">Interactivo</span>
         </div>
         <div class="card-body">
           <p class="card-title">Proyección t-SNE del corpus</p>
@@ -836,8 +839,8 @@
             entre licenciaturas. El color identifica la licenciatura.
           </p>
           <div class="card-footer">
-            <span class="card-meta">436 UEAs · perplexity 25</span>
-            <span class="card-btn">Ver <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+            <span class="card-meta">459 UEAs · perplexity 30</span>
+            <span class="card-btn">Explorar <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
           </div>
         </div>
       </div>
@@ -866,29 +869,29 @@
         </div>
       </div>
 
-      <div class="card" onclick="openModal('Figuras/grafo_licenciaturas_variante_B.png', 'Red de conexiones entre licenciaturas (Kamada-Kawai)')">
+      <div class="card" onclick="openLink('Figuras/grafo_licenciaturas_30.html')">
         <div class="card-thumb">
-          <img src="Figuras/grafo_licenciaturas_variante_B.png" alt="Red de conexiones entre licenciaturas">
-          <span class="card-badge badge-static">Imagen</span>
+          <img src="Figuras/grafo_licenciaturas_30.png" alt="Red de conexiones entre licenciaturas">
+          <span class="card-badge badge-interactive">Interactivo</span>
         </div>
         <div class="card-body">
           <p class="card-title">Red de conexiones entre licenciaturas</p>
           <p class="card-desc">
             Cada licenciatura es un nodo. Las aristas conectan pares con al menos
-            3 programas similares; el grosor es proporcional al conteo. Las licenciaturas
-            más conectadas comparten más contenidos con el resto.
+            un programa similar (s ≥ 0.30); el grosor es proporcional al conteo.
+            Hover sobre aristas y nodos para ver el detalle.
           </p>
           <div class="card-footer">
-            <span class="card-meta">umbral ≥ 3 UEAs comunes</span>
-            <span class="card-btn">Ver <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+            <span class="card-meta">s ≥ 0.30 · 10 nodos</span>
+            <span class="card-btn">Explorar <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
           </div>
         </div>
       </div>
 
-      <div class="card" onclick="openModal('Figuras/heatmap_clustered.png', 'Mapa jerárquico de similitud entre UEAs del corpus')">
+      <div class="card" onclick="openLink('Figuras/heatmap_clustered.html')">
         <div class="card-thumb">
           <img src="Figuras/heatmap_clustered.png" alt="Mapa jerárquico de similitud">
-          <span class="card-badge badge-static">Imagen</span>
+          <span class="card-badge badge-interactive">Interactivo</span>
         </div>
         <div class="card-body">
           <p class="card-title">Mapa jerárquico de similitud entre UEAs</p>
@@ -898,8 +901,8 @@
             forman en el corpus completo.
           </p>
           <div class="card-footer">
-            <span class="card-meta">s ≥ 0.30 · clustering Ward</span>
-            <span class="card-btn">Ver <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+            <span class="card-meta">s ≥ 0.35 · clustering Ward</span>
+            <span class="card-btn">Explorar <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
           </div>
         </div>
       </div>
@@ -986,17 +989,19 @@
 
     <div class="read-callout">
       <strong>Cómo usar estos mapas:</strong> haz clic en cualquier licenciatura para
-      ampliar su mapa de similitud interna. Las UEAs están ordenadas por agrupamiento
-      jerárquico; los puntos rojizos fuera de la diagonal merecen atención especial.
+      abrir su mapa de similitud interna en versión interactiva (Plotly). Pasa el cursor
+      sobre cualquier celda para ver las dos UEAs y su similitud exacta. Las UEAs están
+      ordenadas por agrupamiento jerárquico; los puntos rojizos fuera de la diagonal
+      merecen atención especial.
     </div>
 
     <div class="grid grid-5">
 
-      <div class="card" onclick="openModal('Figuras/intraplan_Ambiental.png', 'Similitud interna — Ambiental')">
+      <div class="card" onclick="openLink('Figuras/intraplan_Ambiental.html')">
         <div class="card-lic-bar" style="background:var(--c-ambiental)"></div>
         <div class="card-thumb" style="aspect-ratio:1">
           <img src="Figuras/intraplan_Ambiental.png" alt="Revisión interna — Ambiental">
-          <span class="card-badge badge-static">Imagen</span>
+          <span class="card-badge badge-interactive">Interactivo</span>
         </div>
         <div class="card-body">
           <p class="card-title" style="color:var(--c-ambiental)">Ambiental</p>
@@ -1008,11 +1013,11 @@
         </div>
       </div>
 
-      <div class="card" onclick="openModal('Figuras/intraplan_Civil.png', 'Similitud interna — Civil')">
+      <div class="card" onclick="openLink('Figuras/intraplan_Civil.html')">
         <div class="card-lic-bar" style="background:var(--c-civil)"></div>
         <div class="card-thumb" style="aspect-ratio:1">
           <img src="Figuras/intraplan_Civil.png" alt="Revisión interna — Civil">
-          <span class="card-badge badge-static">Imagen</span>
+          <span class="card-badge badge-interactive">Interactivo</span>
         </div>
         <div class="card-body">
           <p class="card-title" style="color:var(--c-civil)">Civil</p>
@@ -1024,11 +1029,11 @@
         </div>
       </div>
 
-      <div class="card" onclick="openModal('Figuras/intraplan_Computacion.png', 'Similitud interna — Computación')">
+      <div class="card" onclick="openLink('Figuras/intraplan_Computacion.html')">
         <div class="card-lic-bar" style="background:var(--c-computacion)"></div>
         <div class="card-thumb" style="aspect-ratio:1">
           <img src="Figuras/intraplan_Computacion.png" alt="Revisión interna — Computación">
-          <span class="card-badge badge-static">Imagen</span>
+          <span class="card-badge badge-interactive">Interactivo</span>
         </div>
         <div class="card-body">
           <p class="card-title" style="color:var(--c-computacion)">Computación</p>
@@ -1040,11 +1045,11 @@
         </div>
       </div>
 
-      <div class="card" onclick="openModal('Figuras/intraplan_Electrica.png', 'Similitud interna — Eléctrica')">
+      <div class="card" onclick="openLink('Figuras/intraplan_Electrica.html')">
         <div class="card-lic-bar" style="background:var(--c-electrica)"></div>
         <div class="card-thumb" style="aspect-ratio:1">
           <img src="Figuras/intraplan_Electrica.png" alt="Revisión interna — Eléctrica">
-          <span class="card-badge badge-static">Imagen</span>
+          <span class="card-badge badge-interactive">Interactivo</span>
         </div>
         <div class="card-body">
           <p class="card-title" style="color:#b07900">Eléctrica</p>
@@ -1056,11 +1061,11 @@
         </div>
       </div>
 
-      <div class="card" onclick="openModal('Figuras/intraplan_Electronica.png', 'Similitud interna — Electrónica')">
+      <div class="card" onclick="openLink('Figuras/intraplan_Electronica.html')">
         <div class="card-lic-bar" style="background:var(--c-electronica)"></div>
         <div class="card-thumb" style="aspect-ratio:1">
           <img src="Figuras/intraplan_Electronica.png" alt="Revisión interna — Electrónica">
-          <span class="card-badge badge-static">Imagen</span>
+          <span class="card-badge badge-interactive">Interactivo</span>
         </div>
         <div class="card-body">
           <p class="card-title" style="color:var(--c-electronica)">Electrónica</p>
@@ -1072,11 +1077,11 @@
         </div>
       </div>
 
-      <div class="card" onclick="openModal('Figuras/intraplan_Fisica.png', 'Similitud interna — Física')">
+      <div class="card" onclick="openLink('Figuras/intraplan_Fisica.html')">
         <div class="card-lic-bar" style="background:var(--c-fisica)"></div>
         <div class="card-thumb" style="aspect-ratio:1">
           <img src="Figuras/intraplan_Fisica.png" alt="Revisión interna — Física">
-          <span class="card-badge badge-static">Imagen</span>
+          <span class="card-badge badge-interactive">Interactivo</span>
         </div>
         <div class="card-body">
           <p class="card-title" style="color:var(--c-fisica)">Física</p>
@@ -1088,11 +1093,11 @@
         </div>
       </div>
 
-      <div class="card" onclick="openModal('Figuras/intraplan_Industrial.png', 'Similitud interna — Industrial')">
+      <div class="card" onclick="openLink('Figuras/intraplan_Industrial.html')">
         <div class="card-lic-bar" style="background:var(--c-industrial)"></div>
         <div class="card-thumb" style="aspect-ratio:1">
           <img src="Figuras/intraplan_Industrial.png" alt="Revisión interna — Industrial">
-          <span class="card-badge badge-static">Imagen</span>
+          <span class="card-badge badge-interactive">Interactivo</span>
         </div>
         <div class="card-body">
           <p class="card-title" style="color:var(--c-industrial)">Industrial</p>
@@ -1104,11 +1109,11 @@
         </div>
       </div>
 
-      <div class="card" onclick="openModal('Figuras/intraplan_Mecanica.png', 'Similitud interna — Mecánica')">
+      <div class="card" onclick="openLink('Figuras/intraplan_Mecanica.html')">
         <div class="card-lic-bar" style="background:var(--c-mecanica)"></div>
         <div class="card-thumb" style="aspect-ratio:1">
           <img src="Figuras/intraplan_Mecanica.png" alt="Revisión interna — Mecánica">
-          <span class="card-badge badge-static">Imagen</span>
+          <span class="card-badge badge-interactive">Interactivo</span>
         </div>
         <div class="card-body">
           <p class="card-title" style="color:var(--c-mecanica)">Mecánica</p>
@@ -1120,11 +1125,11 @@
         </div>
       </div>
 
-      <div class="card" onclick="openModal('Figuras/intraplan_Metalurgia.png', 'Similitud interna — Metalurgia')">
+      <div class="card" onclick="openLink('Figuras/intraplan_Metalurgia.html')">
         <div class="card-lic-bar" style="background:var(--c-metalurgia)"></div>
         <div class="card-thumb" style="aspect-ratio:1">
           <img src="Figuras/intraplan_Metalurgia.png" alt="Revisión interna — Metalurgia">
-          <span class="card-badge badge-static">Imagen</span>
+          <span class="card-badge badge-interactive">Interactivo</span>
         </div>
         <div class="card-body">
           <p class="card-title" style="color:var(--c-metalurgia)">Metalurgia</p>
@@ -1136,11 +1141,11 @@
         </div>
       </div>
 
-      <div class="card" onclick="openModal('Figuras/intraplan_Quimica.png', 'Similitud interna — Química')">
+      <div class="card" onclick="openLink('Figuras/intraplan_Quimica.html')">
         <div class="card-lic-bar" style="background:var(--c-quimica)"></div>
         <div class="card-thumb" style="aspect-ratio:1">
           <img src="Figuras/intraplan_Quimica.png" alt="Revisión interna — Química">
-          <span class="card-badge badge-static">Imagen</span>
+          <span class="card-badge badge-interactive">Interactivo</span>
         </div>
         <div class="card-body">
           <p class="card-title" style="color:var(--c-quimica)">Química</p>
@@ -1195,6 +1200,9 @@
 
 <!-- ── JS ─────────────────────────────────────────────────────────────────────── -->
 <script>
+  /* ── Link a figura interactiva ─────────────────────────────────────────── */
+  function openLink(url) { window.open(url, '_blank'); }
+
   /* ── Modal ─────────────────────────────────────────────────────────────── */
   function openModal(imgSrc, title) {
     document.getElementById('modalImg').src = imgSrc;
