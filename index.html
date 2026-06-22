@@ -82,13 +82,6 @@
       transition: background var(--transition), color var(--transition);
     }
     .nav-links a:hover { background: var(--red-light); color: var(--red); }
-    .nav-dl {
-      display: inline-flex; align-items: center; gap: .3em;
-      background: var(--red) !important; color: #fff !important;
-      border-radius: 6px; font-weight: 600;
-    }
-    .nav-dl:hover { background: var(--red-dark) !important; color: #fff !important; }
-
     /* ── Hamburger ───────────────────────────────────────────────────────── */
     .nav-hamburger {
       display: none;
@@ -530,7 +523,7 @@
       <li><a href="#inter" onclick="closeNav()">Entre licenciaturas</a></li>
       <li><a href="#intra" onclick="closeNav()">Por licenciatura</a></li>
       <li><a href="#vig"  onclick="closeNav()">Vigentes 2025</a></li>
-      <li><a href="reporte_similitud_dcbi.pdf" download class="nav-dl" onclick="closeNav()">↓&nbsp;PDF</a></li>
+      <li><a href="reporte_similitud_dcbi.pdf" target="_blank" rel="noopener" onclick="closeNav()" style="color:var(--red);font-weight:700;">↓&nbsp;Reporte completo</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Menú" onclick="toggleNav()">
       <span></span><span></span><span></span>
@@ -1385,8 +1378,8 @@
     <a class="bottom-nav-item" href="#intra">
       <span class="bottom-nav-icon">▦</span>Por lic.
     </a>
-    <a class="bottom-nav-item" href="#vig">
-      <span class="bottom-nav-icon">✦</span>Vig 2025
+    <a class="bottom-nav-item" href="reporte_similitud_dcbi.pdf" target="_blank" rel="noopener">
+      <span class="bottom-nav-icon">↓</span>PDF
     </a>
   </div>
 </nav>
@@ -1408,8 +1401,9 @@
 <footer class="footer">
   <strong>División de Ciencias Básicas e Ingeniería · UAM-Azcapotzalco</strong><br>
   Análisis de similitud de contenidos de programas vigentes (planes 2020) · UAM-A<br>
-  Método: Frecuencia de Término–Frecuencia Inversa de Documento (TF-IDF), similitud coseno,
-  agrupamiento jerárquico de Ward, proyección t-SNE.
+  Los detalles técnicos del análisis se encuentran en el
+  <a href="reporte_similitud_dcbi.pdf" target="_blank"
+     style="color:rgba(255,255,255,.6);text-decoration:underline;">Reporte técnico completo</a>.
 </footer>
 
 <!-- ── JS ─────────────────────────────────────────────────────────────────────── -->
