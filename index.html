@@ -489,8 +489,9 @@
       .section-header h2 { font-size: 1.05rem; }
       .section-desc { font-size: .82rem; margin-bottom: 1rem; }
       .grid { gap: .7rem; }
-      .grid-3 { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: repeat(2, 1fr); }
       .grid-5 { grid-template-columns: repeat(2, 1fr); }
+      .subsec-label { margin: 1.2rem 0 .5rem; font-size: .72rem; }
       .card:hover { transform: none; box-shadow: var(--shadow-sm); }
       .card-body { padding: .75rem .85rem .85rem; }
       .card-title { font-size: .84rem; }
@@ -507,6 +508,7 @@
       .sim-zone { flex: none !important; width: calc(50% - 1px); }
     }
     @media (max-width: 380px) {
+      .grid-3 { grid-template-columns: 1fr; }
       .grid-5 { grid-template-columns: 1fr; }
     }
   </style>
@@ -1201,7 +1203,7 @@
 <!-- ── JS ─────────────────────────────────────────────────────────────────────── -->
 <script>
   /* ── Link a figura interactiva ─────────────────────────────────────────── */
-  function openLink(url) { window.open(url, '_blank'); }
+  function openLink(url) { window.open(url, '_blank', 'noopener'); }
 
   /* ── Modal ─────────────────────────────────────────────────────────────── */
   function openModal(imgSrc, title) {
