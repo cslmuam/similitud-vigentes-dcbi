@@ -82,6 +82,12 @@
       transition: background var(--transition), color var(--transition);
     }
     .nav-links a:hover { background: var(--red-light); color: var(--red); }
+    .nav-dl {
+      display: inline-flex; align-items: center; gap: .3em;
+      background: var(--red) !important; color: #fff !important;
+      border-radius: 6px; font-weight: 600;
+    }
+    .nav-dl:hover { background: var(--red-dark) !important; color: #fff !important; }
 
     /* ── Hamburger ───────────────────────────────────────────────────────── */
     .nav-hamburger {
@@ -524,6 +530,7 @@
       <li><a href="#inter" onclick="closeNav()">Entre licenciaturas</a></li>
       <li><a href="#intra" onclick="closeNav()">Por licenciatura</a></li>
       <li><a href="#vig"  onclick="closeNav()">Vigentes 2025</a></li>
+      <li><a href="reporte_similitud_dcbi.pdf" download class="nav-dl" onclick="closeNav()">↓&nbsp;PDF</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Menú" onclick="toggleNav()">
       <span></span><span></span><span></span>
