@@ -523,6 +523,7 @@
       <li><a href="#guia"  onclick="closeNav()">¿Cómo interpretar?</a></li>
       <li><a href="#inter" onclick="closeNav()">Entre licenciaturas</a></li>
       <li><a href="#intra" onclick="closeNav()">Por licenciatura</a></li>
+      <li><a href="#vig"  onclick="closeNav()">Vigentes 2025</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Menú" onclick="toggleNav()">
       <span></span><span></span><span></span>
@@ -1162,6 +1163,207 @@
     </div>
   </section>
 
+  <!-- ══════════════════════════════════════════════════════════════════════ -->
+  <!-- SECCIÓN 3 — VIGENTES 2025 (corpus propuesto, método híbrido)          -->
+  <!-- ══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" id="vig">
+    <div class="section-header">
+      <h2>Vigentes 2025 — programas propuestos</h2>
+      <span class="section-count">8 figuras</span>
+    </div>
+    <p class="section-desc">
+      Análisis de similitud de los 459 programas sintéticos <em>propuestos</em>
+      de los programas vigentes 2025 de las diez licenciaturas
+      de la División de Ciencias Básicas e Ingeniería.
+      A diferencia del corpus vigente, este análisis emplea un método híbrido:
+      las similitudes léxicas (TF-IDF) se complementan con evaluación semántica
+      mediante el modelo <code>claude-haiku-4-5</code>, que detectó
+      250&nbsp;pares adicionales invisibles al análisis léxico.
+    </p>
+
+    <div class="read-callout">
+      <strong>Método híbrido TF-IDF&nbsp;+&nbsp;LLM:</strong>
+      todos los pares con similitud léxica ≥&nbsp;0.20 fueron re-evaluados
+      por el modelo de lenguaje, que asigna una puntuación semántica
+      independiente del vocabulario superficial.
+      Esto permite detectar UEAs con los mismos contenidos pero
+      redactadas con terminología diferente — el clúster de microcontroladores
+      es el ejemplo más claro.
+    </div>
+
+    <p class="subsec-label">Metodología — comparación léxica vs. semántica</p>
+    <div class="grid grid-3">
+
+      <div class="card" onclick="openModal('Figuras/scatter_vig_tfidf_llm.png', 'Puntuación TF-IDF frente a puntuación semántica LLM para los 660 pares candidatos')">
+        <div class="card-thumb">
+          <img src="Figuras/scatter_vig_tfidf_llm.png" alt="Scatter TF-IDF vs LLM">
+          <span class="card-badge badge-static">Imagen</span>
+        </div>
+        <div class="card-body">
+          <p class="card-title">Detección semántica frente a léxica</p>
+          <p class="card-desc">
+            Comparación par a par de las puntuaciones TF-IDF y LLM para los
+            660&nbsp;pares candidatos. Los 250&nbsp;puntos en la zona sombreada
+            (LLM&nbsp;≥&nbsp;0.40, TF-IDF&nbsp;&lt;&nbsp;0.40) son detectados
+            únicamente por análisis semántico.
+          </p>
+          <div class="card-footer">
+            <span class="card-meta">660 pares · Δ máx = 0.62</span>
+            <span class="card-btn">Ver <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="subsec-label">Traslape inter-plan</p>
+    <div class="grid grid-3">
+
+      <div class="card" onclick="openModal('Figuras/heatmap_vig_conteo.png', 'Número de pares de UEAs propuestas con similitud híbrida ≥ 0.30 entre cada par de licenciaturas')">
+        <div class="card-thumb">
+          <img src="Figuras/heatmap_vig_conteo.png" alt="Conteo pares inter-plan">
+          <span class="card-badge badge-static">Imagen</span>
+        </div>
+        <div class="card-body">
+          <p class="card-title">¿Cuántos programas similares entre cada par?</p>
+          <p class="card-desc">
+            Mapa de calor 10&nbsp;×&nbsp;10 con el conteo de pares de UEAs
+            propuestas con similitud híbrida ≥&nbsp;0.30.
+            Computación–Electrónica concentra el mayor traslape con 18&nbsp;pares.
+          </p>
+          <div class="card-footer">
+            <span class="card-meta">147 pares · s ≥ 0.30</span>
+            <span class="card-btn">Ver <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" onclick="openModal('Figuras/heatmap_vig_similitud.png', 'Similitud media híbrida entre cada par de licenciaturas — programas propuestos')">
+        <div class="card-thumb">
+          <img src="Figuras/heatmap_vig_similitud.png" alt="Similitud media inter-plan">
+          <span class="card-badge badge-static">Imagen</span>
+        </div>
+        <div class="card-body">
+          <p class="card-title">Similitud media entre planes</p>
+          <p class="card-desc">
+            Intensidad media del traslape entre cada par de licenciaturas,
+            más allá del conteo de pares.
+            Complementa el mapa de conteos con la magnitud promedio del traslape.
+          </p>
+          <div class="card-footer">
+            <span class="card-meta">10 × 10 · score híbrido</span>
+            <span class="card-btn">Ver <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" onclick="openModal('Figuras/barras_vig_inter_top.png', 'Pares de licenciaturas ordenados por número de UEAs propuestas con traslape')">
+        <div class="card-thumb">
+          <img src="Figuras/barras_vig_inter_top.png" alt="Ranking inter-plan">
+          <span class="card-badge badge-static">Imagen</span>
+        </div>
+        <div class="card-body">
+          <p class="card-title">Ranking de traslape entre licenciaturas</p>
+          <p class="card-desc">
+            Pares de licenciaturas ordenados por número de UEAs equivalentes.
+            Tres clústeres dominan: microcontroladores
+            (Com–Ele–Elo–Mec), procesos de manufactura (Ind–Mec–Met)
+            y automatización industrial (Elo–Ind–Mec).
+          </p>
+          <div class="card-footer">
+            <span class="card-meta">top-12 pares</span>
+            <span class="card-btn">Ver <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" onclick="openModal('Figuras/grafo_vigentes.png', 'Grafo de traslape entre los diez planes — Vigentes 2025')">
+        <div class="card-thumb">
+          <img src="Figuras/grafo_vigentes.png" alt="Grafo de licenciaturas">
+          <span class="card-badge badge-static">Imagen</span>
+        </div>
+        <div class="card-body">
+          <p class="card-title">Red de traslape entre planes</p>
+          <p class="card-desc">
+            Grafo donde cada nodo es una licenciatura y cada arista indica
+            ≥&nbsp;2&nbsp;pares con similitud ≥&nbsp;0.30.
+            El grosor de la arista es proporcional al conteo de pares;
+            el color indica la similitud máxima del par.
+          </p>
+          <div class="card-footer">
+            <span class="card-meta">networkx · spring layout</span>
+            <span class="card-btn">Ver <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="subsec-label">Traslape intra-plan y transversalidad</p>
+    <div class="grid grid-3">
+
+      <div class="card" onclick="openModal('Figuras/barras_vig_intra.png', 'Pares intra-plan con similitud ≥ 0.40 en los programas vigentes 2025')">
+        <div class="card-thumb">
+          <img src="Figuras/barras_vig_intra.png" alt="Pares intra-plan por licenciatura">
+          <span class="card-badge badge-static">Imagen</span>
+        </div>
+        <div class="card-body">
+          <p class="card-title">Traslape dentro de cada licenciatura</p>
+          <p class="card-desc">
+            Número de pares intra-plan con similitud ≥&nbsp;0.40
+            desglosados por nivel semántico.
+            Metalurgia lidera con 65&nbsp;pares internos,
+            en su mayoría pares teoría-laboratorio.
+          </p>
+          <div class="card-footer">
+            <span class="card-meta">187 pares · s ≥ 0.40</span>
+            <span class="card-btn">Ver <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" onclick="openModal('Figuras/matriz_transversal_vig.png', 'UEAs propuestas con traslape semántico en dos o más licenciaturas')">
+        <div class="card-thumb">
+          <img src="Figuras/matriz_transversal_vig.png" alt="Matriz transversal">
+          <span class="card-badge badge-static">Imagen</span>
+        </div>
+        <div class="card-body">
+          <p class="card-title">UEAs con presencia en múltiples planes</p>
+          <p class="card-desc">
+            24&nbsp;UEAs propuestas presentan traslape semántico en dos o más
+            licenciaturas con similitud ≥&nbsp;0.40.
+            Las UEAs de microcontroladores y sistemas digitales aparecen
+            con contenido equivalente en cuatro planes simultáneamente.
+          </p>
+          <div class="card-footer">
+            <span class="card-meta">24 UEAs · ≥ 2 licenciaturas</span>
+            <span class="card-btn">Ver <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" onclick="openModal('Figuras/heatmap_vig_clustered.png', 'Matriz de similitud completa 459×459 con agrupamiento jerárquico Ward — Vigentes 2025')">
+        <div class="card-thumb">
+          <img src="Figuras/heatmap_vig_clustered.png" alt="Mapa de calor agrupado">
+          <span class="card-badge badge-static">Imagen</span>
+        </div>
+        <div class="card-body">
+          <p class="card-title">Estructura global del corpus propuesto</p>
+          <p class="card-desc">
+            Matriz 459&nbsp;×&nbsp;459 reordenada por agrupamiento jerárquico de Ward.
+            Los bloques en la diagonal corresponden a clústeres intra-plan;
+            los bloques fuera de la diagonal revelan la afinidad entre planes.
+          </p>
+          <div class="card-footer">
+            <span class="card-meta">459 × 459 · Ward clustering</span>
+            <span class="card-btn">Ver <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- /vig -->
+
 </main>
 
 <!-- ── Bottom navigation (móvil) ─────────────────────────────────────────────── -->
@@ -1175,6 +1377,9 @@
     </a>
     <a class="bottom-nav-item" href="#intra">
       <span class="bottom-nav-icon">▦</span>Por lic.
+    </a>
+    <a class="bottom-nav-item" href="#vig">
+      <span class="bottom-nav-icon">✦</span>Vig 2025
     </a>
   </div>
 </nav>
