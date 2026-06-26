@@ -1,0 +1,3178 @@
+{
+  "plan": "elo",
+  "nombre": "Ingeniería Electrónica",
+  "completado": true,
+  "ueas": {
+    "1111078": {
+      "nombre": "Introducción a la Física",
+      "tronco": "nivelacion",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 4,
+      "creditos": 4,
+      "seriacion_raw": "",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111079": {
+      "nombre": "Cinemática y Dinámica de Partículas",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1111078 y C1112042",
+      "prereqs": [
+        {
+          "clave": "1111078",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [
+        {
+          "clave": "1112042",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111092": {
+      "nombre": "Laboratorio de Movimiento de una Partícula",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "1111079",
+      "prereqs": [
+        {
+          "clave": "1111079",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111081": {
+      "nombre": "Dinámica del Cuerpo Rígido",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1111079 y C1112043",
+      "prereqs": [
+        {
+          "clave": "1111079",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [
+        {
+          "clave": "1112043",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111093": {
+      "nombre": "Laboratorio del Cuerpo Rígido y Oscilaciones",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "1111081 y C1111092",
+      "prereqs": [
+        {
+          "clave": "1111081",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [
+        {
+          "clave": "1111092",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111083": {
+      "nombre": "Introducción a la Electrostática y Magnetostática",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1111081 y C1112029",
+      "prereqs": [
+        {
+          "clave": "1111081",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [
+        {
+          "clave": "1112029",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1112013": {
+      "nombre": "Complementos de Matemáticas",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1112042": {
+      "nombre": "Introducción al Cálculo",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 3.5,
+      "horas_practica": 4,
+      "creditos": 11,
+      "seriacion_raw": "",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1112043": {
+      "nombre": "Cálculo Diferencial",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 3.5,
+      "horas_practica": 4,
+      "creditos": 11,
+      "seriacion_raw": "1112042",
+      "prereqs": [
+        {
+          "clave": "1112042",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1112029": {
+      "nombre": "Cálculo Integral",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "1112043",
+      "prereqs": [
+        {
+          "clave": "1112043",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1112030": {
+      "nombre": "Ecuaciones Diferenciales Ordinarias",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1112029",
+      "prereqs": [
+        {
+          "clave": "1112029",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1113046": {
+      "nombre": "Termodinámica",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "C1112043 y C1111081",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1112043",
+          "tipo": "corregistro"
+        },
+        {
+          "clave": "1111081",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1113084": {
+      "nombre": "Estructura Atómica y Enlace Químico",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1113085": {
+      "nombre": "Laboratorio de Reacciones Químicas",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1113084",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1113084",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1113086": {
+      "nombre": "Estructura y Propiedades de los Materiales en Ingeniería",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "1113084",
+      "prereqs": [
+        {
+          "clave": "1113084",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1113087": {
+      "nombre": "Laboratorio de Estructura y Propiedades de los Materiales",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "1113085 y C1113086",
+      "prereqs": [
+        {
+          "clave": "1113085",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [
+        {
+          "clave": "1113086",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1151038": {
+      "nombre": "Programación Estructurada",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 2.5,
+      "horas_practica": 2,
+      "creditos": 7,
+      "seriacion_raw": "1112013",
+      "prereqs": [
+        {
+          "clave": "1112013",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1151039": {
+      "nombre": "Métodos Numéricos en Ingeniería",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 2.5,
+      "horas_practica": 2,
+      "creditos": 7,
+      "seriacion_raw": "1151038 y C1112030",
+      "prereqs": [
+        {
+          "clave": "1151038",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [
+        {
+          "clave": "1112030",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1153001": {
+      "nombre": "Probabilidad y Estadística",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1112029",
+      "prereqs": [
+        {
+          "clave": "1112029",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111090": {
+      "nombre": "Inducción y Ondas Electromagnéticas",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1111083 y 1112030",
+      "prereqs": [
+        {
+          "clave": "1111083",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1112030",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1112040": {
+      "nombre": "Transformada de Laplace y Análisis de Fourier",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1112030",
+      "prereqs": [
+        {
+          "clave": "1112030",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1121032": {
+      "nombre": "Laboratorio de Sistemas Digitales con Microcontroladores",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1121034",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1121034",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1121061": {
+      "nombre": "Laboratorio de Microprocesadores",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1121060 y 1121040",
+      "prereqs": [
+        {
+          "clave": "1121040",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [
+        {
+          "clave": "1121060",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1121034": {
+      "nombre": "Sistemas Digitales con Microcontroladores",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1121060 y 1123040",
+      "prereqs": [
+        {
+          "clave": "1121060",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1123040",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1121060": {
+      "nombre": "Microprocesadores",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1121037 y 1151042",
+      "prereqs": [
+        {
+          "clave": "1121037",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1151042",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1121038": {
+      "nombre": "Fundamentos de Redes de Computadoras",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1112040 y 1121060",
+      "prereqs": [
+        {
+          "clave": "1112040",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1121060",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1121037": {
+      "nombre": "Diseño Lógico",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 6,
+      "horas_practica": null,
+      "creditos": 12,
+      "seriacion_raw": "1151038",
+      "prereqs": [
+        {
+          "clave": "1151038",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1121040": {
+      "nombre": "Laboratorio de Diseño Lógico",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 6,
+      "creditos": 6,
+      "seriacion_raw": "C1121037",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1121037",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1122009": {
+      "nombre": "Análisis de Señales",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1153001 y 1112040",
+      "prereqs": [
+        {
+          "clave": "1153001",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1112040",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1122012": {
+      "nombre": "Procesamiento Digital de Señales",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "1122009",
+      "prereqs": [
+        {
+          "clave": "1122009",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1122014": {
+      "nombre": "Comunicaciones Analógicas",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1112040, 1122016, C1122017 y C1123041",
+      "prereqs": [
+        {
+          "clave": "1112040",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1122016",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [
+        {
+          "clave": "1122017",
+          "tipo": "corregistro"
+        },
+        {
+          "clave": "1123041",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1122015": {
+      "nombre": "Comunicaciones Digitales",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1122014 y C1122032",
+      "prereqs": [
+        {
+          "clave": "1122014",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [
+        {
+          "clave": "1122032",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1122016": {
+      "nombre": "Introducción a las Comunicaciones",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1122025, 1124001 y C1122018",
+      "prereqs": [
+        {
+          "clave": "1122025",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1124001",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [
+        {
+          "clave": "1122018",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1122017": {
+      "nombre": "Laboratorio de Comunicaciones Analógicas",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1122014",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1122014",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1122018": {
+      "nombre": "Laboratorio de Introducción a las Comunicaciones",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1122016",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1122016",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1122032": {
+      "nombre": "Laboratorio de Comunicaciones Digitales",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1122015",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1122015",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1122025": {
+      "nombre": "Radiación y Propagación",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1111083 y 1112030",
+      "prereqs": [
+        {
+          "clave": "1111083",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1112030",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1123040": {
+      "nombre": "Circuitos Electrónicos I",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1124001 y 1124005",
+      "prereqs": [
+        {
+          "clave": "1124001",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1124005",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1123041": {
+      "nombre": "Circuitos Electrónicos II",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1123040 y 1123045",
+      "prereqs": [
+        {
+          "clave": "1123040",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1123045",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1123043": {
+      "nombre": "Diseño de Sistemas Electrónicos",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1123041, 1123046 y 1121034",
+      "prereqs": [
+        {
+          "clave": "1123041",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1123046",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1121034",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1123045": {
+      "nombre": "Laboratorio de Circuitos Electrónicos I",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1123040",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1123040",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1123046": {
+      "nombre": "Laboratorio de Circuitos Electrónicos II",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1123041",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1123041",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1123048": {
+      "nombre": "Laboratorio de Diseño de Sistemas Electrónicos",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1123043",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1123043",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1124001": {
+      "nombre": "Circuitos Eléctricos I",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1112030",
+      "prereqs": [
+        {
+          "clave": "1112030",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1124003": {
+      "nombre": "Circuitos Eléctricos II",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1124001 y 1112040",
+      "prereqs": [
+        {
+          "clave": "1124001",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1112040",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1124005": {
+      "nombre": "Laboratorio de Circuitos Eléctricos I",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1124001",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1124001",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1124045": {
+      "nombre": "Control Digital",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "1123043, 1124049 y 1122012",
+      "prereqs": [
+        {
+          "clave": "1123043",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1124049",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1122012",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1124048": {
+      "nombre": "Laboratorio de Circuitos Eléctricos II",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1124003 y 1124005",
+      "prereqs": [
+        {
+          "clave": "1124005",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [
+        {
+          "clave": "1124003",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1124049": {
+      "nombre": "Laboratorio de Control",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1124050",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1124050",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1124050": {
+      "nombre": "Teoría de Control",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1124003",
+      "prereqs": [
+        {
+          "clave": "1124003",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1151042": {
+      "nombre": "Algoritmos y Estructuras de Datos",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 3.5,
+      "horas_practica": 1,
+      "creditos": 8,
+      "seriacion_raw": "1151038",
+      "prereqs": [
+        {
+          "clave": "1151038",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1100037": {
+      "nombre": "Introducción a la Ingeniería",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1100038": {
+      "nombre": "Introducción al Desarrollo Sustentable",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "50 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 50,
+      "requiere_autorizacion": false
+    },
+    "1100096": {
+      "nombre": "Taller de Expresión Oral y Escrita",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 1.5,
+      "horas_practica": 3,
+      "creditos": 6,
+      "seriacion_raw": "200 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 200,
+      "requiere_autorizacion": false
+    },
+    "1100040": {
+      "nombre": "Taller de Planeación y Ejecución de Proyectos",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 1.5,
+      "horas_practica": 3,
+      "creditos": 6,
+      "seriacion_raw": "1100096 y 300 Créditos",
+      "prereqs": [
+        {
+          "clave": "1100096",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": 300,
+      "requiere_autorizacion": false
+    },
+    "1100041": {
+      "nombre": "Retos del Desarrollo Nacional",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "320 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 320,
+      "requiere_autorizacion": false
+    },
+    "1100073": {
+      "nombre": "El Paisaje como Agente de los Asentamientos y de la Cultura",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100074": {
+      "nombre": "Familia y Violencia en el México Contemporáneo",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100075": {
+      "nombre": "Género y Sexualidad",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100076": {
+      "nombre": "Poder y Género",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100077": {
+      "nombre": "Administración y Economía Política de la Ciencia y Tecnología",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100078": {
+      "nombre": "Derechos Humanos",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100079": {
+      "nombre": "Economía Mundial",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100080": {
+      "nombre": "Ética y Valores",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100081": {
+      "nombre": "Historia Social de México en el Siglo XX",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100082": {
+      "nombre": "Responsabilidad Social Organizacional",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100143": {
+      "nombre": "Ética y Legislación Informática",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "250 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 250,
+      "requiere_autorizacion": false
+    },
+    "1100089": {
+      "nombre": "Taller de Dibujo",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": 1.5,
+      "horas_practica": 3,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100083": {
+      "nombre": "Comunicación en Proyectos Multidisciplinarios",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100084": {
+      "nombre": "Herramientas para el Emprendedor",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100085": {
+      "nombre": "Inserción Laboral",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100086": {
+      "nombre": "Planeación Estratégica",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100087": {
+      "nombre": "Proyectos de Inversión",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100088": {
+      "nombre": "Historia del Arte",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100090": {
+      "nombre": "Taller de Fotografía",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": 1.5,
+      "horas_practica": 3,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100091": {
+      "nombre": "Taller de Teatro",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": 1.5,
+      "horas_practica": 3,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100092": {
+      "nombre": "Divulgación del Conocimiento",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100093": {
+      "nombre": "Habilidades Creativas para el Ámbito Profesional",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100094": {
+      "nombre": "Laboratorio de Usabilidad",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": 1.5,
+      "horas_practica": 3,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100095": {
+      "nombre": "Narrativa para Medios Audiovisuales y Digitales",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100099": {
+      "nombre": "Experiencia Inter y Multidisciplinar",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": 2,
+      "horas_practica": 2,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos y Autorización¹",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": true
+    },
+    "1100141": {
+      "nombre": "Temas Selectos Inter y Multidisciplinares I",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100142": {
+      "nombre": "Temas Selectos Inter y Multidisciplinares II",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100105": {
+      "nombre": "Seminario de Integración en Ingeniería Electrónica",
+      "tronco": "integracion",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 1.5,
+      "horas_practica": null,
+      "creditos": 3,
+      "seriacion_raw": "1100040 y 360 Créditos",
+      "prereqs": [
+        {
+          "clave": "1100040",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": 360,
+      "requiere_autorizacion": false
+    },
+    "1100115": {
+      "nombre": "Proyecto de Integración en Ingeniería Electrónica I",
+      "tronco": "integracion",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 18,
+      "creditos": 18,
+      "seriacion_raw": "1100105 y Autorización²",
+      "prereqs": [
+        {
+          "clave": "1100105",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": true
+    },
+    "1100125": {
+      "nombre": "Proyecto de Integración en Ingeniería Electrónica II",
+      "tronco": "integracion",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 18,
+      "creditos": 18,
+      "seriacion_raw": "1100105 y Autorización²",
+      "prereqs": [
+        {
+          "clave": "1100105",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": true
+    },
+    "1100135": {
+      "nombre": "Introducción al Trabajo de Investigación en Ingeniería Electrónica",
+      "tronco": "integracion",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 6,
+      "creditos": 6,
+      "seriacion_raw": "1100105 y Autorización²",
+      "prereqs": [
+        {
+          "clave": "1100105",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": true
+    },
+    "1120012": {
+      "nombre": "Prácticas Profesionales de Ingeniería Electrónica",
+      "tronco": "integracion",
+      "subtronco": null,
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 18,
+      "creditos": 18,
+      "seriacion_raw": "360 Créditos y Autorizacion¹",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 360,
+      "requiere_autorizacion": true
+    },
+    "1100021": {
+      "nombre": "Optativa Técnica de Movilidad I",
+      "tronco": "integracion",
+      "subtronco": "De Movilidad",
+      "obligatoria": false,
+      "horas_teoria": 1.5,
+      "horas_practica": null,
+      "creditos": 3,
+      "seriacion_raw": "240 Créditos y Autorización³",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 240,
+      "requiere_autorizacion": true
+    },
+    "1100022": {
+      "nombre": "Optativa Técnica de Movilidad II",
+      "tronco": "integracion",
+      "subtronco": "De Movilidad",
+      "obligatoria": false,
+      "horas_teoria": 1.5,
+      "horas_practica": null,
+      "creditos": 3,
+      "seriacion_raw": "240 Créditos y Autorización³",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 240,
+      "requiere_autorizacion": true
+    },
+    "1100023": {
+      "nombre": "Optativa Técnica de Movilidad III",
+      "tronco": "integracion",
+      "subtronco": "De Movilidad",
+      "obligatoria": false,
+      "horas_teoria": 2,
+      "horas_practica": 2,
+      "creditos": 6,
+      "seriacion_raw": "240 Créditos y Autorización³",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 240,
+      "requiere_autorizacion": true
+    },
+    "1100024": {
+      "nombre": "Optativa Técnica de Movilidad IV",
+      "tronco": "integracion",
+      "subtronco": "De Movilidad",
+      "obligatoria": false,
+      "horas_teoria": 2,
+      "horas_practica": 2,
+      "creditos": 6,
+      "seriacion_raw": "240 Créditos y Autorización³",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 240,
+      "requiere_autorizacion": true
+    },
+    "1100025": {
+      "nombre": "Optativa Técnica de Movilidad V",
+      "tronco": "integracion",
+      "subtronco": "De Movilidad",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "240 Créditos y Autorización³",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 240,
+      "requiere_autorizacion": true
+    },
+    "1100026": {
+      "nombre": "Optativa Técnica de Movilidad VI",
+      "tronco": "integracion",
+      "subtronco": "De Movilidad",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "240 Créditos y Autorización³",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 240,
+      "requiere_autorizacion": true
+    },
+    "1121025": {
+      "nombre": "Arquitectura de Computadoras",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Sistemas Embebidos",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1121060",
+      "prereqs": [
+        {
+          "clave": "1121060",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1121043": {
+      "nombre": "Diseño y Administración de Redes de Computadoras",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Redes de Computadoras",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": 3,
+      "creditos": 12,
+      "seriacion_raw": "1121038",
+      "prereqs": [
+        {
+          "clave": "1121038",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1121044": {
+      "nombre": "Seguridad en Redes",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Redes de Computadoras",
+      "obligatoria": false,
+      "horas_teoria": 1.5,
+      "horas_practica": 3,
+      "creditos": 6,
+      "seriacion_raw": "1121043",
+      "prereqs": [
+        {
+          "clave": "1121043",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1121046": {
+      "nombre": "Temas Selectos de Redes de Computadoras I",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Redes de Computadoras",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1121043",
+      "prereqs": [
+        {
+          "clave": "1121043",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1121047": {
+      "nombre": "Temas Selectos de Redes de Computadoras II",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Redes de Computadoras",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1121043",
+      "prereqs": [
+        {
+          "clave": "1121043",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1121057": {
+      "nombre": "Redes Inalámbricas",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Redes de Computadoras",
+      "obligatoria": false,
+      "horas_teoria": 1.5,
+      "horas_practica": 3,
+      "creditos": 6,
+      "seriacion_raw": "1121038",
+      "prereqs": [
+        {
+          "clave": "1121038",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1121058": {
+      "nombre": "Integración de Redes de Voz y Datos",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Redes de Computadoras",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "1121043",
+      "prereqs": [
+        {
+          "clave": "1121043",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1151018": {
+      "nombre": "Sistemas Operativos",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Sistemas Embebidos",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1121038",
+      "prereqs": [
+        {
+          "clave": "1121038",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1151069": {
+      "nombre": "Seguridad en los Sistemas de Información",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Redes de Computadoras",
+      "obligatoria": false,
+      "horas_teoria": 1.5,
+      "horas_practica": 3,
+      "creditos": 6,
+      "seriacion_raw": "1121044 y 1121058",
+      "prereqs": [
+        {
+          "clave": "1121044",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1121058",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1121039": {
+      "nombre": "Laboratorio de Arquitectura de Computadoras",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Sistemas Embebidos",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1121025",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1121025",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1121053": {
+      "nombre": "Arquitecturas Paralelas de Computadoras",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Sistemas Embebidos",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1121025",
+      "prereqs": [
+        {
+          "clave": "1121025",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1121054": {
+      "nombre": "Taller de Sistemas Embebidos",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Sistemas Embebidos",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 6,
+      "creditos": 6,
+      "seriacion_raw": "1151018, 1151073, 1121032 y 1121053",
+      "prereqs": [
+        {
+          "clave": "1151018",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1151073",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1121032",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1121053",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1121056": {
+      "nombre": "Temas Selectos de Sistemas Embebidos",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Sistemas Embebidos",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1121054",
+      "prereqs": [
+        {
+          "clave": "1121054",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1151041": {
+      "nombre": "Almacenamiento y Estructuras de Archivos",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Sistemas Embebidos",
+      "obligatoria": false,
+      "horas_teoria": 3.5,
+      "horas_practica": 1,
+      "creditos": 8,
+      "seriacion_raw": "1151042 y 1153001",
+      "prereqs": [
+        {
+          "clave": "1151042",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1153001",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1151046": {
+      "nombre": "Sistemas Distribuidos",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Sistemas Embebidos",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "1151018 y 1151041",
+      "prereqs": [
+        {
+          "clave": "1151018",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1151041",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1151073": {
+      "nombre": "Programación de Sistemas",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Sistemas Embebidos",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1121060",
+      "prereqs": [
+        {
+          "clave": "1121060",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1123024": {
+      "nombre": "Impulsores para Motores de CD y CA",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Instrumentaci\\u00f3n y Control",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "1123044 y 1124050",
+      "prereqs": [
+        {
+          "clave": "1123044",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1124050",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1123028": {
+      "nombre": "Fuentes de Alimentación Conmutadas",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Instrumentaci\\u00f3n y Control",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "1123044 y 1124050",
+      "prereqs": [
+        {
+          "clave": "1123044",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1124050",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1123042": {
+      "nombre": "Diseño de Instrumentos",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Instrumentaci\\u00f3n y Control",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1123043 y 1121034",
+      "prereqs": [
+        {
+          "clave": "1123043",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1121034",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1123044": {
+      "nombre": "Electrónica de Potencia",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Instrumentaci\\u00f3n y Control",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1123041 y 1124003",
+      "prereqs": [
+        {
+          "clave": "1123041",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1124003",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1123047": {
+      "nombre": "Laboratorio de Diseño de Instrumentos",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Instrumentaci\\u00f3n y Control",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1123042",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1123042",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1123034": {
+      "nombre": "Laboratorio de Electrónica de Potencia",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Instrumentaci\\u00f3n y Control",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1123044",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1123044",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1123050": {
+      "nombre": "Laboratorio de Instrumentación y Control mediante Programación Gráfica",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Instrumentaci\\u00f3n y Control",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1123051",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1123051",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1123051": {
+      "nombre": "Instrumentación y Control mediante Programación Gráfica",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Instrumentaci\\u00f3n y Control",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1123043",
+      "prereqs": [
+        {
+          "clave": "1123043",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1124040": {
+      "nombre": "Temas Selectos de Control e Instrumentación I",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Instrumentaci\\u00f3n y Control",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1124045",
+      "prereqs": [
+        {
+          "clave": "1124045",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1124041": {
+      "nombre": "Temas Selectos de Control e Instrumentación II",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Instrumentaci\\u00f3n y Control",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1124045",
+      "prereqs": [
+        {
+          "clave": "1124045",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1124044": {
+      "nombre": "Análisis de Sistemas de Control",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Instrumentaci\\u00f3n y Control",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1124045",
+      "prereqs": [
+        {
+          "clave": "1124045",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1124047": {
+      "nombre": "Interfaces Hombre-Máquina",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Instrumentaci\\u00f3n y Control",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "C1124056",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1124056",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1124055": {
+      "nombre": "Comunicaciones Industriales",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Instrumentaci\\u00f3n y Control",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "C1124056",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1124056",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1124056": {
+      "nombre": "Controladores Lógicos Programables",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Instrumentaci\\u00f3n y Control",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "1124050 y 1121034",
+      "prereqs": [
+        {
+          "clave": "1124050",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1121034",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1122020": {
+      "nombre": "Comunicaciones Celulares",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Telecomunicaciones",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1122015",
+      "prereqs": [
+        {
+          "clave": "1122015",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1122021": {
+      "nombre": "Comunicaciones Ópticas",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Telecomunicaciones",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1122015",
+      "prereqs": [
+        {
+          "clave": "1122015",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1122022": {
+      "nombre": "Comunicaciones Satelitales",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Telecomunicaciones",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1122015",
+      "prereqs": [
+        {
+          "clave": "1122015",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1122023": {
+      "nombre": "Laboratorio de Radiocomunicación",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Telecomunicaciones",
+      "obligatoria": false,
+      "horas_teoria": 2,
+      "horas_practica": 2,
+      "creditos": 6,
+      "seriacion_raw": "1122014",
+      "prereqs": [
+        {
+          "clave": "1122014",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1122024": {
+      "nombre": "Laboratorio de Simulación de Sistemas de Comunicaciones",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Telecomunicaciones",
+      "obligatoria": false,
+      "horas_teoria": 2,
+      "horas_practica": 2,
+      "creditos": 6,
+      "seriacion_raw": "1122014",
+      "prereqs": [
+        {
+          "clave": "1122014",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1122026": {
+      "nombre": "Señales Aleatorias",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Telecomunicaciones",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1122009",
+      "prereqs": [
+        {
+          "clave": "1122009",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1122027": {
+      "nombre": "Temas Avanzados de Comunicaciones",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Telecomunicaciones",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1122015",
+      "prereqs": [
+        {
+          "clave": "1122015",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1122028": {
+      "nombre": "Teletráfico",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Telecomunicaciones",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1122015",
+      "prereqs": [
+        {
+          "clave": "1122015",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1122029": {
+      "nombre": "Tecnologías de Radio Móvil",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Telecomunicaciones",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1122014",
+      "prereqs": [
+        {
+          "clave": "1122014",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1122030": {
+      "nombre": "Temas Selectos de Telecomunicaciones I",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Telecomunicaciones",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1122015",
+      "prereqs": [
+        {
+          "clave": "1122015",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1122031": {
+      "nombre": "Temas Selectos de Telecomunicaciones II",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Telecomunicaciones",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1122016 y 1123041",
+      "prereqs": [
+        {
+          "clave": "1122016",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1123041",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1100034": {
+      "nombre": "Taller de Mecatrónica",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Mecatr\\u00f3nica",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 6,
+      "creditos": 6,
+      "seriacion_raw": "C1124043",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1124043",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1100035": {
+      "nombre": "Temas Selectos de Ingeniería Mecatrónica",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Mecatr\\u00f3nica",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1100034",
+      "prereqs": [
+        {
+          "clave": "1100034",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1124043": {
+      "nombre": "Automatización Industrial",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Mecatr\\u00f3nica",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "1124049",
+      "prereqs": [
+        {
+          "clave": "1124049",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1124051": {
+      "nombre": "Temas Selectos de Robótica",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Mecatr\\u00f3nica",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1100034",
+      "prereqs": [
+        {
+          "clave": "1100034",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1133009": {
+      "nombre": "Laboratorio de Mecanismos",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Mecatr\\u00f3nica",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1133060",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1133060",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1133024": {
+      "nombre": "Dinámica de Máquinas",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Mecatr\\u00f3nica",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1133060",
+      "prereqs": [
+        {
+          "clave": "1133060",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1133032": {
+      "nombre": "Diseño de Mecanismos",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Mecatr\\u00f3nica",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1133060",
+      "prereqs": [
+        {
+          "clave": "1133060",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1133059": {
+      "nombre": "Manufactura Asistida por Computadora",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Mecatr\\u00f3nica",
+      "obligatoria": false,
+      "horas_teoria": 1.5,
+      "horas_practica": 6,
+      "creditos": 9,
+      "seriacion_raw": "1133061",
+      "prereqs": [
+        {
+          "clave": "1133061",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1133060": {
+      "nombre": "Mecanismos",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Mecatr\\u00f3nica",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1133061 y 1111081",
+      "prereqs": [
+        {
+          "clave": "1133061",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1111081",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1133061": {
+      "nombre": "Dibujo Mecánico Asistido por Computadora",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Mecatr\\u00f3nica",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "1112013 y 150 Créditos",
+      "prereqs": [
+        {
+          "clave": "1112013",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1151045": {
+      "nombre": "Temas Selectos de Inteligencia Artificial",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Mecatr\\u00f3nica",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1151062",
+      "prereqs": [
+        {
+          "clave": "1151062",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1151062": {
+      "nombre": "Inteligencia Artificial",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Mecatr\\u00f3nica",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "1151042 y 1153001",
+      "prereqs": [
+        {
+          "clave": "1151042",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1153001",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1151063": {
+      "nombre": "Inteligencia Computacional",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas: Mecatr\\u00f3nica",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "1151042 y 1153001",
+      "prereqs": [
+        {
+          "clave": "1151042",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1153001",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1112005": {
+      "nombre": "Cálculo de Varias Variables",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": 3,
+      "creditos": 12,
+      "seriacion_raw": "1112029 y 1112013",
+      "prereqs": [
+        {
+          "clave": "1112029",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1112013",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1112006": {
+      "nombre": "Variable Compleja",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "1112005",
+      "prereqs": [
+        {
+          "clave": "1112005",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1112017": {
+      "nombre": "Introducción al Álgebra Lineal",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1151038",
+      "prereqs": [
+        {
+          "clave": "1151038",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1112022": {
+      "nombre": "Lógica",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "1151038",
+      "prereqs": [
+        {
+          "clave": "1151038",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1112026": {
+      "nombre": "Introducción a las Ecuaciones Diferenciales Parciales",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "C1112030",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1112030",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1112033": {
+      "nombre": "Matemáticas Discretas",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1151038",
+      "prereqs": [
+        {
+          "clave": "1151038",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1112036": {
+      "nombre": "Criptografía",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1151040",
+      "prereqs": [
+        {
+          "clave": "1151040",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1121028": {
+      "nombre": "Electrónica Digital",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1123041 y 1123046",
+      "prereqs": [
+        {
+          "clave": "1123041",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1123046",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1123057": {
+      "nombre": "Diseño Electrónico Asistido por Computadora",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 1.5,
+      "horas_practica": 3,
+      "creditos": 6,
+      "seriacion_raw": "1123040",
+      "prereqs": [
+        {
+          "clave": "1123040",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1131070": {
+      "nombre": "Circuitos Eléctricos de Corriente Alterna",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1124001 y 1124005",
+      "prereqs": [
+        {
+          "clave": "1124001",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1124005",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1131071": {
+      "nombre": "Laboratorio de Circuitos Eléctricos de Corriente Alterna",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1131070",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1131070",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1133048": {
+      "nombre": "Mediciones en Ingeniería",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 2,
+      "horas_practica": 2,
+      "creditos": 6,
+      "seriacion_raw": "1153001",
+      "prereqs": [
+        {
+          "clave": "1153001",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1151040": {
+      "nombre": "Análisis y Diseño de Algoritmos",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1152001, 1151042 y 1112033",
+      "prereqs": [
+        {
+          "clave": "1152001",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1151042",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1112033",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1151044": {
+      "nombre": "Programación Orientada a Objetos",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 3.5,
+      "horas_practica": 1,
+      "creditos": 8,
+      "seriacion_raw": "1151038",
+      "prereqs": [
+        {
+          "clave": "1151038",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1151051": {
+      "nombre": "Gráficas por Computadora",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1151042 y 1112017",
+      "prereqs": [
+        {
+          "clave": "1151042",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1112017",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1151072": {
+      "nombre": "Laboratorio de Programación Orientada a Objetos",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "1151044",
+      "prereqs": [
+        {
+          "clave": "1151044",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1152001": {
+      "nombre": "Investigación de Operaciones I",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1151039",
+      "prereqs": [
+        {
+          "clave": "1151039",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1152002": {
+      "nombre": "Investigación de Operaciones II",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1152001 y 1153001",
+      "prereqs": [
+        {
+          "clave": "1152001",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1153001",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1155006": {
+      "nombre": "Análisis de Problemas en Ingeniería",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "300 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 300,
+      "requiere_autorizacion": false
+    }
+  },
+  "total_ueas_reportado": 167,
+  "total_ueas_guardadas": 167
+}

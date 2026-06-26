@@ -1,0 +1,3518 @@
+{
+  "plan": "fis",
+  "nombre": "Ingeniería Física",
+  "completado": true,
+  "ueas": {
+    "1111078": {
+      "nombre": "Introducción a la Física",
+      "tronco": "nivelacion",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 4,
+      "creditos": 4,
+      "seriacion_raw": "",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111079": {
+      "nombre": "Cinemática y Dinámica de Partículas",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1111078 y C1112042",
+      "prereqs": [
+        {
+          "clave": "1111078",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [
+        {
+          "clave": "1112042",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111092": {
+      "nombre": "Laboratorio de Movimiento de una Partícula",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "1111079",
+      "prereqs": [
+        {
+          "clave": "1111079",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111081": {
+      "nombre": "Dinámica del Cuerpo Rígido",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1111079 y C1112043",
+      "prereqs": [
+        {
+          "clave": "1111079",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [
+        {
+          "clave": "1112043",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111093": {
+      "nombre": "Laboratorio del Cuerpo Rígido y Oscilaciones",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "1111081 y 1111092",
+      "prereqs": [
+        {
+          "clave": "1111081",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1111092",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111083": {
+      "nombre": "Introducción a la Electrostática y Magnetostática",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1111081 y C1112029",
+      "prereqs": [
+        {
+          "clave": "1111081",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [
+        {
+          "clave": "1112029",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1112013": {
+      "nombre": "Complementos de Matemáticas",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1112042": {
+      "nombre": "Introducción al Cálculo",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 3.5,
+      "horas_practica": 4,
+      "creditos": 11,
+      "seriacion_raw": "",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1112043": {
+      "nombre": "Cálculo Diferencial",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 3.5,
+      "horas_practica": 4,
+      "creditos": 11,
+      "seriacion_raw": "1112042",
+      "prereqs": [
+        {
+          "clave": "1112042",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1112029": {
+      "nombre": "Cálculo Integral",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "1112043",
+      "prereqs": [
+        {
+          "clave": "1112043",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1112030": {
+      "nombre": "Ecuaciones Diferenciales Ordinarias",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1112029",
+      "prereqs": [
+        {
+          "clave": "1112029",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1113046": {
+      "nombre": "Termodinámica",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "C1112043 y C1111081",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1112043",
+          "tipo": "corregistro"
+        },
+        {
+          "clave": "1111081",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1113084": {
+      "nombre": "Estructura Atómica y Enlace Químico",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1113085": {
+      "nombre": "Laboratorio de Reacciones Químicas",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1113084",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1113084",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1113086": {
+      "nombre": "Estructura y Propiedades de los Materiales en Ingeniería",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "1113084",
+      "prereqs": [
+        {
+          "clave": "1113084",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1113087": {
+      "nombre": "Laboratorio de Estructura y Propiedades de los Materiales",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "1113085 y C1113086",
+      "prereqs": [
+        {
+          "clave": "1113085",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [
+        {
+          "clave": "1113086",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1151038": {
+      "nombre": "Programación Estructurada",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 2.5,
+      "horas_practica": 2,
+      "creditos": 7,
+      "seriacion_raw": "1112013",
+      "prereqs": [
+        {
+          "clave": "1112013",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1151039": {
+      "nombre": "Métodos Numéricos en Ingeniería",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 2.5,
+      "horas_practica": 2,
+      "creditos": 7,
+      "seriacion_raw": "1151038 y C1112030",
+      "prereqs": [
+        {
+          "clave": "1151038",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [
+        {
+          "clave": "1112030",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1153001": {
+      "nombre": "Probabilidad y Estadística",
+      "tronco": "general",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1112029",
+      "prereqs": [
+        {
+          "clave": "1112029",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111013": {
+      "nombre": "Dinámica Aplicada",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1111081, 1112005 y 1112030",
+      "prereqs": [
+        {
+          "clave": "1111081",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1112005",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1112030",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111019": {
+      "nombre": "Mecánica Estadística",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1137007",
+      "prereqs": [
+        {
+          "clave": "1137007",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111043": {
+      "nombre": "Electromagnetismo",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1111090 y 1111091",
+      "prereqs": [
+        {
+          "clave": "1111090",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1111091",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111044": {
+      "nombre": "Aplicaciones del Electromagnetismo",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1111043",
+      "prereqs": [
+        {
+          "clave": "1111043",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111048": {
+      "nombre": "Física Moderna",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1111090 y 1111091",
+      "prereqs": [
+        {
+          "clave": "1111090",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1111091",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111055": {
+      "nombre": "Óptica",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1111090",
+      "prereqs": [
+        {
+          "clave": "1111090",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111069": {
+      "nombre": "Laboratorio de Óptica",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1111055",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1111055",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111085": {
+      "nombre": "Análisis Vectorial",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1112005",
+      "prereqs": [
+        {
+          "clave": "1112005",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111087": {
+      "nombre": "Laboratorio de Física Moderna",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1111048",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1111048",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111088": {
+      "nombre": "Laboratorio de Física Atómica y Molecular",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "1111048",
+      "prereqs": [
+        {
+          "clave": "1111048",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111094": {
+      "nombre": "Laboratorio de Electricidad y Magnetismo",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "1111093 y C1111090",
+      "prereqs": [
+        {
+          "clave": "1111093",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [
+        {
+          "clave": "1111090",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111090": {
+      "nombre": "Inducción y Ondas Electromagnéticas",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1111083 y 1112030",
+      "prereqs": [
+        {
+          "clave": "1111083",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1112030",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111091": {
+      "nombre": "Funciones Especiales",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1111085 y 1112015",
+      "prereqs": [
+        {
+          "clave": "1111085",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1112015",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1112005": {
+      "nombre": "Cálculo de Varias Variables",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": 3,
+      "creditos": 12,
+      "seriacion_raw": "1112029 y 1112013",
+      "prereqs": [
+        {
+          "clave": "1112029",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1112013",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1112015": {
+      "nombre": "Matemáticas Aplicadas para Ingeniería",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1112030",
+      "prereqs": [
+        {
+          "clave": "1112030",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1112016": {
+      "nombre": "Variable Compleja",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "1112005",
+      "prereqs": [
+        {
+          "clave": "1112005",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1113069": {
+      "nombre": "Fisicoquímica de los Materiales",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1113046",
+      "prereqs": [
+        {
+          "clave": "1113046",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1113070": {
+      "nombre": "Laboratorio de Fisicoquímica de los Materiales",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1113069",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1113069",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1122012": {
+      "nombre": "Procesamiento Digital de Señales",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "1112015",
+      "prereqs": [
+        {
+          "clave": "1112015",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1124001": {
+      "nombre": "Circuitos Eléctricos I",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "C1112030",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1112030",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1124005": {
+      "nombre": "Laboratorio de Circuitos Eléctricos I",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1124001",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1124001",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1132064": {
+      "nombre": "Laboratorio de Termofluidos I",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": null,
+      "creditos": 3,
+      "seriacion_raw": "1133048",
+      "prereqs": [
+        {
+          "clave": "1133048",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1133048": {
+      "nombre": "Mediciones en Ingeniería",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 2,
+      "horas_practica": 2,
+      "creditos": 6,
+      "seriacion_raw": "1153001",
+      "prereqs": [
+        {
+          "clave": "1153001",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1137005": {
+      "nombre": "Transferencia de Momento",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1111081 y 1112030",
+      "prereqs": [
+        {
+          "clave": "1111081",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1112030",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1137006": {
+      "nombre": "Termodinámica Aplicada",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1113046",
+      "prereqs": [
+        {
+          "clave": "1113046",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1137007": {
+      "nombre": "Propiedades Termodinámicas",
+      "tronco": "basico_profesional",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1112029 y 1137006",
+      "prereqs": [
+        {
+          "clave": "1112029",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1137006",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1100037": {
+      "nombre": "Introducción a la Ingeniería",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1100038": {
+      "nombre": "Introducción al Desarrollo Sustentable",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1100039": {
+      "nombre": "Taller de Expresión Oral y Escrita",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 1.5,
+      "horas_practica": 3,
+      "creditos": 6,
+      "seriacion_raw": "200 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 200,
+      "requiere_autorizacion": false
+    },
+    "1100040": {
+      "nombre": "Taller de Planeación y Ejecución de Proyectos",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 1.5,
+      "horas_practica": 3,
+      "creditos": 6,
+      "seriacion_raw": "1100096 y 300 Créditos",
+      "prereqs": [
+        {
+          "clave": "1100096",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": 300,
+      "requiere_autorizacion": false
+    },
+    "1100041": {
+      "nombre": "Retos del Desarrollo Nacional",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "320 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 320,
+      "requiere_autorizacion": false
+    },
+    "1100073": {
+      "nombre": "El Paisaje como Agente de los Asentamientos y de la Cultura",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "Estudios Culturales",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100074": {
+      "nombre": "Familia y Violencia en el México Contemporáneo",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "Estudios Culturales",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100075": {
+      "nombre": "Género y Sexualidad",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "Estudios Culturales",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100076": {
+      "nombre": "Poder y Género",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "Estudios Culturales",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100077": {
+      "nombre": "Administración y Economía Política de la Ciencia y Tecnología",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "Formaci\\u00f3n Ciudadana",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100078": {
+      "nombre": "Derechos Humanos",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "Formaci\\u00f3n Ciudadana",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100079": {
+      "nombre": "Economía Mundial",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "Formaci\\u00f3n Ciudadana",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100080": {
+      "nombre": "Ética y Valores",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "Formaci\\u00f3n Ciudadana",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100081": {
+      "nombre": "Historia Social de México en el Siglo XX",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "Formaci\\u00f3n Ciudadana",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100082": {
+      "nombre": "Responsabilidad Social Organizacional",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "Formaci\\u00f3n Ciudadana",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100143": {
+      "nombre": "Ética y Legislación Informática",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "Formaci\\u00f3n Ciudadana",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "250 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 250,
+      "requiere_autorizacion": false
+    },
+    "1100083": {
+      "nombre": "Ciencia, Tecnología y Sociedad",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "El Papel de la Ingenier\\u00eda en la Sociedad",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100084": {
+      "nombre": "Prospectiva Tecnológica",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "El Papel de la Ingenier\\u00eda en la Sociedad",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100085": {
+      "nombre": "Tecnología y Competitividad en los Negocios Internacionales",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "El Papel de la Ingenier\\u00eda en la Sociedad",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100086": {
+      "nombre": "Propiedad Intelectual, Innovación y Normalización Tecnológica",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "El Papel de la Ingenier\\u00eda en la Sociedad",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100087": {
+      "nombre": "El Ambiente y la Sociedad",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "El Papel de la Ingenier\\u00eda en la Sociedad",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100088": {
+      "nombre": "Historia de la Ciencia y de la Tecnología en México",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "El Papel de la Ingenier\\u00eda en la Sociedad",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100089": {
+      "nombre": "Administración y Planeación Estratégica",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "Gesti\\u00f3n Empresarial",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100090": {
+      "nombre": "Administración de la Calidad",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "Gesti\\u00f3n Empresarial",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100091": {
+      "nombre": "Mercadotecnia Estratégica",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "Gesti\\u00f3n Empresarial",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100092": {
+      "nombre": "Administración de Proyectos",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "Gesti\\u00f3n Empresarial",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100093": {
+      "nombre": "Finanzas en las Organizaciones",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "Gesti\\u00f3n Empresarial",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100094": {
+      "nombre": "Desarrollo Emprendedor",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "Gesti\\u00f3n Empresarial",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100095": {
+      "nombre": "Inglés Técnico I",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "Idiomas",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 6,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100096": {
+      "nombre": "Inglés Técnico II",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "Idiomas",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 6,
+      "creditos": 6,
+      "seriacion_raw": "1100095 y 200 Créditos",
+      "prereqs": [
+        {
+          "clave": "1100095",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": 200,
+      "requiere_autorizacion": false
+    },
+    "1100097": {
+      "nombre": "Francés Técnico I",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "Idiomas",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 6,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100098": {
+      "nombre": "Francés Técnico II",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "Idiomas",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 6,
+      "creditos": 6,
+      "seriacion_raw": "1100097 y 200 Créditos",
+      "prereqs": [
+        {
+          "clave": "1100097",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": 200,
+      "requiere_autorizacion": false
+    },
+    "1100099": {
+      "nombre": "Fundamentos de la Ingeniería de Software",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "Tecnolog\\u00eda e Innovaci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100100": {
+      "nombre": "Computación en la Nube",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "Tecnolog\\u00eda e Innovaci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100101": {
+      "nombre": "Internet de las Cosas",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "Tecnolog\\u00eda e Innovaci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100102": {
+      "nombre": "Manufactura Avanzada",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "Tecnolog\\u00eda e Innovaci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100103": {
+      "nombre": "Innovación Tecnológica",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "Tecnolog\\u00eda e Innovaci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "150 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1100104": {
+      "nombre": "Inteligencia Artificial",
+      "tronco": "inter_multidisciplinar",
+      "subtronco": "Tecnolog\\u00eda e Innovaci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "250 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 250,
+      "requiere_autorizacion": false
+    },
+    "1100106": {
+      "nombre": "Seminario de Integración en Ingeniería Física",
+      "tronco": "integracion",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": 1.5,
+      "horas_practica": null,
+      "creditos": 3,
+      "seriacion_raw": "1100040 y 360 Créditos",
+      "prereqs": [
+        {
+          "clave": "1100040",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": 360,
+      "requiere_autorizacion": false
+    },
+    "1100116": {
+      "nombre": "Proyecto de Integración en Ingeniería Física I",
+      "tronco": "integracion",
+      "subtronco": null,
+      "obligatoria": true,
+      "horas_teoria": null,
+      "horas_practica": 18,
+      "creditos": 18,
+      "seriacion_raw": "1100106 y Autorización²",
+      "prereqs": [
+        {
+          "clave": "1100106",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": true
+    },
+    "1110003": {
+      "nombre": "Prácticas Profesionales en Ingeniería Física",
+      "tronco": "integracion",
+      "subtronco": "Tutoriales",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 18,
+      "creditos": 18,
+      "seriacion_raw": "320 Créditos y Autorización¹",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 320,
+      "requiere_autorizacion": true
+    },
+    "1100126": {
+      "nombre": "Proyecto de Integración en Ingeniería Física II",
+      "tronco": "integracion",
+      "subtronco": "Tutoriales",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 18,
+      "creditos": 18,
+      "seriacion_raw": "1100106 y Autorización²",
+      "prereqs": [
+        {
+          "clave": "1100106",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": true
+    },
+    "1100136": {
+      "nombre": "Introducción al Trabajo de Investigación en Ingeniería Física",
+      "tronco": "integracion",
+      "subtronco": "Tutoriales",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 6,
+      "creditos": 6,
+      "seriacion_raw": "1100106 y Autorización²",
+      "prereqs": [
+        {
+          "clave": "1100106",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": true
+    },
+    "1111070": {
+      "nombre": "Laboratorio Interdisciplinario",
+      "tronco": "integracion",
+      "subtronco": "Tutoriales",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 6,
+      "creditos": 6,
+      "seriacion_raw": "280 Créditos y Autorización¹",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 280,
+      "requiere_autorizacion": true
+    },
+    "1132099": {
+      "nombre": "Taller de Fuentes Alternas de Energía",
+      "tronco": "integracion",
+      "subtronco": "Tutoriales",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 6,
+      "creditos": 6,
+      "seriacion_raw": "C1132092 ó C1132094 y Autorización¹",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1132092",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": true
+    },
+    "1100021": {
+      "nombre": "Optativa Técnica de Movilidad I",
+      "tronco": "integracion",
+      "subtronco": "De Movilidad",
+      "obligatoria": false,
+      "horas_teoria": 1.5,
+      "horas_practica": null,
+      "creditos": 3,
+      "seriacion_raw": "240 Créditos y Autorización³",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 240,
+      "requiere_autorizacion": true
+    },
+    "1100022": {
+      "nombre": "Optativa Técnica de Movilidad II",
+      "tronco": "integracion",
+      "subtronco": "De Movilidad",
+      "obligatoria": false,
+      "horas_teoria": 1.5,
+      "horas_practica": null,
+      "creditos": 3,
+      "seriacion_raw": "240 Créditos y Autorización³",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 240,
+      "requiere_autorizacion": true
+    },
+    "1100023": {
+      "nombre": "Optativa Técnica de Movilidad III",
+      "tronco": "integracion",
+      "subtronco": "De Movilidad",
+      "obligatoria": false,
+      "horas_teoria": 2,
+      "horas_practica": 2,
+      "creditos": 6,
+      "seriacion_raw": "240 Créditos y Autorización³",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 240,
+      "requiere_autorizacion": true
+    },
+    "1100024": {
+      "nombre": "Optativa Técnica de Movilidad IV",
+      "tronco": "integracion",
+      "subtronco": "De Movilidad",
+      "obligatoria": false,
+      "horas_teoria": 2,
+      "horas_practica": 2,
+      "creditos": 6,
+      "seriacion_raw": "240 Créditos y Autorización³",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 240,
+      "requiere_autorizacion": true
+    },
+    "1100025": {
+      "nombre": "Optativa Técnica de Movilidad V",
+      "tronco": "integracion",
+      "subtronco": "De Movilidad",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "240 Créditos y Autorización³",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 240,
+      "requiere_autorizacion": true
+    },
+    "1100026": {
+      "nombre": "Optativa Técnica de Movilidad VI",
+      "tronco": "integracion",
+      "subtronco": "De Movilidad",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "240 Créditos y Autorización³",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 240,
+      "requiere_autorizacion": true
+    },
+    "1131065": {
+      "nombre": "Energía Solar Fotovoltaica",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Energ\\u00eda",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1151039 y 250 Créditos",
+      "prereqs": [
+        {
+          "clave": "1151039",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": 250,
+      "requiere_autorizacion": false
+    },
+    "1132026": {
+      "nombre": "Transferencia de Calor",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Energ\\u00eda",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1112030 y 1137006",
+      "prereqs": [
+        {
+          "clave": "1112030",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1137006",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1132029": {
+      "nombre": "Dispositivos Hidroneumáticos",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Energ\\u00eda",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "1137005",
+      "prereqs": [
+        {
+          "clave": "1137005",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1132030": {
+      "nombre": "Taller de Dispositivos Hidroneumáticos",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Energ\\u00eda",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1132029",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1132029",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1132041": {
+      "nombre": "Taller de Instalaciones Industriales",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Energ\\u00eda",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1137015",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1137015",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1132042": {
+      "nombre": "Cambiadores de Calor",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Energ\\u00eda",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1132026",
+      "prereqs": [
+        {
+          "clave": "1132026",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1132048": {
+      "nombre": "Turbomaquinaria",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Energ\\u00eda",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1137005 y 1137006",
+      "prereqs": [
+        {
+          "clave": "1137005",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1137006",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1132049": {
+      "nombre": "Combustión",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Energ\\u00eda",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1137005, 1137006 y 300 Créditos",
+      "prereqs": [
+        {
+          "clave": "1137005",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1137006",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": 300,
+      "requiere_autorizacion": false
+    },
+    "1132052": {
+      "nombre": "Procesos de Conversión de Energía",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Energ\\u00eda",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "1137006 y 300 Créditos",
+      "prereqs": [
+        {
+          "clave": "1137006",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": 300,
+      "requiere_autorizacion": false
+    },
+    "1132065": {
+      "nombre": "Laboratorio de Termofluidos II",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Energ\\u00eda",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "1132064",
+      "prereqs": [
+        {
+          "clave": "1132064",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1132068": {
+      "nombre": "Análisis de Problemas en Termofluidos",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Energ\\u00eda",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1137005 y 1132026",
+      "prereqs": [
+        {
+          "clave": "1137005",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1132026",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1132091": {
+      "nombre": "Diseño de Sistemas Energéticos",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Energ\\u00eda",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1137005 y 1132026",
+      "prereqs": [
+        {
+          "clave": "1137005",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1132026",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1132092": {
+      "nombre": "Energía Solar Aplicada",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Energ\\u00eda",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "300 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 300,
+      "requiere_autorizacion": false
+    },
+    "1132093": {
+      "nombre": "Laboratorio de Energía Solar",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Energ\\u00eda",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1132092",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1132092",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1132094": {
+      "nombre": "Energía Eólica Aplicada",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Energ\\u00eda",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "300 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 300,
+      "requiere_autorizacion": false
+    },
+    "1133061": {
+      "nombre": "Dibujo Mecánico Asistido por Computadora",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Energ\\u00eda",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "1112013 y 150 Créditos",
+      "prereqs": [
+        {
+          "clave": "1112013",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": 150,
+      "requiere_autorizacion": false
+    },
+    "1134002": {
+      "nombre": "Hidráulica de Tuberías",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Energ\\u00eda",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1137005",
+      "prereqs": [
+        {
+          "clave": "1137005",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1134003": {
+      "nombre": "Hidráulica de Canales",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Energ\\u00eda",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1134002",
+      "prereqs": [
+        {
+          "clave": "1134002",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1134004": {
+      "nombre": "Laboratorio de Hidráulica de Tuberías",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Energ\\u00eda",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1134002",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1134002",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1135051": {
+      "nombre": "Laboratorio de Combustión",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Energ\\u00eda",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1132049",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1132049",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1137015": {
+      "nombre": "Instalaciones Industriales",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Energ\\u00eda",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1137005 y 300 Créditos",
+      "prereqs": [
+        {
+          "clave": "1137005",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": 300,
+      "requiere_autorizacion": false
+    },
+    "1111054": {
+      "nombre": "Sensores, Transductores y Detectores",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Instrumentaci\\u00f3n y Equipo",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "1123055 y 1123056",
+      "prereqs": [
+        {
+          "clave": "1123055",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1123056",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111058": {
+      "nombre": "Instrumentación y Equipo II",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Instrumentaci\\u00f3n y Equipo",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "1123016",
+      "prereqs": [
+        {
+          "clave": "1123016",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111060": {
+      "nombre": "Principios de Diseño y Construcción de Equipos e Instrumentos",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Instrumentaci\\u00f3n y Equipo",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "1123016",
+      "prereqs": [
+        {
+          "clave": "1123016",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1121037": {
+      "nombre": "Diseño Lógico",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Instrumentaci\\u00f3n y Equipo",
+      "obligatoria": false,
+      "horas_teoria": 6,
+      "horas_practica": null,
+      "creditos": 12,
+      "seriacion_raw": "1151038",
+      "prereqs": [
+        {
+          "clave": "1151038",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1121040": {
+      "nombre": "Laboratorio de Diseño Lógico",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Instrumentaci\\u00f3n y Equipo",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 6,
+      "creditos": 6,
+      "seriacion_raw": "C1121037",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1121037",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1121041": {
+      "nombre": "Instrumentación y Equipo I",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Instrumentaci\\u00f3n y Equipo",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "1123055 y 1123056",
+      "prereqs": [
+        {
+          "clave": "1123055",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1123056",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1123021": {
+      "nombre": "Microcontroladores",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Instrumentaci\\u00f3n y Equipo",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "1121037",
+      "prereqs": [
+        {
+          "clave": "1121037",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1123034": {
+      "nombre": "Laboratorio de Electrónica de Potencia",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Instrumentaci\\u00f3n y Equipo",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1123044",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1123044",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1123040": {
+      "nombre": "Circuitos Electrónicos I",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Instrumentaci\\u00f3n y Equipo",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1124001 y 1124005",
+      "prereqs": [
+        {
+          "clave": "1124001",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1124005",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1123041": {
+      "nombre": "Circuitos Electrónicos II",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Instrumentaci\\u00f3n y Equipo",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1123040 y 1123045",
+      "prereqs": [
+        {
+          "clave": "1123040",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1123045",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1123043": {
+      "nombre": "Diseño de Sistemas Electrónicos",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Instrumentaci\\u00f3n y Equipo",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1123021 y 1123041 y 1123046",
+      "prereqs": [
+        {
+          "clave": "1123021",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1123041",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1123046",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1123044": {
+      "nombre": "Electrónica de Potencia",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Instrumentaci\\u00f3n y Equipo",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1123041 y 1124003",
+      "prereqs": [
+        {
+          "clave": "1123041",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1124003",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1123045": {
+      "nombre": "Laboratorio de Circuitos Electrónicos I",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Instrumentaci\\u00f3n y Equipo",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1123040",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1123040",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1123046": {
+      "nombre": "Laboratorio de Circuitos Electrónicos II",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Instrumentaci\\u00f3n y Equipo",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1123041",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1123041",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1123055": {
+      "nombre": "Introducción a la Electrónica",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Instrumentaci\\u00f3n y Equipo",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1124001 y 1124005",
+      "prereqs": [
+        {
+          "clave": "1124001",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1124005",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1123056": {
+      "nombre": "Laboratorio de Introducción a la Electrónica",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Instrumentaci\\u00f3n y Equipo",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1123055",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1123055",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1123016": {
+      "nombre": "Circuitos Eléctricos II",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Instrumentaci\\u00f3n y Equipo",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1124001 y 1112015",
+      "prereqs": [
+        {
+          "clave": "1124001",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1112015",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1124003": {
+      "nombre": "Circuitos Eléctricos II",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Instrumentaci\\u00f3n y Equipo",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1124001 y 1124005",
+      "prereqs": [
+        {
+          "clave": "1124001",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1124005",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1131070": {
+      "nombre": "Circuitos Eléctricos de Corriente Alterna",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Instrumentaci\\u00f3n y Equipo",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1124001 y 1124005",
+      "prereqs": [
+        {
+          "clave": "1124001",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1124005",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1131071": {
+      "nombre": "Laboratorio de Circuitos Eléctricos de Corriente Alterna",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Instrumentaci\\u00f3n y Equipo",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1131070",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1131070",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1154029": {
+      "nombre": "Análisis y Diseño de Experimentos en Ingeniería",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Instrumentaci\\u00f3n y Equipo",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1153001",
+      "prereqs": [
+        {
+          "clave": "1153001",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111032": {
+      "nombre": "Física del Estado Sólido",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Tecnolog\\u00eda de Materiales",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1111048",
+      "prereqs": [
+        {
+          "clave": "1111048",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111034": {
+      "nombre": "Propiedades Eléctricas y Magnéticas de los Materiales",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Tecnolog\\u00eda de Materiales",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1111043",
+      "prereqs": [
+        {
+          "clave": "1111043",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111045": {
+      "nombre": "Estática del Cuerpo Deformable",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Tecnolog\\u00eda de Materiales",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1111081 y 1112005",
+      "prereqs": [
+        {
+          "clave": "1111081",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1112005",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1133014": {
+      "nombre": "Procesos de Manufactura I",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Tecnolog\\u00eda de Materiales",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1145054",
+      "prereqs": [
+        {
+          "clave": "1145054",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1133015": {
+      "nombre": "Taller de Procesos de Manufactura I",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Tecnolog\\u00eda de Materiales",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1133014",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1133014",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1141006": {
+      "nombre": "Laboratorio de Ciencia de los Materiales",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Tecnolog\\u00eda de Materiales",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1146038",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1146038",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1142025": {
+      "nombre": "Laboratorio de Mecánica de Sólidos",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Tecnolog\\u00eda de Materiales",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1111045",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1111045",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1145001": {
+      "nombre": "Metalografía",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Tecnolog\\u00eda de Materiales",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 6,
+      "creditos": 6,
+      "seriacion_raw": "1145055",
+      "prereqs": [
+        {
+          "clave": "1145055",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1145052": {
+      "nombre": "Cristales y Dislocaciones",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Tecnolog\\u00eda de Materiales",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "1145054",
+      "prereqs": [
+        {
+          "clave": "1145054",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1145054": {
+      "nombre": "Ingeniería de los Materiales",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Tecnolog\\u00eda de Materiales",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1113086",
+      "prereqs": [
+        {
+          "clave": "1113086",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1145055": {
+      "nombre": "Laboratorio de Ingeniería de los Materiales",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Tecnolog\\u00eda de Materiales",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "1113087, 1145054 y 90 Créditos",
+      "prereqs": [
+        {
+          "clave": "1113087",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1145054",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": 90,
+      "requiere_autorizacion": false
+    },
+    "1145056": {
+      "nombre": "Comportamiento Mecánico de los Materiales",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Tecnolog\\u00eda de Materiales",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1112030 y 1145052",
+      "prereqs": [
+        {
+          "clave": "1112030",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1145052",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1145057": {
+      "nombre": "Laboratorio de Comportamiento Mecánico de los Materiales",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Tecnolog\\u00eda de Materiales",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1145056",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1145056",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1145058": {
+      "nombre": "Transformaciones de Fase en los Materiales Metálicos",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Tecnolog\\u00eda de Materiales",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "1137006",
+      "prereqs": [
+        {
+          "clave": "1137006",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1145060": {
+      "nombre": "Plasticidad de los Materiales Metálicos",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Tecnolog\\u00eda de Materiales",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1145056 y 1145057",
+      "prereqs": [
+        {
+          "clave": "1145056",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1145057",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1145061": {
+      "nombre": "Laboratorio de Plasticidad de los Materiales Metálicos",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Tecnolog\\u00eda de Materiales",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1145060",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1145060",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1145066": {
+      "nombre": "Metalurgia Mecánica",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Tecnolog\\u00eda de Materiales",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1145060 y 1145061",
+      "prereqs": [
+        {
+          "clave": "1145060",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1145061",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1145071": {
+      "nombre": "Oxidación, Corrosión y Protección de los Materiales Metálicos",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Tecnolog\\u00eda de Materiales",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "1145054",
+      "prereqs": [
+        {
+          "clave": "1145054",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1145072": {
+      "nombre": "Laboratorio de Oxidación, Corrosión y Protección de los Materiales Metálicos",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Tecnolog\\u00eda de Materiales",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1145071",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1145071",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1145091": {
+      "nombre": "Dislocaciones en los Materiales Metálicos",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Tecnolog\\u00eda de Materiales",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "1145052",
+      "prereqs": [
+        {
+          "clave": "1145052",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1146038": {
+      "nombre": "Ciencia de los Materiales",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Tecnolog\\u00eda de Materiales",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1145054",
+      "prereqs": [
+        {
+          "clave": "1145054",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1146041": {
+      "nombre": "Laboratorio de Metalurgia Mecánica",
+      "tronco": "integracion",
+      "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Tecnolog\\u00eda de Materiales",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1145066",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1145066",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111052": {
+      "nombre": "Temas Selectos de Ingeniería Física",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "300 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 300,
+      "requiere_autorizacion": false
+    },
+    "1111053": {
+      "nombre": "Acústica",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "1111090",
+      "prereqs": [
+        {
+          "clave": "1111090",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111057": {
+      "nombre": "Imágenes",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "1111055",
+      "prereqs": [
+        {
+          "clave": "1111055",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111059": {
+      "nombre": "Ingeniería Óptica",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "1111055",
+      "prereqs": [
+        {
+          "clave": "1111055",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111095": {
+      "nombre": "Optoelectrónica",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": 3,
+      "creditos": 9,
+      "seriacion_raw": "1111055",
+      "prereqs": [
+        {
+          "clave": "1111055",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1111066": {
+      "nombre": "Temas Selectos de Ingeniería Física II",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "300 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 300,
+      "requiere_autorizacion": false
+    },
+    "1111067": {
+      "nombre": "Temas Selectos de Ingeniería Física III",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "300 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 300,
+      "requiere_autorizacion": false
+    },
+    "1112017": {
+      "nombre": "Introducción al Álgebra Lineal",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1151038",
+      "prereqs": [
+        {
+          "clave": "1151038",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1113057": {
+      "nombre": "Contaminación Ambiental",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1113069 y 1113070",
+      "prereqs": [
+        {
+          "clave": "1113069",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1113070",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1113071": {
+      "nombre": "Química Física Aplicada",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "300 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 300,
+      "requiere_autorizacion": false
+    },
+    "1124050": {
+      "nombre": "Teoría de Control",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1124003",
+      "prereqs": [
+        {
+          "clave": "1124003",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1124049": {
+      "nombre": "Laboratorio de Control",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1124050",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1124050",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1131068": {
+      "nombre": "Temas Selectos de Ingeniería Eléctrica I",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "300 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 300,
+      "requiere_autorizacion": false
+    },
+    "1132040": {
+      "nombre": "Transferencia de Masa",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1137005",
+      "prereqs": [
+        {
+          "clave": "1137005",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1132050": {
+      "nombre": "Calefacción, Ventilación y Aire Acondicionado",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "1132026 y 300 Créditos",
+      "prereqs": [
+        {
+          "clave": "1132026",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": 300,
+      "requiere_autorizacion": false
+    },
+    "1132067": {
+      "nombre": "Recursos Energéticos",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "1137006 y 300 Créditos",
+      "prereqs": [
+        {
+          "clave": "1137006",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": 300,
+      "requiere_autorizacion": false
+    },
+    "1133003": {
+      "nombre": "Laboratorio de Dinámica y Vibraciones",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "1111013",
+      "prereqs": [
+        {
+          "clave": "1111013",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1133009": {
+      "nombre": "Laboratorio de Mecanismos",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1133060",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1133060",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1133016": {
+      "nombre": "Diseño de Elementos de Máquinas",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1111045",
+      "prereqs": [
+        {
+          "clave": "1111045",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1133024": {
+      "nombre": "Dinámica de Máquinas",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1133060 y 1133016",
+      "prereqs": [
+        {
+          "clave": "1133060",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1133016",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1133032": {
+      "nombre": "Diseño de Mecanismos",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1133060",
+      "prereqs": [
+        {
+          "clave": "1133060",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1133049": {
+      "nombre": "Metrología para Manufactura",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 3,
+      "horas_practica": null,
+      "creditos": 6,
+      "seriacion_raw": "1153001",
+      "prereqs": [
+        {
+          "clave": "1153001",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1133055": {
+      "nombre": "Laboratorio de Metrología para Manufactura",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": null,
+      "horas_practica": 3,
+      "creditos": 3,
+      "seriacion_raw": "C1133049",
+      "prereqs": [],
+      "corregistros": [
+        {
+          "clave": "1133049",
+          "tipo": "corregistro"
+        }
+      ],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1133060": {
+      "nombre": "Mecanismos",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1133048",
+      "prereqs": [
+        {
+          "clave": "1133048",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1151009": {
+      "nombre": "Elemento Finito",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1151039 y 1112030",
+      "prereqs": [
+        {
+          "clave": "1151039",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1112030",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1151042": {
+      "nombre": "Algoritmos y Estructura de Datos",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 3.5,
+      "horas_practica": 1,
+      "creditos": 8,
+      "seriacion_raw": "1151038",
+      "prereqs": [
+        {
+          "clave": "1151038",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1152001": {
+      "nombre": "Investigación de Operaciones I",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1151039",
+      "prereqs": [
+        {
+          "clave": "1151039",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1154016": {
+      "nombre": "Estadística Aplicada I",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 4.5,
+      "horas_practica": null,
+      "creditos": 9,
+      "seriacion_raw": "1153001 y 1151039",
+      "prereqs": [
+        {
+          "clave": "1153001",
+          "tipo": "directa"
+        },
+        {
+          "clave": "1151039",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": null,
+      "requiere_autorizacion": false
+    },
+    "1154042": {
+      "nombre": "Control de Calidad y Confiabilidad",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 3.5,
+      "horas_practica": 1,
+      "creditos": 8,
+      "seriacion_raw": "1153001 y 350 Créditos",
+      "prereqs": [
+        {
+          "clave": "1153001",
+          "tipo": "directa"
+        }
+      ],
+      "corregistros": [],
+      "umbral_creditos": 350,
+      "requiere_autorizacion": false
+    },
+    "1154045": {
+      "nombre": "Seguridad e Higiene Industrial",
+      "tronco": "integracion",
+      "subtronco": "Otras Optativas de Integraci\\u00f3n",
+      "obligatoria": false,
+      "horas_teoria": 3.5,
+      "horas_practica": 1,
+      "creditos": 8,
+      "seriacion_raw": "350 Créditos",
+      "prereqs": [],
+      "corregistros": [],
+      "umbral_creditos": 350,
+      "requiere_autorizacion": false
+    }
+  },
+  "total_ueas_reportado": 190,
+  "total_ueas_guardadas": 190
+}
