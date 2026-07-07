@@ -2412,21 +2412,21 @@
       "requiere_autorizacion": false
     },
     "1123016": {
-      "nombre": "Circuitos Eléctricos II",
+      "nombre": "Instrumentación y Equipo 1",
       "tronco": "integracion",
       "subtronco": "Cient\\u00edfico-T\\u00e9cnicas \\u2013 \\u00c1rea de Concentraci\\u00f3n: Instrumentaci\\u00f3n y Equipo",
       "obligatoria": false,
-      "horas_teoria": 4.5,
-      "horas_practica": null,
+      "horas_teoria": 3,
+      "horas_practica": 3,
       "creditos": 9,
-      "seriacion_raw": "1124001 y 1112015",
+      "seriacion_raw": "1123055 y 1123056",
       "prereqs": [
         {
-          "clave": "1124001",
+          "clave": "1123055",
           "tipo": "directa"
         },
         {
-          "clave": "1112015",
+          "clave": "1123056",
           "tipo": "directa"
         }
       ],
@@ -2442,14 +2442,14 @@
       "horas_teoria": 4.5,
       "horas_practica": null,
       "creditos": 9,
-      "seriacion_raw": "1124001 y 1124005",
+      "seriacion_raw": "1124001 y 1112015",
       "prereqs": [
         {
           "clave": "1124001",
           "tipo": "directa"
         },
         {
-          "clave": "1124005",
+          "clave": "1112015",
           "tipo": "directa"
         }
       ],

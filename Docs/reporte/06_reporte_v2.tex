@@ -214,8 +214,8 @@ del Tronco General actual reducen la fracción de la cohorte con acceso a los
 cursos del tramo final a entre el 2\% y el 5\%.
 Ese hallazgo, circunscrito a las once UEAs del Tronco General, motivó extender
 el análisis al currículo completo de los diez programas de ingeniería:
-1\,598 UEAs, 1\,203~aristas de seriación estructurales (Tabla~\ref{tab:grafos}),
-499 evaluadas individualmente para impacto marginal sobre~$\ETtit$,
+1\,597 UEAs, 1\,210~aristas de seriación estructurales (Tabla~\ref{tab:grafos}),
+498 evaluadas individualmente para impacto marginal sobre~$\ETtit$,
 registros de evaluación 16I--25O y 6\,562~estudiantes activos como horizonte de proyección.
 
 \subsection*{Principales resultados}
@@ -324,9 +324,9 @@ La Sección~\ref{sec:contexto} presenta los dos datos de anclaje (eficiencia
 terminal histórica y tiempo promedio real de egreso) y el antecedente del
 Tronco General Nuevo Actualizado (TGNA~\cite{TGNA2026}).
 La Sección~\ref{sec:sistema} describe la cadena de análisis: fuentes de datos,
-1\,859~UEAs en el banco de datos (689~obligatorias CBI), 1\,203~aristas de
-seriación estructurales de las cuales 499~fueron evaluadas individualmente
-para impacto marginal (las~704~restantes presentan impacto negligible en el modelo),
+2\,132~UEAs en el banco de datos (688~en el grafo unificado CBI), 1\,210~aristas de
+seriación estructurales de las cuales 498~fueron evaluadas individualmente
+para impacto marginal (las~712~restantes presentan impacto negligible en el modelo),
 y 6\,562~estudiantes activos.
 Las Secciones~\ref{sec:cascada} y~\ref{sec:modelo} desarrollan los dos modelos
 complementarios: la cascada estática (cota inferior analítica) y el modelo
@@ -743,7 +743,7 @@ Código & UEA & $p_v$ & $\Pacc(v)$ & $\pi_v$ \\
 \begin{table}[H]\centering
 \caption{Estadísticas de los grafos de seriación por plan.
          Todos los grafos son acíclicos.
-         El total de~1\,203 aristas de seriación es la suma por plan; aristas
+         El total de~1\,210 aristas de seriación es la suma por plan; aristas
          compartidas entre planes (p.\,ej.\ las del Tronco General) se cuentan
          una vez por plan.
          De estas, 499~fueron evaluadas individualmente para impacto marginal
@@ -758,15 +758,15 @@ Plan & UEAs oblig. & Seriaciones & Corregistros & Créditos \\
 Ambiental    & 53 & 108 & 17 & 411 \\
 Civil        & 53 & 136 & 16 & 394 \\
 Computación  & 52 & 157 & 22 & 406 \\
-Eléctrica    & 57 &  94 & 26 & 410 \\
+Eléctrica    & 57 &  93 & 25 & 412 \\
 Electrónica  & 58 & 139 & 35 & 408 \\
 Física       & 52 & 141 & 36 & 376 \\
 Industrial   & 56 &  83 & 15 & 405 \\
-Mecánica     & 54 & 129 & 29 & 379 \\
+Mecánica     & 54 & 126 & 29 & 379 \\
 Metalurgia   & 58 & 129 & 29 & 419 \\
 Química      & 56 &  98 & 25 & 411 \\
 \midrule
-\textbf{Total} & \textbf{551} & \textbf{1\,203} & \textbf{250} & --- \\
+\textbf{Total} & \textbf{549} & \textbf{1\,210} & \textbf{249} & --- \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -777,11 +777,11 @@ Un código con prefijo \texttt{C} (p.\,ej.\ \texttt{C1112042}) genera un \emph{c
 Las condiciones de umbral crediticio (p.\,ej.\ \texttt{300 Créditos}) establecen un mínimo de créditos acumulados como requisito de elegibilidad; no generan una seriación entre UEAs y no contribuyen al conteo de la Tabla~\ref{tab:grafos}.
 Las entradas compuestas con el operador \texttt{y} generan tantas aristas como prerrequisitos listen; cada arista se contabiliza de forma independiente.
 
-El conteo de la Tabla~\ref{tab:grafos} es por plan, de modo que el total divisional de 1\,203 seriaciones y 250 corregistros es la suma de los totales individuales y no el recuento de aristas únicas del grafo unificado.
-De las 1\,203 seriaciones, 499 presentan un impacto marginal distinguible de cero sobre~$\ETtit$ y fueron evaluadas individualmente; las 704 restantes se excluyen del análisis de efecto (\S\ref{sec:efecto}).
+El conteo de la Tabla~\ref{tab:grafos} es por plan, de modo que el total divisional de 1\,210 seriaciones y 249 corregistros es la suma de los totales individuales y no el recuento de aristas únicas del grafo unificado.
+De las 1\,210 seriaciones, 498 conectan pares de UEAs obligatorias y fueron evaluadas individualmente para impacto marginal sobre~$\ETtit$; las 712 restantes se excluyen del análisis de efecto (\S\ref{sec:efecto}).
 
 La UEA de mayor alcance es Ecuaciones Diferenciales Ordinarias (\uea{1112030}):
-19~aristas de salida y 380~descendientes, obligatoria en los diez planes.
+18~aristas de salida y 260~descendientes, obligatoria en los diez planes.
 
 %══════════════════════════════════════════════════════
 \section{Modelo topológico-estocástico}
@@ -905,9 +905,10 @@ independiente.
 \end{notabox}
 
 La Tabla~\ref{tab:calibracion} muestra los resultados de la calibración.
-En ocho de los diez planes, el error en la condición~(\ref{eq:calibracion})
-es $|\Delta|\leq 0.52$~trim (aproximadamente siete semanas académicas, menos de medio trimestre); el promedio
-ponderado de CBI es 20.62~trim frente a 20.60~trim oficiales.
+En los nueve planes comparables, el error en la condición~(\ref{eq:calibracion})
+es $|\Delta|\leq 0.89$~trim (menos de un trimestre); en seis de ellos
+$|\Delta|\leq 0.48$~trim, y el promedio
+ponderado de CBI es 20.71~trim frente a 20.62~trim oficiales.
 
 \begin{table}[H]\centering
 \caption{Parámetros calibrados.
@@ -920,19 +921,19 @@ ponderado de CBI es 20.62~trim frente a 20.60~trim oficiales.
 Plan & cr.\ total & $\ell$ & $c_s$ (cr/trim) &
       $\ETtit^{\,\mathrm{mod}}$ & $\ETtit^{\,\mathrm{ofic}}$ & $\Delta$ \\
 \midrule
-amb &  411 & 13.70 & 30.0 & 20.48 & 20.56 & $-0.08$ \\
-civ &  394 & 13.13 & 30.0 & 20.67 & 20.34 & $+0.33$ \\
-com &  406 & 13.10 & 31.0 & 20.39 & 20.31 & $+0.08$ \\
-ele &  410 & 13.67 & 30.0 & 20.89 & 21.41 & $-0.52$ \\
-elo &  408 & 13.60 & 30.0 & 23.54 & 23.24 & $+0.30$ \\
-fis &  376 & 12.53 & 30.0 & 20.61 & 20.25 & $+0.36$ \\
-ind &  405 & 13.06 & 31.0 & 19.49 & 19.40 & $+0.09$ \\
-mec &  379 & 14.04 & 27.0 & 20.94 & 21.18 & $-0.24$ \\
+amb &  411 & 13.70 & 30.0 & 20.85 & 20.56 & $+0.29$ \\
+civ &  394 & 13.13 & 30.0 & 21.01 & 20.34 & $+0.67$ \\
+com &  406 & 12.69 & 32.0 & 20.31 & 20.31 & $+0.00$ \\
+ele &  412 & 13.73 & 30.0 & 22.30 & 21.41 & $+0.89$ \\
+elo &  408 & 13.60 & 30.0 & 23.72 & 23.24 & $+0.48$ \\
+fis &  376 & 12.53 & 30.0 & 21.08 & 20.25 & $+0.83$ \\
+ind &  405 & 13.06 & 31.0 & 19.80 & 19.40 & $+0.40$ \\
+mec &  379 & 13.54 & 28.0 & 21.41 & 21.18 & $+0.23$ \\
 met$^\dagger$ & 419 & 10.22 & 41.0 &
-      \textit{16.25}$^{*}$ & 22.26 & --- \\
-qui &  411 & 12.45 & 33.0 & 19.48 & 19.41 & $+0.07$ \\
+      \textit{16.73}$^{*}$ & 22.26 & --- \\
+qui &  411 & 12.45 & 33.0 & 19.24 & 19.41 & $-0.18$ \\
 \midrule
-\textbf{CBI} & & & & \textbf{20.62} & \textbf{20.60} & $-0.02$ \\
+\textbf{CBI} & & & & \textbf{20.71} & \textbf{20.62} & $+0.09$ \\
 \bottomrule
 \multicolumn{7}{l}{\footnotesize
   $^\dagger$ Caso especial; véase §\ref{sec:met}.\enspace
@@ -955,8 +956,8 @@ qui &  411 & 12.45 & 33.0 & 19.48 & 19.41 & $+0.07$ \\
   disponibilidad que el modelo no captura completamente).
   \emph{Derecha}: error de calibración $\Delta = \ETtit^{\,\mathrm{mod}} - \ETtit^{\,\mathrm{ofic}}$
   para los nueve planes comparables (excluida Metalurgia como caso especial).
-  \textbf{El modelo reproduce el tiempo oficial de egreso con un error máximo de
-  menos de medio trimestre en todos los planes comparables (véase tabla adjunta),
+  \textbf{El modelo reproduce el tiempo oficial de egreso con un error máximo
+  menor a un trimestre en todos los planes comparables (véase tabla adjunta),
   lo que valida su uso como herramienta de diagnóstico y simulación.}}
 \label{fig:calibracion}
 \end{figure}
@@ -972,7 +973,7 @@ La corrección implementada acota la búsqueda para garantizar
 $c_s\geq 41$~cr/trim, produciendo $\ell=10.22$ y los resultados de la
 Tabla~\ref{tab:calibracion}.
 
-El valor $\ETtit^{\,\mathrm{mod}}=16.25$~trim es una cota inferior.
+El valor $\ETtit^{\,\mathrm{mod}}=16.73$~trim es una cota inferior.
 La diferencia con los 22.26~trim oficiales refleja restricciones de
 disponibilidad de la estancia industrial que el modelo no captura.
 Metalurgia se reporta con esta aclaración y no se incluye en el promedio
@@ -1129,7 +1130,7 @@ secundaria en todos los planes, con efectos observables más pronunciados en
 Electrónica (mayor profundidad topológica del DAG y mayor ganancia acumulada
 por remoción de seriaciones) y en Metalurgia (cuya cota de carga es la más
 cercana al umbral de 12~trimestres, permitiendo que la remoción de seriaciones
-mueva~$\ET{12}$ de cero a $10.4\,\text{\%}$).
+mueva~$\ET{12}$ de cero a $7.9\,\text{\%}$).
 
 \subsection{Mecanismo~1: el desajuste de carga (dominante en 8 planes)}
 
@@ -1143,15 +1144,15 @@ aprobación perfecta completaría los créditos en~$\approx 9$~trimestres, con u
 margen de tres trimestres para eventualidades dentro del plazo establecido.
 
 La calibración del modelo a los datos históricos revela que la población real
-opera a $c_s\approx 27$--$33$~cr/trim ---entre el 60\% y el 73\% de la
+opera a $c_s\approx 28$--$33$~cr/trim ---entre el 62\% y el 73\% de la
 carga efectiva de diseño---.
 Esa brecha es el dato central del diagnóstico: el currículo fue diseñado
 asumiendo un ritmo de inscripción que la evidencia histórica muestra como
 minoritario en la cohorte real.
-Con la carga calibrada y una tasa neta de aprobación $\bar{a}\approx 0.745$--$0.799$,
+Con la carga calibrada y una tasa neta de aprobación $\bar{a}\approx 0.630$--$0.726$,
 los créditos aprobados acumulados en 12~trimestres son
 \begin{equation}
-  c_s\cdot\bar{a}\cdot 12 \;\approx\; 220\text{--}283\;\text{cr},
+  c_s\cdot\bar{a}\cdot 12 \;\approx\; 222\text{--}278\;\text{cr},
   \label{eq:acum_12}
 \end{equation}
 muy por debajo de los 376--419~requeridos.
@@ -1203,16 +1204,16 @@ Plan &
   $T_{\min}^{\,\mathrm{topo}}$ &
   $T_{\min}^{\,\mathrm{carga}}$ & Dominante \\
 \midrule
-amb &  30 & 0.735 & 411 &  8 &  9 & \textbf{19} & carga \\
-civ &  30 & 0.681 & 394 &  7 &  8 & \textbf{20} & carga \\
-com &  31 & 0.656 & 406 &  9 & 10 & \textbf{20} & carga \\
-ele &  30 & 0.690 & 410 &  8 &  9 & \textbf{20} & carga \\
-elo &  30 & 0.670 & 408 &  9 & 10 & \textbf{21} & carga \\
-fis &  30 & 0.675 & 376 &  7 &  8 & \textbf{19} & carga \\
-ind &  31 & 0.727 & 405 &  5 &  6 & \textbf{18} & carga \\
-mec &  27 & 0.683 & 379 &  8 &  9 & \textbf{21} & carga \\
-met &  41 & 0.726 & 419 &  8 &  9 & \textbf{15} & carga \\
-qui &  33 & 0.716 & 411 &  8 &  9 & \textbf{18} & carga \\
+amb &  30 & 0.726 & 411 &  8 &  9 & \textbf{19} & carga \\
+civ &  30 & 0.662 & 394 &  7 &  8 & \textbf{20} & carga \\
+com &  32 & 0.630 & 406 &  9 & 10 & \textbf{21} & carga \\
+ele &  30 & 0.673 & 412 &  8 &  9 & \textbf{21} & carga \\
+elo &  30 & 0.653 & 408 &  9 & 10 & \textbf{21} & carga \\
+fis &  30 & 0.653 & 376 &  7 &  8 & \textbf{20} & carga \\
+ind &  31 & 0.717 & 405 &  5 &  6 & \textbf{19} & carga \\
+mec &  28 & 0.661 & 379 &  8 &  9 & \textbf{21} & carga \\
+met &  41 & 0.710 & 419 &  8 &  9 & \textbf{15} & carga \\
+qui &  33 & 0.702 & 411 &  8 &  9 & \textbf{18} & carga \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1240,8 +1241,8 @@ qui &  33 & 0.716 & 411 &  8 &  9 & \textbf{18} & carga \\
 \subsection{Metalurgia: el caso confirmatorio}
 
 Metalurgia es el experimento natural que separa los dos mecanismos.
-Cuando se eliminan \emph{todas} las seriaciones, $\ET{12}$ sube de 0\% a
-\textbf{10.4\%}.
+Cuando se eliminan \emph{todas} las codependencias (seriaciones y
+corregistros), $\ET{12}$ sube de 0\% a \textbf{7.9\%}.
 Esto ocurre porque la cota de carga para Metalurgia es sólo 15~trimestres
 (gracias a $c_s=41$~cr/trim), sensiblemente más cercana al umbral de 12 que
 la de cualquier otro plan (19--24~trim).
@@ -1249,7 +1250,7 @@ Al eliminar las seriaciones desaparece el orden secuencial que impide
 inscribir las UEAs de mayor densidad crediticia en los primeros trimestres;
 sin esa restricción, los estudiantes con alta tasa de aprobación pueden
 aproximar la carga efectiva a $c_s=41$~cr/trim desde el inicio, acortando
-el tiempo de egreso lo suficiente para que un~10.4\% alcance los 12~trimestres.
+el tiempo de egreso lo suficiente para que un~7.9\% alcance los 12~trimestres.
 
 En los otros nueve planes, eliminar todas las seriaciones mantiene $\ET{12}$
 estadísticamente próxima a cero
@@ -1367,7 +1368,7 @@ un 36\% cause baja.
 $\ET{12}$ permanece en 0\% al eliminar todas las codependencias en nueve
 de los diez planes, confirmando que la cota de carga
 ($T_{\min}^{\,\mathrm{carga}} = 18$--$21$~trim) es la restricción activa.
-Metalurgia confirma la excepción: sin seriaciones, $\ET{12} = 10.4\,\text{\%}$
+Metalurgia confirma la excepción: sin codependencias, $\ET{12} = 7.9\,\text{\%}$
 porque su cota de carga (15~trim) queda suficientemente cerca del umbral de
 12~trim.
 \end{notabox}
@@ -1588,16 +1589,16 @@ $r_s=0.9997$: el orden de los nodos es prácticamente idéntico, pero la
 \toprule
 Código & UEA & $a_i$ & Desc & CV & $P_{\mathrm{exp}}$ & Tipo \\
 \midrule
-1112029 & Cálculo Integral                            & 0.54 & 416 & 0.42 & 2.2\% & D+I \\
-1111081 & Dinámica del Cuerpo Rígido                  & 0.68 & 306 & 0.39 & 0.7\% & PD  \\
-1112043 & Cálculo Diferencial                         & 0.51 & 488 & 0.47 & 4.3\% & D+I \\
-1112030 & Ecuaciones Diferenciales Ordinarias         & 0.57 & 380 & 0.37 & 1.4\% & D+I \\
-1111079 & Cinemática y Dinámica de Partículas         & 0.57 & 308 & 0.38 & 1.9\% & D+I \\
-1112013 & Complementos de Matemáticas                & 0.54 & 231 & 0.39 & 2.2\% & D+I \\
-1145054 & Ingeniería de los Materiales                & 0.65 &  75 & 0.32 & 1.0\% & PD  \\
-1113046 & Termodinámica                               & 0.72 & 165 & 0.31 & 0.5\% & PD  \\
-1142006 & Mecánica de Sólidos~I                       & 0.59 &  54 & 0.44 & 0.9\% & D+I \\
-1111083 & Intro.\ Electrostática y Magnetostática     & 0.65 &  80 & 0.34 & 0.8\% & PD  \\
+1112029 & Cálculo Integral                            & 0.55 & 366 & 0.42 & 2.2\% & D+I \\
+1111081 & Dinámica del Cuerpo Rígido                  & 0.66 & 305 & 0.39 & 0.7\% & PD  \\
+1112043 & Cálculo Diferencial                         & 0.48 & 448 & 0.47 & 4.3\% & D+I \\
+1112030 & Ecuaciones Diferenciales Ordinarias         & 0.57 & 260 & 0.37 & 1.4\% & D+I \\
+1111079 & Cinemática y Dinámica de Partículas         & 0.57 & 307 & 0.38 & 1.9\% & D+I \\
+1112013 & Complementos de Matemáticas                & 0.54 & 230 & 0.39 & 2.2\% & D+I \\
+1145054 & Ingeniería de los Materiales                & 0.64 &  75 & 0.32 & 1.0\% & PD  \\
+1113046 & Termodinámica                               & 0.71 & 164 & 0.31 & 0.5\% & PD  \\
+1142006 & Mecánica de Sólidos~I                       & 0.53 &  53 & 0.44 & 0.9\% & D+I \\
+1111083 & Intro.\ Electrostática y Magnetostática     & 0.64 &  80 & 0.34 & 0.8\% & PD  \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1606,7 +1607,7 @@ Las cuatro primeras posiciones las ocupan las UEAs de la cadena de Cálculo
 y Mecánica: Cálculo Diferencial $\to$ Cálculo Integral $\to$ Ecuaciones Diferenciales
 Ordinarias, con Cinemática y Dinámica de Partículas en posición paralela.
 Estas UEAs comparten cuatro características: tasas de aprobación bajas
-($a_i = 0.51$--$0.57$), obligatorias en los diez planes, cientos de UEAs
+($a_i = 0.48$--$0.57$), obligatorias en los diez planes, cientos de UEAs
 descendientes, \emph{y} alta heterogeneidad docente intra-UEA
 ($\mathrm{CV} = 0.37$--$0.47$, categoría \emph{Docente + intrínseca}).
 Este último rasgo revela que parte de la dificultad de estas UEAs no es
@@ -2599,7 +2600,8 @@ conforme aumenta~$N$, señal de que el experimento es estadísticamente estable.
 Electrónica y Química exhiben la saturación más abrupta, mientras
 que Metalurgia y Física muestran curvas más graduales que no se aplanan dentro
 del dominio observable.
-Dos planes (Computación y Física) presentan además tramos no-monótonos donde
+Cinco planes (Ambiental, Civil, Computación, Física y Mecánica) presentan
+además tramos no-monótonos donde
 $G(N) < 0$; este fenómeno se analiza en \S\ref{sec:nomonotona}.
 
 \begin{table}[H]\centering
@@ -2623,41 +2625,37 @@ Plan & $n_{\mathrm{ser}}$ & Modelo &
   $V_{\max}^{\mathrm{MM}}$ & $K_M$ &
   $G_{\max}^{\mathrm{obs}}$ & $N_{80}^{\mathrm{obs}}$ & $\mathcal{A}_{N_{80}}$ \\
 \midrule
-Electrónica    & 53 & MM  & 2.19 & 1.2  & 2.18 & \phantom{0}8 (15\%) & 0.52 \\
-Metalurgia     & 50 & MM  & 3.50$^\dagger$ & 79.9 & 1.56 & 50 (100\%) & 0.89 \\
-Ambiental      & 49 & MM  & 0.74 & 0.7  & 1.13 & 24 (49\%) & 0.46 \\
-Química        & 54 & Exp & ---  & ---  & 1.49 & \phantom{0}5 (\phantom{0}9\%) & 0.37 \\
-Eléctrica      & 49 & MM  & 0.88 & 0.5  & 1.04 & 10 (20\%) & 0.31 \\
-Mecánica       & 49 & MM  & 0.43 & 0.9  & 0.63 & 15 (31\%) & 0.23 \\
-Física         & 46 & Exp & ---  & ---  & 0.58 & 46 (100\%) & 0.44 \\
-Civil          & 47 & Exp & ---  & ---  & 0.44 & \phantom{0}9 (19\%) & 0.61 \\
-Industrial     & 51 & MM  & 0.34 & 0.2  & 0.50 & \phantom{0}8 (16\%) & 0.35 \\
-Computación    & 51 & MM  & 0.18 & 0.0  & 0.30 & \phantom{0}2 (\phantom{0}4\%) & 0.86 \\
+Electrónica    & 53 & MM  & 1.99 & 1.0  & 2.04 & \phantom{0}8 (15\%) & 0.51 \\
+Metalurgia     & 50 & Exp & ---  & ---  & 1.74 & 20 (40\%) & 0.61 \\
+Química        & 54 & MM  & 0.60 & 0.0  & 1.33 & \phantom{0}5 (\phantom{0}9\%) & 0.37 \\
+Ambiental      & 49 & Exp & ---  & ---  & 0.88 & \phantom{0}3 (\phantom{0}6\%) & 0.56 \\
+Eléctrica      & 48 & MM  & 0.86 & 5.6  & 0.83 & 14 (29\%) & 0.43 \\
+Mecánica       & 49 & MM  & 0.26 & 0.0  & 0.59 & 49 (100\%) & 0.32 \\
+Industrial     & 51 & MM  & 0.38 & 0.3  & 0.58 & 26 (51\%) & 0.29 \\
+Computación    & 51 & MM  & 0.38 & 0.4  & 0.56 & 51 (100\%) & 0.24 \\
+Física         & 46 & Exp & ---  & ---  & 0.46 & 46 (100\%) & 0.42 \\
+Civil          & 47 & Exp & ---  & ---  & 0.36 & \phantom{0}2 (\phantom{0}4\%) & 1.23 \\
 \bottomrule
-\multicolumn{8}{@{}p{\dimexpr\linewidth-\tabcolsep\relax}}{\footnotesize\raggedright
-  $^\dagger$ $V_{\max}^{\mathrm{MM}} = 3.50$~trim supera el máximo físico
-  ($G_{\max}^{\mathrm{obs}} = 1.56$~trim) porque la curva de Metalurgia no
-  satura en $N \leq 50$; la extrapolación describe la forma, no la ganancia
-  alcanzable.}
 \end{tabular}
 \end{table}
 
 La Tabla~\ref{tab:dosis_respuesta} debe leerse en la columna
 $N_{80}^{\mathrm{obs}}$, el indicador de política:
 \begin{itemize}[leftmargin=2em]
-\item \textbf{Electrónica} y \textbf{Química}: $N_{80} = 8$ y $5$~aristas
-  (15\% y 9\% del total del plan).
+\item \textbf{Electrónica}, \textbf{Química} y \textbf{Ambiental}:
+  $N_{80} = 8$, $5$ y $3$~aristas
+  (15\%, 9\% y 6\% del total del plan).
   Pocas aristas concentran el 80\% del beneficio máximo --- estructura
   Pareto pronunciada, candidatos a reforma quirúrgica.
-\item \textbf{Metalurgia} y \textbf{Física}: $N_{80} = n_{\mathrm{ser}}$
-  (100\% del total).
+\item \textbf{Mecánica}, \textbf{Computación} y \textbf{Física}:
+  $N_{80} = n_{\mathrm{ser}}$ (100\% del total).
   El beneficio se distribuye de forma aproximadamente uniforme entre todas sus
   seriaciones; ninguna arista individual domina.
-\item \textbf{Computación}: $N_{80} = 2$~aristas (4\%), con
-  $G_{\max}^{\mathrm{obs}} = 0.30$~trim.
+\item \textbf{Civil}: $N_{80} = 2$~aristas (4\%), con
+  $G_{\max}^{\mathrm{obs}} = 0.36$~trim.
   La estructura topológica de este plan concentra el impacto en un par de
   aristas, pero la ganancia absoluta es muy pequeña: la restricción dominante
-  en Computación es la carga crediticia histórica, no las seriaciones.
+  en Civil es la carga crediticia histórica, no las seriaciones.
 \end{itemize}
 
 \begin{figure}[H]\centering
@@ -2983,10 +2981,10 @@ de reforma en estos planes no son las seriaciones sino el frente de carga.
 \label{sec:modelo_aditividad}
 
 El índice de aditividad $\mathcal{A}$ (ecuación~\ref{eq:aditividad}) varía
-entre~$0.23$ y~$0.89$ entre planes sin que la sola inspección de la
+entre~$0.24$ y~$1.23$ entre planes sin que la sola inspección de la
 Tabla~\ref{tab:dosis_respuesta} revele qué estructura topológica determina
-si una reforma conjunta será muy subaaditiva ($\mathcal{A}\approx0.23$) o
-casi aditiva ($\mathcal{A}\approx0.89$).
+si una reforma conjunta será muy subaaditiva ($\mathcal{A}\approx0.24$) o
+incluso superaditiva ($\mathcal{A}\approx1.23$).
 Sin esa comprensión, el factor corrector~$\mathcal{A}$ es empírico: aplica
 a los currículos actuales pero no tiene capacidad predictiva para currículos
 modificados, precisamente donde más se necesita.
@@ -3012,13 +3010,12 @@ el diámetro del subgrafo inducido por el subconjunto, $\mathrm{div}_{\mathrm{sr
 $\overline{\mathrm{betw}}_{\mathrm{src}}$ la centralidad de intermediación media
 de los nodos fuente en el grafo acíclico dirigido (DAG) completo.
 El modelo se ajusta sobre los puntos de las curvas dosis-respuesta con ganancia
-combinada positiva y ratio acotado (97~puntos de los 120 totales; los restantes
+combinada positiva y ratio acotado (110~puntos de los 120 totales; los restantes
 corresponden a tramos no-monótonos donde el ratio es inestable).
-El ajuste arroja $R^2=0.22$ (RMSE validación cruzada por plan~$=0.22$):
-los predictores significativos son~$f_{\mathrm{dst}}$ ($t=2.86$, positivo,
-las aristas que convergen al mismo destino interfieren menos entre sí) y
-$\overline{\mathrm{depth}}_{\mathrm{src}}$ ($t=-2.13$, negativo, nodos fuente
-más profundos producen mayor subaditividad).
+El ajuste arroja $R^2=0.09$:
+el único predictor significativo es~$f_{\mathrm{dst}}$ ($t=3.09$, positivo,
+las aristas que convergen al mismo destino interfieren menos entre sí);
+ningún otro predictor topológico alcanza significancia al 5\,\text{\%}.
 El $R^2$ obtenido no alcanza el umbral de~$0.60$ necesario para aplicación
 predictiva directa; el modelo describe la tendencia estructural pero no sustituye
 a la simulación completa para currículos reformados.
@@ -3031,7 +3028,7 @@ a la simulación completa para currículos reformados.
   $\mathcal{A}<1$ indica subaditividad (los efectos se solapan).
   \emph{Izquierda:} valores observados de~$\mathcal{A}(N)$ frente a los predichos
   por regresión de Mínimos Cuadrados Ordinarios~(OLS, por sus siglas en inglés)
-  con cinco predictores topológicos del subconjunto; varianza explicada~$R^2=0.22$,
+  con cinco predictores topológicos del subconjunto; varianza explicada~$R^2=0.09$,
   color por plan.
   \emph{Derecha:} trayectorias observadas de~$\mathcal{A}(N)$ para los diez planes
   en función de la fracción de seriaciones eliminadas; la dispersión inter-plan
@@ -3963,7 +3960,7 @@ a medio trimestre sugiere que estas restricciones están, en promedio, absorbida
 por el parámetro~$\ell$ calibrado.
 
 \textbf{Metalurgia.}
-El valor $\ETtit=16.25$~trim para Metalurgia es una cota inferior.
+El valor $\ETtit=16.73$~trim para Metalurgia es una cota inferior.
 La diferencia con el oficial (22.26~trim) refleja la disponibilidad limitada
 de la estancia industrial (\uea{Trabajo en Planta Metalúrgica}), no ofertada
 todos los trimestres.
@@ -4101,7 +4098,7 @@ Metalurgia representa el caso límite inverso: su alta carga efectiva histórica
 ($c_s=41$~cr/trim) reduce $T_{\min}^{\,\mathrm{carga}}=15$~trimestres por debajo del
 bloqueo topológico (ocho niveles, $T_{\min}^{\,\mathrm{topo}}=9$), haciendo de él
 el único plan donde la remoción total de seriaciones produce eficiencia terminal
-en~12~trimestres ($\mathrm{ET}(12)=10.4\,\text{\%}$).
+en~12~trimestres ($\mathrm{ET}(12)=7.9\,\text{\%}$).
 Esto define dos regímenes de intervención cualitativamente distintos.
 Para los ocho planes dominados por carga, la remoción de seriaciones es la segunda
 prioridad ---real, rentable, pero secundaria--- y debe ir acompañada de medidas que eleven
