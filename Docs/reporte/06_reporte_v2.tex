@@ -1,18 +1,46 @@
-\documentclass[11pt,a4paper]{article}
+\documentclass[11pt,letterpaper]{article}
 
 %──────────────────────────────────────────────────────
 %  Codificación, idioma y fuente
 %──────────────────────────────────────────────────────
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% inputenc/fontenc omitidos: xelatex maneja UTF-8 y codificación de
+% glifos de forma nativa vía fontspec; cargarlos solo produce warnings.
 \usepackage[spanish,mexico]{babel}
 \decimalpoint
+% babel-spanish redefine \min, \max, \lim, \liminf, \limsup e \inf como
+% operadores "acentuados" (mín, máx, ...) vía \es@op@ac@TU, que internamente
+% usa \es@fetchenc para inspeccionar el \mathgroup activo. Bajo xebabel
+% (codificación matemática TU), esa inspección es incompatible con el
+% \edef de expansión pura que usa \caption/\addcontentsline para escribir
+% la entrada de \listoftables en el .aux — cualquier \min o \max dentro de
+% un \caption revienta con "Argument of \es@a has an extra }". No ocurría
+% bajo pdflatex (codificación OT1/T1). \unaccentedoperators desactiva solo
+% el acentuado automático de esos nombres de operador (siguen
+% componiéndose como min/max, sin la tilde española), sin tocar ningún
+% otro comportamiento de babel-spanish; es la mitigación mínima para que
+% el reporte compile con el nuevo motor.
+\unaccentedoperators
 
 \usepackage{geometry}
 \geometry{margin=2.5cm, top=3cm, bottom=3cm}
 
-\usepackage{lmodern}
-\renewcommand{\familydefault}{\sfdefault}
+% Tipografía institucional UAM — Helvetica Neue (manual Acuerdo 06/2012,
+% §4.1, categoría "Primaria"), cargada por nombre real vía fontspec.
+% Requiere xelatex o lualatex (no pdflatex).
+\usepackage{fontspec}
+\setmainfont{Helvetica Neue}[
+  UprightFont    = {Helvetica Neue:style=Regular},
+  BoldFont       = {Helvetica Neue:style=Bold},
+  ItalicFont     = {Helvetica Neue:style=Italic},
+  BoldItalicFont = {Helvetica Neue:style=Bold Italic}
+]
+\renewcommand{\familydefault}{\rmdefault}
+% Menlo (identidad v3): \texttt{} se usa extensamente en este documento
+% (rutas de archivo, nombres de script, código) pero sin \setmonofont caía
+% por defecto en Computer Modern Typewriter --- una familia ajena a
+% Helvetica Neue, no una decisión deliberada. Menlo está disponible en
+% macOS con sus cuatro cortes (Regular/Bold/Italic/Bold Italic).
+\setmonofont{Menlo}
 \usepackage{microtype}
 
 %──────────────────────────────────────────────────────
@@ -23,6 +51,7 @@
 \usepackage{tabularx}
 \usepackage{array}
 \usepackage{multirow}
+\usepackage{colortbl}
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{caption}
@@ -35,74 +64,188 @@
 \usepackage{parskip}
 
 %──────────────────────────────────────────────────────
-%  Encabezados, secciones, cajas, hipervínculos
+%  Encabezados, secciones, cajas, hipervínculos, diagramas
 %──────────────────────────────────────────────────────
 \usepackage{fancyhdr}
 \usepackage{titlesec}
+\usepackage{titletoc}
 \usepackage{tcolorbox}
 \usepackage{hyperref}
-\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,calc}
 
 %──────────────────────────────────────────────────────
-%  Paleta editorial UAM-A
+%  Paleta editorial UAM-A (Acuerdo 06/2012, numeral 5.3 — ver /identidad-uam)
 %──────────────────────────────────────────────────────
-\definecolor{uamred}{RGB}{200,45,35}
-\definecolor{uamlightred}{RGB}{248,232,232}
+\definecolor{uamred}{RGB}{205,3,46}     % oficial Azcapotzalco, Pantone 186 C
+\definecolor{uamlightred}{RGB}{249,230,234}
 \definecolor{uamblue}{RGB}{28,28,28}
 \definecolor{uamgray}{RGB}{100,100,100}
-\definecolor{okgreen}{RGB}{56,142,60}
+% okgreen corregido (identidad v3): blanco sobre el valor original
+% (56,142,60) daba 4.12:1, bajo el umbral WCAG AA de 4.5:1 para el texto
+% normal del chip "LISTO" (\small\bfseries, muy por debajo del piso de
+% "texto grande" que relajaría el umbral a 3:1). Este valor da 7.14:1,
+% verificado por luminancia relativa.
+\definecolor{okgreen}{RGB}{38,100,43}
 \definecolor{codebg}{RGB}{250,250,250}
+\definecolor{hairline}{RGB}{222,222,222}
+% uamlightgray (identidad v3): fondo neutro de las cajas notabox/warnbox/
+% okbox --- gris, no un tinte de ningún color de la paleta, para no romper
+% la regla de un solo acento de color por composición.
+\definecolor{uamlightgray}{RGB}{244,244,244}
+\arrayrulecolor{uamgray} % reglas estructurales (booktabs incl.) en gris;
+  % el rojo queda reservado exclusivamente al dato/acento (ver \dato y
+  % \seccionchip más abajo).
+
+%═════════════════════════════════════════════════════════
+%  SISTEMA DE ENCABEZADOS DE SECCIÓN (identidad v3 --- UAM Bauhaus)
+%  Chip circular, no rectangular: el motivo bauhaus de la portada
+%  (Bloque 2) es un PUNTO --- círculo uamred --- así que el chip de
+%  sección adopta la misma forma en vez de competir con un segundo motivo
+%  geométrico. tcolorbox no ofrece una forma circular nativa que se ajuste
+%  al ancho del contenido, así que el chip se dibuja como un nodo TikZ
+%  (\texttt{shape=circle}), que sí calcula el diámetro a partir del
+%  contenido y se mantiene perfectamente circular con uno o dos dígitos.
+%  \texttt{text height=0.68em, text depth=0pt} centra el número sobre la
+%  tinta (geometría real de un dígito sin descendente), no sobre la caja
+%  tipográfica completa de la fuente.
+%═════════════════════════════════════════════════════════
+\newcommand{\seccionchip}[1]{%
+  \tikz[baseline=(seccionchipnodo.base)]{%
+    \node[circle, fill=uamred, inner sep=0pt, minimum size=1.6em,
+      text height=0.68em, text depth=0pt, align=center,
+      text=white, font=\bfseries\large] (seccionchipnodo) {#1};}%
+}
+
+\titleformat{\section}
+  {\bfseries\Large\color{uamblue}}
+  {\seccionchip{\thesection}}
+  {0.7em}
+  {\addfontfeature{LetterSpace=40}\MakeUppercase}
+  [\vspace{3pt}{\color{hairline}\hrule height 0.5pt}\vspace{8pt}]
+\titlespacing*{\section}{0pt}{4.5ex plus 1ex minus .5ex}{1.5ex}
+
+% Nivel 2 --- marca: sólo el número en rojo, sin caja (jerarquía por
+% densidad de rojo decreciente: círculo sólido -> número suelto -> nada).
+\titleformat{\subsection}
+  {\bfseries\normalsize\color{uamgray}}
+  {\textcolor{uamred}{\thesubsection}}
+  {0.6em}
+  {}
+\titlespacing*{\subsection}{0pt}{3ex plus .5ex}{0.8ex}
+
+% Nivel 3 --- susurro: sin color, solo cursiva gris (Rams: no simular más
+% estructura de la que el contenido tiene).
+\titleformat{\subsubsection}
+  {\itshape\normalsize\color{uamgray}}
+  {}
+  {0em}
+  {}
+\titlespacing*{\subsubsection}{0pt}{2ex plus .3ex}{0.5ex}
 
 %──────────────────────────────────────────────────────
-%  Secciones
+%  Índice: mismo chip circular de sección (\seccionchip), a escala
+%  reducida --- ritmo y repetición (Müller-Brockmann): el mismo círculo,
+%  no una imitación aproximada.
 %──────────────────────────────────────────────────────
-\titleformat{\section}
-  {\large\bfseries\color{uamblue}}
-  {\textcolor{uamred}{\thesection}}{0.8em}{}
-  [\vspace{3pt}\color{uamred}\hrule height 0.5pt\vspace{2pt}]
-\titleformat{\subsection}
-  {\normalsize\bfseries\color{uamblue}}{\thesubsection}{0.8em}{}
-\titleformat{\subsubsection}
-  {\normalsize\itshape\color{uamgray}}{\thesubsubsection}{0.8em}{}
-\titlespacing*{\section}      {0pt}{3.5ex plus 1ex minus .5ex}{1.5ex}
-\titlespacing*{\subsection}   {0pt}{2.5ex plus .5ex}{.8ex}
-\titlespacing*{\subsubsection}{0pt}{1.8ex plus .3ex}{.4ex}
+\newcommand{\seccionchipToc}[1]{%
+  \tikz[baseline=(seccionchiptocnodo.base)]{%
+    \node[circle, fill=uamred, inner sep=0pt, minimum size=1.3em,
+      text height=0.68em, text depth=0pt, align=center,
+      text=white, font=\bfseries\normalsize] (seccionchiptocnodo) {#1};}%
+}
+\titlecontents{section}
+  [0pt]
+  {\addvspace{9pt}\bfseries\color{uamblue}}
+  {\seccionchipToc{\thecontentslabel}\hspace{0.6em}}
+  {}
+  {\normalfont\color{uamgray}\;\titlerule*[0.4pc]{.}\;\contentspage}
+\titlecontents{subsection}
+  [1.7em]
+  {\normalfont\small\color{uamblue}}
+  {\textcolor{uamred}{\thecontentslabel}\hspace{0.5em}}
+  {}
+  {\normalfont\small\color{uamgray}\;\titlerule*[0.4pc]{.}\;\contentspage}
 
 %──────────────────────────────────────────────────────
 %  Cabecera y pie
 %──────────────────────────────────────────────────────
+% El número y el título de sección deben congelarse JUNTOS en una sola
+% marca: si se arma \thesection (contador en vivo) por un lado y
+% \rightmark (basado en marcas, resuelto por página) por otro, ambos pueden
+% desincronizarse en cuanto dos secciones abren en la misma página --- el
+% encabezado mostraría el número de la última sección de la página junto
+% con el título de la primera. \sectionmark congela aquí ambos datos como
+% una sola unidad atómica.
+\renewcommand{\sectionmark}[1]{%
+  \markright{\textcolor{uamred}{\thesection}\quad\textcolor{uamgray}{#1}}}
+% titlesec genera automáticamente un \markright propio para CADA nivel de
+% sectioning (\subsectionmark, \subsubsectionmark), no solo para \section.
+% Sin suprimirlos, la primera subsección u sub-subsección de la página
+% sobrescribe silenciosamente el \markright que \sectionmark acaba de
+% congelar --- el mismo tipo de desincronización que motivó fijar
+% \sectionmark arriba, manifestado un nivel más abajo. Se anulan aquí para
+% que el encabezado derecho refleje siempre la sección, nunca la
+% subsección.
+\renewcommand{\subsectionmark}[1]{}
+\renewcommand{\subsubsectionmark}[1]{}
+\newcommand{\logopie}{\raisebox{-0.03cm}{\includegraphics[height=0.3cm]%
+  {/Users/nowhere/Claude_Projects/Personal/IdentidadGrafica/assets/logos/variacion2_positivo.png}}}
+
 \pagestyle{fancy}\fancyhf{}
-\fancyhead[L]{\small\color{uamgray}Eficiencia Terminal --- División CBI · UAM-A}
-\fancyhead[R]{\small\color{uamgray}Reporte Técnico}
-\fancyfoot[C]{\small\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
-\setlength{\headheight}{15pt}
+% Cajas de ancho fijo en L y R --- no texto suelto --- para que un
+% \rightmark largo (título de sección extenso) jamás pueda invadir
+% horizontalmente el campo izquierdo estático: cada campo envuelve a una
+% segunda línea dentro de su propio ancho en vez de chocar con el otro.
+\fancyhead[L]{\footnotesize\color{uamgray}%
+  \parbox[b]{0.45\headwidth}{\raggedright Eficiencia Terminal en los Planes de Estudio 2020}}
+\fancyhead[R]{\footnotesize\bfseries%
+  \parbox[b]{0.5\headwidth}{\raggedleft\nouppercase{\rightmark}}}
+\fancyfoot[L]{\logopie}
+\fancyfoot[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\headrule}{{\color{hairline}\hrule width\headwidth height\headrulewidth}}
+\setlength{\headheight}{26pt}
+
+% Variante sin el adorno del logotipo en el pie --- portada e índice.
+\fancypagestyle{sinlogo}{%
+  \fancyhf{}
+  \fancyfoot[L]{\logopie}
+  \fancyfoot[R]{\small\thepage}
+}
 
 %──────────────────────────────────────────────────────
-%  Cajas
+%  Cajas (identidad v3): chip sólido \etiquetachip sobre fondo neutro
+%  uamlightgray --- no filete west + tinte translúcido. El color-acento
+%  (uamred/uamgray/okgreen) queda confinado exclusivamente a la masa del
+%  chip; el gris del cuerpo es escala neutra, no un tercer acento, así
+%  que sigue cumpliendo la regla de un solo acento de color por
+%  composición (Judd: el color es una masa, nunca un contorno).
 %──────────────────────────────────────────────────────
 \tcbuselibrary{skins,breakable}
+\newtcbox{\etiquetachip}[1]{on line, arc=0pt, outer arc=0pt,
+  colback=#1, colframe=#1,
+  boxsep=0pt, left=4pt, right=4pt, top=2pt, bottom=2pt,
+  fontupper=\bfseries\color{white}\small\addfontfeature{LetterSpace=20}}
 \newtcolorbox{notabox}{enhanced,breakable,
-  colback=uamlightred,colframe=uamlightred,
-  borderline west={3pt}{0pt}{uamred},
-  sharp corners,left=10pt,right=8pt,top=5pt,bottom=5pt,
-  before upper={\textbf{\color{uamred}Nota}\enspace}}
+  colback=uamlightgray,colframe=hairline,boxrule=0.5pt,
+  sharp corners,left=10pt,right=8pt,top=7pt,bottom=7pt,
+  before upper={\etiquetachip{uamred}{NOTA}\enspace}}
 \newtcolorbox{warnbox}{enhanced,breakable,
-  colback=black!4,colframe=black!4,
-  borderline west={3pt}{0pt}{uamgray},
-  sharp corners,left=10pt,right=8pt,top=5pt,bottom=5pt,
-  before upper={\textbf{Advertencia}\enspace}}
+  colback=uamlightgray,colframe=hairline,boxrule=0.5pt,
+  sharp corners,left=10pt,right=8pt,top=7pt,bottom=7pt,
+  before upper={\etiquetachip{uamgray}{ADVERTENCIA}\enspace}}
 \newtcolorbox{okbox}{enhanced,breakable,
-  colback=green!6,colframe=green!6,
-  borderline west={3pt}{0pt}{okgreen},
-  sharp corners,left=10pt,right=8pt,top=5pt,bottom=5pt}
+  colback=uamlightgray,colframe=hairline,boxrule=0.5pt,
+  sharp corners,left=10pt,right=8pt,top=7pt,bottom=7pt,
+  before upper={\etiquetachip{okgreen}{LISTO}\enspace}}
 
 %──────────────────────────────────────────────────────
 %  Metadatos e hipervínculos
 %──────────────────────────────────────────────────────
 \hypersetup{
-  pdftitle={Eficiencia Terminal en los Planes 2020 --- División CBI UAM-A},
-  pdfauthor={Dr. César Simón López-Monsalvo, UAM-Azcapotzalco},
+  pdftitle={Eficiencia Terminal en los Planes de Estudio 2020 --- División de Ciencias Básicas e Ingeniería, UAM-A},
+  pdfauthor={Dr. César Simón López-Monsalvo, Dr. Román Anselmo Mora Gutiérrez, UAM-Azcapotzalco},
   colorlinks=true,linkcolor=uamblue,urlcolor=uamred}
 
 %──────────────────────────────────────────────────────
@@ -114,55 +257,171 @@
 \newcommand{\ETtit}{\mathbb{E}[T\,|\,\mathrm{tit}]}
 \newcommand{\Pacc}{P_{\mathrm{acc}}}
 
+%═════════════════════════════════════════════════════════
+%  SISTEMA DE DATOS --- "cédula de dato" (identidad v2, aprobado 2026-07-17)
+%  El número mismo es el hecho visual (Judd, "specific objects"): sin caja
+%  de fondo de color, sin sombra --- dos filetes casi imperceptibles
+%  (Agnes Martin) y cifras grandes. El rojo se reserva para UN solo dato
+%  por composición: el hallazgo que sostiene la sección; todo lo demás
+%  vive en uamblue/uamgray. Ver
+%  IdentidadGrafica/assets/demos/reporte_identidad_v2_demo.tex.
+%═════════════════════════════════════════════════════════
+\newcommand{\dato}[3][uamblue]{%
+  \begin{minipage}[t]{\linewidth}
+    \centering
+    {\color{#1}\bfseries\fontsize{27}{27}\selectfont #2}\par
+    \vspace{4pt}
+    {\color{uamgray}\footnotesize\addfontfeature{LetterSpace=30}\MakeUppercase{#3}}\par
+  \end{minipage}%
+}
+
+% Variante para rangos o cifras de más de 4 caracteres ("376--419",
+% "18--21"): mismo tratamiento, escala reducida, para no arriesgar el
+% salto de línea dentro del numeral (regla: cifras cortas usan \dato;
+% rangos o cifras más largas usan \datorango).
+\newcommand{\datorango}[3][uamblue]{%
+  \begin{minipage}[t]{\linewidth}
+    \centering
+    {\color{#1}\bfseries\fontsize{18}{20}\selectfont #2}\par
+    \vspace{6pt}
+    {\color{uamgray}\footnotesize\addfontfeature{LetterSpace=30}\MakeUppercase{#3}}\par
+  \end{minipage}%
+}
+
+% columna de separación: un filete vertical casi imperceptible, no una
+% línea de tabla convencional.
+\newcolumntype{H}{!{\color{hairline}\vrule width 0.5pt}}
+
+\newenvironment{datorow}{%
+  \par\noindent{\color{hairline}\hrule height 0.5pt}\par\vspace{7pt}
+}{%
+  \par\vspace{5pt}{\color{hairline}\hrule height 0.5pt}\par\vspace{4pt}
+}
+
 %══════════════════════════════════════════════════════
 \begin{document}
 %══════════════════════════════════════════════════════
+% uamblue como color de texto por defecto (identidad v3): el cuerpo
+% corrido usaba el negro por defecto de LaTeX (#000000) mientras que los
+% encabezados ya usan uamblue (#1C1C1C) --- dos "negros" casi idénticos
+% pero técnicamente distintos. Los \color{} explícitos que ya existen en
+% portada/cajas/chips siguen aplicando localmente sin cambio.
+\color{uamblue}
 
 %──────────────────────────────────────────────────────
 \begin{titlepage}
-\raggedright\vspace*{0pt}
-\includegraphics[width=0.54\textwidth,trim={48bp 64bp 473bp 35bp},clip]%
-  {/Users/nowhere/Claude_Projects/Personal/logo_UAM.png}\par
-\vspace{0.3cm}
-{\footnotesize\color{uamgray}\MakeUppercase{División de Ciencias Básicas e Ingeniería}}\par
-\vfill
-{\color{uamred}\rule{\linewidth}{1pt}}\par\vspace{0.9cm}
-{\fontsize{28}{34}\selectfont
-  Eficiencia Terminal en los\\[0.05em]
-  Planes de Estudio 2020\\[0.25em]
-  de la División CBI}\par\vspace{0.5cm}
-{\large\color{uamgray}
-  Análisis de seriaciones, modelo probabilístico y hallazgos}\par\vspace{0.9cm}
-{\color{uamred}\rule{\linewidth}{1pt}}\par\vspace{1cm}
-{\normalsize
-  Reporte técnico \quad|\quad
-  %Destinatarios: jefes de departamento, Junta de CBI\\[0.3em]
-  Datos: cohortes UAM-A 16I--25O;\enspace matrícula activa 25-O}\par
-\vfill
-\begin{minipage}[b]{0.6\linewidth}
-  {\small\color{uamgray}
+
+% Escala modular de la portada --- tres peldaños (etiqueta de división,
+% metadatos, título), razón 1.2 desde base 9pt.
+\newcommand{\escCaption}{\fontsize{9pt}{11pt}\selectfont}
+\newcommand{\escMeta}{\fontsize{10.8pt}{13pt}\selectfont}
+\newcommand{\escTitle}{\fontsize{26.9pt}{32pt}\selectfont}
+
+% ══════════════════════════════════════════════════════════════════
+% BLOQUE 1 --- Logotipo y etiqueta de división. INTOCABLE.
+% Logotipo y "División de Ciencias Básicas e Ingeniería" comparten la
+% misma columna de 0.54\textwidth, etiqueta alineada al borde derecho de
+% esa columna. Nada de lo que sigue se coloca por encima del filete que
+% cierra este bloque, así que el área de seguridad del emblema (numeral
+% 2.6 del manual de identidad gráfica UAM, /identidad-uam) queda intacta
+% por construcción.
+% ══════════════════════════════════════════════════════════════════
+\raggedright\vspace*{-25pt}
+\includegraphics[width=0.54\textwidth]%
+  {/Users/nowhere/Claude_Projects/Personal/IdentidadGrafica/assets/tikz/logo_uam_reconstruido.pdf}\par
+\vspace{-0.5cm}
+\begin{minipage}[t]{0.54\textwidth}
+\begin{flushright}
+\raggedright{\escCaption\color{uamgray}\addfontfeature{LetterSpace=54}%
+  \MakeUppercase{División de Ciencias Básicas e }%
+  \textcolor{uamred}{\MakeUppercase{Ingeniería}}}
+\end{flushright}
+\end{minipage}\par
+
+\noindent{\color{hairline}\rule{\linewidth}{0.5pt}}\par
+
+% ══════════════════════════════════════════════════════════════════
+% BLOQUE 2 --- Bauhaus real: plano + punto, color con área genuina.
+% Composición en términos de Kandinsky (Punto y línea sobre el plano,
+% 1926): un PLANO --- rectángulo uamblue de área genuina --- que aloja
+% el título reversado en blanco, y un PUNTO --- círculo uamred que
+% colisiona exactamente con la esquina inferior derecha del plano, mitad
+% dentro/mitad fuera, sangrando hacia el margen físico --- sin
+% transparencia, capa sólida sobre capa sólida ("specific objects" de
+% Judd). La colisión asimétrica en una sola esquina es el eje asimétrico
+% marcado: la composición tiene una dirección, no una simetría
+% decorativa. Referencia directa: el cartel de Herbert Bayer para la
+% "Bauhaus-Ausstellung 1923".
+%
+% \linewidth dentro de \titlepage con letterpaper y margin=2.5cm es
+% 8.5in - 2·2.5cm = 16.59cm --- verificado aritméticamente, no a ojo.
+% Técnica de marcador + overlay (no tikzpicture directo en el flujo, bug
+% conocido de xelatex/pgf que recorta silenciosamente la altura de las
+% formas si el tikzpicture no es el primer material de \titlepage):
+% (1) un marcador de tamaño cero que registra su posición en el .aux
+% durante la primera compilación, y (2) un tikzpicture
+% \texttt{remember picture, overlay} aparte que dibuja relativo a ese
+% marcador. Requiere dos pasadas de xelatex para asentar la posición.
+\def\bhW{16.59}
+\def\bhH{5.4}
+\def\bhR{2.1}
+\noindent\tikz[remember picture]{\coordinate (bloque2mark) at (0,0);}%
+\vspace{\bhH cm}\par % reserva el alto real del plano en el flujo
+
+\begin{tikzpicture}[remember picture, overlay, x=1cm, y=1cm]
+  \fill[uamblue] (bloque2mark) rectangle
+    ($(bloque2mark)+(\bhW,-\bhH)$); % PLANO
+  \fill[uamred] ($(bloque2mark)+(\bhW,-\bhH)$) circle (\bhR); % PUNTO, colisión de esquina
+  \node[anchor=north west, inner sep=0pt] at ($(bloque2mark)+(0.55,-0.6)$) {%
+    \parbox[t]{15.4cm}{\raggedright\color{white}\escTitle
+      Eficiencia Terminal en los\\[0.05em]
+      Planes de Estudio 2020}};
+\end{tikzpicture}
+\vspace{\bhR cm} % reserva el bulto inferior del círculo, sangrado bajo el plano
+
+% Vacío (Ma 間) entre el plano/punto y el bloque de créditos --- valor de
+% partida tomado del archivo de referencia validado
+% (EstrategiaGraduacion/estrategia_graduacion.tex, misma \bhH); verificar
+% por compilación que el bloque de créditos cae bien dentro de la página.
+\vspace{5cm}
+
+\noindent{\color{hairline}\rule{\linewidth}{0.5pt}}\par\vspace{-0.2cm}
+\begin{minipage}[t]{0.6\linewidth}
+  \raggedright{\escMeta\color{uamgray}
     Dr.\ César Simón López-Monsalvo\\[0.2em]
     Dr.\ Román Anselmo Mora Gutiérrez\\[0.2em]
     División de Ciencias Básicas e Ingeniería\\[0.2em]
-    \texttt{cslm@azc.uam.mx},
-    \texttt{mgra@azc.uam.mx}
-    }
+    Universidad Autónoma Metropolitana, Unidad Azcapotzalco (UAM-A)\\[0.2em]
+    \texttt{cslm@azc.uam.mx},\enspace\texttt{mgra@azc.uam.mx}}
 \end{minipage}%
 \hfill
-\begin{minipage}[b]{0.35\linewidth}
-  \raggedleft{\small\color{uamgray}Versión 5.2 (revisión crítica)\\[0.2em]\today}
-\end{minipage}\par\vspace{0.4cm}
+\begin{minipage}[t]{0.35\linewidth}
+  \raggedleft{\escMeta\color{uamgray}Versión\ \textbf{\color{uamred}5.2}\\[0.2em]\today}
+\end{minipage}
+
 \end{titlepage}
 
+% \pagestyle{sinlogo} (persistente, no \thispagestyle) porque el índice de
+% este documento --- 17 secciones con subsecciones y algunos
+% subsubsecciones --- ocupa varias páginas; LaTeX despacha (\shipout) cada
+% página intermedia DURANTE el procesamiento interno de \tableofcontents,
+% antes de que cualquier \thispagestyle posterior a el pueda aplicarse ---
+% sólo la última página del índice alcanzaría a recibirlo. Un
+% \pagestyle persistente cubre todas las páginas que el índice necesite,
+% cualquiera que sea su número, y se revierte a \texttt{fancy} justo
+% después --- verificado por render que no se filtra a la primera página
+% de contenido real.
+\pagestyle{sinlogo}
 \tableofcontents
 \clearpage
+\pagestyle{fancy}
 
 %══════════════════════════════════════════════════════
 \section{Introducción}
 \label{sec:introduccion}
 %══════════════════════════════════════════════════════
 
-\subsection*{Motivación}
+\subsection{Motivación}
 
 La eficiencia terminal universitaria en México registra una de las brechas
 más pronunciadas entre el plazo del plan de estudios y el tiempo real de egreso en el
@@ -187,7 +446,7 @@ El presente reporte cubre esa brecha con un diagnóstico basado en datos
 históricos propios de la institución, un modelo de simulación calibrado y
 un conjunto de herramientas de análisis reproducibles.
 
-\subsection*{Marco normativo}
+\subsection{Marco normativo}
 
 La Ley General de Educación Superior (LGES~\cite{LGES2021}, Arts.~10 y~40--41) establece
 la obligación de las instituciones de educación superior de garantizar
@@ -207,7 +466,7 @@ El análisis jurídico detallado de cada hallazgo y su respaldo legal se
 desarrolla en el documento complementario \texttt{07\_analisis\_juridico.pdf};
 el presente reporte se concentra en la evidencia técnica y cuantitativa.
 
-\subsection*{Antecedente directo}
+\subsection{Antecedente directo}
 
 Este reporte se desprende del análisis del Tronco General Nuevo  (TGNA~\cite{TGNA2026}), que demostró por primera vez que las cadenas de seriación
 del Tronco General actual reducen la fracción de la cohorte con acceso a los
@@ -218,7 +477,7 @@ el análisis al currículo completo de los diez programas de ingeniería:
 498 evaluadas individualmente para impacto marginal sobre~$\ETtit$,
 registros de evaluación 16I--25O y 6\,562~estudiantes activos como horizonte de proyección.
 
-\subsection*{Principales resultados}
+\subsection{Principales resultados}
 
 El hallazgo central del documento es estructural: el currículo 2020 fue diseñado
 para un estudiante que inscribe $\approx 45$~cr/trim, pero la población real
@@ -244,19 +503,20 @@ La profundidad topológica máxima es de 9~niveles (Computación y Electrónica)
 imponiendo una cota de 10~trimestres que permanece por debajo del umbral de~12.
 
 El análisis de impacto marginal revela que la distribución de beneficios sobre las
-499~aristas de seriación sigue una ley de saturación convexa: cada plan alcanza
-el~80\% de su ganancia máxima eliminando entre~2 y~50~aristas ($N_{80}^{\mathrm{obs}}$,
+498~aristas de seriación sigue una ley de saturación convexa: cada plan alcanza
+el~80\% de su ganancia máxima eliminando entre~2 y~51~aristas ($N_{80}^{\mathrm{obs}}$,
 según la Tabla~\ref{tab:dosis_respuesta}), y la arista de mayor impacto individual
 (EDO $\to$ Circuitos Eléctricos~I) aporta $-1.07$~trimestres en Electrónica.
-La ganancia máxima al eliminar todas las seriaciones oscila entre~0.3~trimestres
-(Computación) y~2.2~trimestres (Electrónica); para los planes con restricción
+La ganancia máxima al eliminar todas las seriaciones oscila entre~0.36~trimestres
+(Civil) y~2.04~trimestres (Electrónica); para los planes con restricción
 dominante de carga, esta ganancia no supera los~0.5~trimestres.
 En dos planes (Computación y Física) las curvas dosis-respuesta presentan tramos
 no-monótonos: eliminar seriaciones más allá de un umbral empeora el pronóstico
 por interacciones de grafo.
-En todos los planes la remoción simultánea de seriaciones es subaditiva: la suma
-de los beneficios individuales sobreestima el beneficio conjunto en un factor de
-2--3 (índice de aditividad $\mathcal{A} \in [0.23, 0.89]$).
+En nueve de los diez planes la remoción simultánea de seriaciones es subaditiva:
+la suma de los beneficios individuales sobreestima el beneficio conjunto en un
+factor de hasta~4 (índice de aditividad $\mathcal{A} \in [0.24, 0.61]$); Civil es
+la excepción superaditiva ($\mathcal{A}=1.23$).
 El optimizador de portfolio resuelve este problema identificando el subconjunto
 óptimo de aristas con mayor beneficio neto tras descontar las interacciones
 (véase la Tabla~\ref{tab:dosis_respuesta} y la \S\ref{sec:portfolio}).
@@ -313,7 +573,7 @@ simultánea: el topológico, el de aprobación por UEA, el de carga efectiva de
 inscripción, el docente y el evaluativo.
 Los cinco son necesarios; ninguno es suficiente de forma aislada.
 
-\subsection*{Organización del documento}
+\subsection{Organización del documento}
 
 El documento está estructurado en diecisiete secciones, un glosario final
 y un apéndice de scripts.
@@ -381,12 +641,18 @@ la causa estructural primaria del retraso en el egreso: antes de analizar
 una sola seriación, la aritmética de créditos hace que el egreso a
 12~trimestres sea estadísticamente improbable bajo condiciones históricas.
 
-\begin{okbox}
 \textbf{Diagnóstico estructural.}
-El currículo 2020 de CBI incorpora entre 376 y 419~créditos obligatorios.
-A la carga efectiva histórica ($c_s \approx 27$--$33$~cr/trim), completar
-esos créditos requiere entre 18 y 21~trimestres, independientemente de las
-seriaciones.
+
+\begin{datorow}
+\begin{tabularx}{\linewidth}{X H X}
+  \datorango{376--419}{Créditos obligatorios del plan 2020} &
+  \datorango{18--21}{Trimestres requeridos a carga histórica ($c_s\approx27$--$33$~cr/trim)}
+\end{tabularx}
+\end{datorow}
+
+Ese requisito de créditos, independientemente de las seriaciones, ya alcanza
+para que el egreso al plazo de 12~trimestres resulte estadísticamente
+improbable.
 El modelo Monte Carlo calibrado ($S=20\,000$ trayectorias por plan) predice
 \begin{equation}
   \ET{12} = 0.000\% \quad
@@ -402,7 +668,6 @@ La observación histórica (cohortes 2020--2021) arroja
 \end{equation}
 Los dos intervalos no se solapan.
 El 62.5\% de los 6\,562~estudiantes activos egresará, pero entre los trimestres~17 y~28.
-\end{okbox}
 
 La brecha de 1.5~puntos porcentuales (pp) entre~(\ref{eq:ET12_modelo}) y~(\ref{eq:ET12_obs}) no
 es error del modelo: es la huella de la heterogeneidad individual de carga,
@@ -550,7 +815,7 @@ tarda aproximadamente 4~minutos en hardware convencional.
 Las fases~3--5 (extensiones cuantitativas, índices y complejidad) añaden
 otros 6~minutos en los diez planes.
 
-\subsection*{Fuentes de datos}
+\subsection{Fuentes de datos}
 
 \begin{tabularx}{\linewidth}{@{}l X r@{}}
 \toprule
@@ -584,15 +849,16 @@ otros 6~minutos en los diez planes.
 \begin{tcolorbox}[colback=gray!10, colframe=gray!50, title=Nota sobre recuento de UEAs]
 La cifra de 1\,598 UEAs mencionada en el Antecedente directo es la
 \emph{suma} de UEAs por plan (contando cada UEA una vez por programa
-en que aparece); el grafo unificado contiene 689 UEAs únicas.
+en que aparece); el grafo unificado contiene 688 UEAs únicas (obligatorias
+y optativas).
 El banco de datos \texttt{diccionario\_ueas.json} registra 1\,859 UEAs
-(universo UAM-A completo). De las 689 obligatorias únicas, 639 cuentan
+(universo UAM-A completo). De esas 688 UEAs únicas, 639 cuentan
 con datos completos de evaluación ordinaria y recuperación, y 606
 disponen de las quince variables requeridas por el análisis factorial
 de la \S\ref{sec:factores_uea}.
 \end{tcolorbox}
 
-\subsection*{Fases del análisis}
+\subsection{Fases del análisis}
 
 \textit{Fase~1 --- Extracción y modelado central (scripts 01--10, 30).}
 El script~01 parsea los diez PDFs de planes de estudio, extrae las
@@ -623,7 +889,7 @@ heterogeneidad docente, probabilidad de expulsión y el índice de riesgo
 topológico enriquecido~$\rho_v$ (\S\ref{sec:riesgo_uea}).
 El script~18 produce las estadísticas del cuerpo docente.
 El script~19 profundiza con correlaciones parciales y análisis factorial
-exploratorio (rotación oblimin~\cite{Horn1965}, $N=689$~UEAs, 5~factores).
+exploratorio (rotación oblimin~\cite{Horn1965}, $N=606$~UEAs, 5~factores).
 El bloque de aditividad en \texttt{02\_remocion.R} (que consolida el original
 \texttt{23R}; véase Apéndice~A) ajusta el modelo predictivo de~$\mathcal{A}(N)$
 en R para verificación cruzada.
@@ -649,7 +915,7 @@ por min-max inter-plan, clasifica los planes en tres rangos y cuatro
 arquetipos, y calcula la matriz de acoplamiento entre dimensiones.
 El script~38 produce las cinco figuras del análisis de complejidad.
 
-\subsection*{Infraestructura de software}
+\subsection{Infraestructura de software}
 
 Los grafos de seriación se construyen y analizan con
 \texttt{networkx}~\cite{Hagberg2008}.
@@ -662,7 +928,7 @@ de R con \texttt{ggplot2}~\cite{Wickham2016}, \texttt{dplyr},
 Los archivos de datos externos se leen con \texttt{python-dotenv}
 (credenciales) y \texttt{pdfplumber}/\texttt{pdfminer} (extracción de PDFs).
 
-\subsection*{Estructura de salidas}
+\subsection{Estructura de salidas}
 
 Todos los artefactos se escriben en \texttt{Output/}:
 las figuras de publicación en \texttt{Output/figuras/},
@@ -746,7 +1012,7 @@ Código & UEA & $p_v$ & $\Pacc(v)$ & $\pi_v$ \\
          El total de~1\,210 aristas de seriación es la suma por plan; aristas
          compartidas entre planes (p.\,ej.\ las del Tronco General) se cuentan
          una vez por plan.
-         De estas, 499~fueron evaluadas individualmente para impacto marginal
+         De estas, 498~fueron evaluadas individualmente para impacto marginal
          sobre~$\ETtit$ (las restantes presentan impacto considerablemente menos relevante en el modelo
          y se excluyen del análisis de efecto; véase~\S\ref{sec:efecto}).}
 \label{tab:grafos}
@@ -1443,7 +1709,7 @@ Esta sección aborda la pregunta inversa: ¿qué rasgos estructurales del plan o
 La respuesta permite orientar las decisiones de reforma hacia los factores de mayor palanca antes de analizar cada arista por separado.
 
 El análisis opera en tres niveles jerárquicos: el plan ($N=10$), la UEA
-($N=606$ nodos con datos completos) y la arista de seriación ($N=499$).
+($N=606$ nodos con datos completos) y la arista de seriación ($N=498$).
 El perfil del cuerpo docente ---el cuarto nivel de resolución--- se presenta en la
 \S\ref{sec:perfil_docente}.
 Las correlaciones son de Spearman (sin supuesto de normalidad).
@@ -1456,32 +1722,43 @@ Con sólo diez observaciones, la potencia estadística es limitada.
 Las correlaciones significativas a $p<0.05$ se interpretan como señales cualitativas, no como estimaciones de precisión.
 
 \begin{table}[H]\centering
-\caption{Correlaciones de Spearman entre rasgos estructurales del plan y resultados ($|r_s|>0.60$, $N=10$).
-  Las dos variables de mayor poder predictivo aparecen en \textbf{negrita}.
-  $\mathrm{Trim}_{50}$ = trimestre en que el 50\% de la cohorte ha egresado.}
+\caption{Correlaciones de Spearman entre rasgos estructurales del plan y resultados
+  ($N=10$), recalculadas tras la corrección del error de extracción cruzada en
+  \texttt{Grafos/fis.json} (2026-07-07).
+  Las dos variables que permanecen significativas a~$\alpha=0.05$ aparecen en
+  \textbf{negrita}.
+  $\mathrm{Trim}_{50}$ = trimestre en que el 50\% de la cohorte ha egresado.
+  $^{\dagger}$No alcanza significancia a~$\alpha=0.05$ con los datos corregidos.}
 \label{tab:corr_plan}
 \small
 \begin{tabular}{llccc}
 \toprule
 Resultado & Predictor & Dirección & $r_s$ & $p$ \\
 \midrule
-$\ET{21}$ & \textbf{Fracc.\ UEAs $a_i<0.65$} & alta $\Rightarrow$ menor & $-0.84$ & $0.004$ \\
-$\mathrm{Trim}_{50}$ & \textbf{Fracc.\ UEAs $a_i<0.65$} & alta $\Rightarrow$ tardío & $+0.80$ & $0.005$ \\
-Tasa egreso & \textbf{N seriaciones} & más $\Rightarrow$ menor & $-0.80$ & $0.006$ \\
-$\mathrm{Trim}_{50}$ & Media $a_i$ & alta $\Rightarrow$ pronto & $-0.78$ & $0.008$ \\
-$\ET{24}$ & Media $a_i$ & alta $\Rightarrow$ mayor & $+0.76$ & $0.016$ \\
-Tasa baja & Profundidad topológica & mayor $\Rightarrow$ mayor & $+0.70$ & $0.023$ \\
-Tasa egreso & Profundidad topológica & mayor $\Rightarrow$ menor & $-0.66$ & $0.039$ \\
+Tasa egreso & \textbf{N seriaciones} & más $\Rightarrow$ menor & $-0.94$ & $<0.001$ \\
+$\ET{24}$ & \textbf{Media $a_i$} & alta $\Rightarrow$ mayor & $+0.81$ & $0.005$ \\
+$\mathrm{Trim}_{50}$ & Media $a_i$ & alta $\Rightarrow$ pronto & $-0.63$ & $0.052^{\dagger}$ \\
+Tasa baja & Profundidad topológica & mayor $\Rightarrow$ mayor & $+0.61$ & $0.060^{\dagger}$ \\
+Tasa egreso & Profundidad topológica & mayor $\Rightarrow$ menor & $-0.57$ & $0.088^{\dagger}$ \\
+$\ET{21}$ & Fracc.\ UEAs $a_i<0.65$ & alta $\Rightarrow$ menor & $-0.59$ & $0.073^{\dagger}$ \\
+$\mathrm{Trim}_{50}$ & Fracc.\ UEAs $a_i<0.65$ & alta $\Rightarrow$ tardío & $+0.48$ & $0.158^{\dagger}$ \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Dos variables concentran la mayor parte del poder predictivo (Tabla~\ref{tab:corr_plan}):
-la \emph{fracción de UEAs con tasa de aprobación $a_i<0.65$} y el
-\emph{número absoluto de seriaciones del plan}.
-Planes con muchas UEAs difíciles tardan más en que su cohorte egrese;
-planes con más seriaciones presentan menores tasas de egreso y mayor tasa de baja.
-La profundidad topológica y la tasa media de aprobación son predictores secundarios pero consistentes.
+Una sola variable concentra la mayor parte del poder predictivo
+(Tabla~\ref{tab:corr_plan}): el \emph{número absoluto de seriaciones del plan}.
+Planes con más seriaciones presentan menores tasas de egreso, con una
+asociación que se fortalece respecto al cálculo previo a la corrección de
+Física ($r_s=-0.94$ frente a~$-0.80$).
+La \emph{tasa media de aprobación} predice de forma secundaria la fracción
+egresada a los 24~trimestres.
+La fracción de UEAs difíciles y la profundidad topológica del DAG
+---predictores secundarios en el cálculo previo--- ya no alcanzan
+significancia a~$N=10$ una vez corregido el plan de Física; con una muestra
+de diez planes la potencia estadística es limitada y esto no descarta una
+relación real, pero exige tratar esas dos asociaciones como sugestivas, no
+como hallazgos establecidos.
 
 \begin{figure}[H]\centering
 \includegraphics[width=\linewidth]{../../Output/figuras_correlaciones/fig_02_scatter_plan_lm.pdf}
@@ -1494,30 +1771,41 @@ La profundidad topológica y la tasa media de aprobación son predictores secund
   $\mathrm{Trim}_{50}$ es el trimestre en que el 50\% de la cohorte ha
   egresado, y $\ET{21}$ es la fracción egresada a los 21~trimestres.
   \emph{Superior izquierda}: número de seriaciones vs.\ tasa de egreso
-  ($r_s=-0.80$, $p=0.006$); planes con más de 130~seriaciones concentran
+  ($r_s=-0.94$, $p<0.001$); planes con más de 130~seriaciones concentran
   las menores tasas de egreso.
   \emph{Superior derecha}: fracción de UEAs difíciles vs.\ $\mathrm{Trim}_{50}$
-  ($r_s=+0.80$, $p=0.005$).
+  ($r_s=+0.48$, $p=0.158$, no significativa).
   \emph{Inferior izquierda}: tasa media de aprobación vs.\ $\ET{21}$
-  ($r_s=+0.72$, $p=0.024$).
+  ($r_s=+0.65$, $p=0.043$).
   \emph{Inferior derecha}: profundidad topológica del DAG (grafo acíclico
-  dirigido de seriaciones) vs.\ tasa de baja ($r_s=+0.70$, $p=0.023$).
-  \textbf{Las dos variables con mayor poder predictivo --- número de seriaciones
-  y fracción de UEAs difíciles --- son directamente intervenibles mediante
-  reforma curricular; la asociación persiste al controlar por el tamaño del plan.}}
+  dirigido de seriaciones) vs.\ tasa de baja ($r_s=+0.61$, $p=0.060$, no
+  significativa en bivariado; ver control por tamaño del plan más abajo).
+  \textbf{La variable con mayor poder predictivo --- número de seriaciones ---
+  es directamente intervenible mediante reforma curricular; la asociación se
+  fortalece al controlar por el tamaño del plan. La fracción de UEAs difíciles,
+  que en el cálculo previo a la corrección de Física aparecía como el segundo
+  predictor más fuerte, ya no alcanza significancia con los datos corregidos.}}
 \label{fig:scatter_plan}
 \end{figure}
 
-La Figura~\ref{fig:scatter_plan} ilustra las cuatro relaciones más fuertes.
+La Figura~\ref{fig:scatter_plan} ilustra las cuatro relaciones examinadas.
 El plan Industrial ocupa el extremo favorable en prácticamente todos los paneles:
-pocas seriaciones (83), alta tasa media de aprobación ($\bar{a}=0.80$), menor profundidad topológica (5) y la menor tasa de baja de la División (32.5\%).
-Electrónica ocupa el polo opuesto: profundidad~9, 139~seriaciones y la tasa de egreso más baja (57.5\%).
-Computación tiene el mayor número absoluto de seriaciones (157) y la segunda tasa de egreso más baja (59.6\%).
+pocas seriaciones (83), alta tasa media de aprobación ($\bar{a}\approx0.79$), menor profundidad topológica (5) y la menor tasa de baja de la División (34.7\%).
+Electrónica ocupa el polo opuesto: profundidad~9, 139~seriaciones y la tasa de egreso más baja (53.4\%).
+Computación tiene el mayor número absoluto de seriaciones (157) y la segunda tasa de egreso más baja (55.4\%).
 
 Para descartar que la correlación $n_\text{seriaciones} \to$ tasa de egreso sea un artefacto de planes más grandes ---que naturalmente tienen más seriaciones y más UEAs difíciles---, se calculan correlaciones parciales de Spearman con dos controles independientes.
-El efecto persiste al controlar por $n_\text{UEAs}$: $r_\text{parcial} = -0.756$ ($p=0.018$); y también al controlar por $\bar{a}_i$: $r_\text{parcial} = -0.649$ ($p=0.058$).
-Análogamente, el efecto de la profundidad topológica sobre la tasa de baja es robusto al control por $n_\text{UEAs}$: $r_\text{parcial} = +0.746$ ($p=0.021$).
-Esto descarta el confusor de escala del plan y es consistente con una relación estructural entre la arquitectura de seriaciones ---más que el simple tamaño del currículo--- y las restricciones de acceso a la trayectoria de egreso.
+El efecto persiste al controlar por $n_\text{UEAs}$: $r_\text{parcial} = -0.859$ ($p=0.003$); y también al controlar por $\bar{a}_i$: $r_\text{parcial} = -0.846$ ($p=0.004$).
+La profundidad topológica sobre la tasa de baja, que en bivariado ya no alcanza
+significancia (Tabla~\ref{tab:corr_plan}), sí resulta significativa al controlar
+por~$n_\text{UEAs}$: $r_\text{parcial} = +0.751$ ($p=0.020$) --- el tamaño del
+plan actúa como factor de confusión que enmascara parcialmente esta asociación
+en el análisis bivariado.
+Esto descarta el confusor de escala del plan para el número de seriaciones y
+es consistente con una relación estructural entre la arquitectura de
+seriaciones ---más que el simple tamaño del currículo--- y las restricciones
+de acceso a la trayectoria de egreso; la profundidad topológica requiere el
+control por tamaño para manifestarse como predictor robusto.
 
 \begin{figure}[H]\centering
 \includegraphics[width=\linewidth]{../../Output/figuras_correlaciones/fig_03_paralelas.pdf}
@@ -1695,7 +1983,7 @@ expulsión sobre las posiciones individuales.
 \end{figure}
 
 La Figura~\ref{fig:bottleneck} pone de manifiesto que la gran mayoría de las
-689~UEAs del grafo unificado tiene centralidad nula o próxima a cero (no están
+688~UEAs del grafo unificado tiene centralidad nula o próxima a cero (no están
 en caminos críticos del DAG).
 El contraste estadístico entre el 20\% de UEAs con mayor~$\rho_v$ (cuellos de
 botella) y el 80\% restante es significativo en todas las variables relevantes
@@ -1719,14 +2007,14 @@ de cada arista individual.
 \end{notabox}
 
 \noindent\textbf{Nota sobre el universo de aristas.} El análisis de
-impacto marginal (\S\ref{sec:efecto}) evaluó 499
+impacto marginal (\S\ref{sec:efecto}) evaluó 498
 aristas con efecto no nulo sobre $\ETtit$. El
 análisis de correlación de esta sección opera sobre ese mismo universo
-($N=499$ aristas con datos estructurales completos para la regresión),
+($N=498$ aristas con datos estructurales completos para la regresión),
 confirmado por el archivo \texttt{Output/R\_analisis/edge\_features.csv}
-(499 filas de datos).
+(498 filas de datos).
 
-La distribución del impacto marginal $|\Delta\ETtit|$ sobre las 499~seriaciones
+La distribución del impacto marginal $|\Delta\ETtit|$ sobre las 498~seriaciones
 evaluadas es fuertemente asimétrica.
 
 \begin{figure}[H]\centering
@@ -1739,7 +2027,7 @@ evaluadas es fuertemente asimétrica.
   ordenadas de mayor a menor y coloreadas por plan.
   La seriación Ecuaciones Diferenciales Ordinarias $\to$ Circuitos Eléctricos~I
   (plan Electrónica) lidera con $|\Delta\ETtit|=1.07$~trimestres.
-  \emph{Derecha}: curva de Lorenz del impacto acumulado sobre las 499~seriaciones
+  \emph{Derecha}: curva de Lorenz del impacto acumulado sobre las 498~seriaciones
   evaluadas; el eje horizontal es la fracción de aristas (ordenadas de mayor a
   menor impacto) y el eje vertical es la fracción acumulada del impacto total.
   \textbf{El 26.5\% de las aristas de seriación concentra el 80\% del
@@ -1749,12 +2037,12 @@ evaluadas es fuertemente asimétrica.
 \label{fig:pareto}
 \end{figure}
 
-El 26.5\% de las aristas evaluadas (132 de 499) concentra el 80\% del impacto total
+El 26.5\% de las aristas evaluadas (132 de 498) concentra el 80\% del impacto total
 sobre $\ETtit$ (Figura~\ref{fig:pareto}).
 Los modelos de regresión múltiple que intentan predecir $|\Delta\ETtit|$ a partir
 de rasgos estructurales del nodo fuente alcanzan $R^2\approx 2$--$4\,\text{\%}$:
 el impacto no es bien predicho por características individuales.
-El análisis de Spearman sobre las 499~aristas confirma esta baja predictabilidad:
+El análisis de Spearman sobre las 498~aristas confirma esta baja predictabilidad:
 el número de descendientes del nodo fuente ($r_s = -0.017$, $p = 0.71$) y su
 centralidad de intermediación ($r_s = 0.004$, $p = 0.93$) no predicen el impacto
 de una arista específica, aunque ambas métricas sí predicen el impacto
@@ -2146,7 +2434,7 @@ La mediana divisional de~$a_d$ es~$\mathbf{0.744}$
 ($Q_1=0.606$, $Q_3=0.828$, rango intercuartílico~0.222).
 El~31.3\% de los 738~docentes CBI presenta~$a_d < 0.65$ ---el umbral
 de riesgo alto en el mapa de UEAs--- y el~11.2\% cae por debajo de~0.50.
-El rendimiento académico mediano es~6.32/10.
+El rendimiento académico mediano es~6.09/10.
 Cada profesor imparte, en promedio, 8.6~UEAs distintas en el periodo analizado.
 
 \begin{figure}[H]\centering
@@ -2491,9 +2779,9 @@ acotado por el total de seriaciones del plan ($N \leq n_{\mathrm{ser}}$).
 Cuando la curva no alcanza la saturación dentro de ese dominio, el valor
 $V_{\max}$ extrapolado supera la ganancia físicamente posible y carece de
 interpretación directa de política.
-El caso más claro es Metalurgia: el modelo estima $V_{\max} = 3.50$~trim, pero
-la ganancia observada al eliminar \emph{todas} sus seriaciones es solo
-$G_{\max}^{\mathrm{obs}} = 1.56$~trim.
+El caso más claro es Metalurgia: el modelo Michaelis-Menten estima
+$V_{\max} = 3.33$~trim, pero la ganancia observada al eliminar \emph{todas}
+sus seriaciones es solo $G_{\max}^{\mathrm{obs}} = 1.74$~trim.
 La magnitud relevante para la política es siempre $G_{\max}^{\mathrm{obs}}$;
 $V_{\max}$ y $K_M$ describen únicamente la \emph{forma} de la curva.
 
@@ -2541,7 +2829,7 @@ en la Tabla~\ref{tab:dosis_respuesta}.
   Línea discontinua: modelo alternativo.
   La línea punteada horizontal señala~$V_{\max}$ cuando supera~$G_{\max}^{\mathrm{obs}}$
   en más del 10\% (extrapolación fuera del dominio físico; caso evidente en
-  Metalurgia: $V_{\max}=3.50$ frente a~$G_{\max}^{\mathrm{obs}}=1.56$~trim).
+  Metalurgia: $V_{\max}=3.33$ frente a~$G_{\max}^{\mathrm{obs}}=1.74$~trim).
   La línea gris vertical marca~$N_{80}^{\mathrm{obs}}$, el número mínimo de
   seriaciones necesario para capturar el 80\% de~$G_{\max}^{\mathrm{obs}}$.}
 \label{fig:sat_curvas}
@@ -2553,8 +2841,8 @@ en la Tabla~\ref{tab:dosis_respuesta}.
   de seriaciones para capturar el 80\% de la ganancia máxima observada~$G_{\max}^{\mathrm{obs}}$,
   estimado directamente en la simulación) y~$N_{80}^{\mathrm{modelo}}$ predicho
   por el ajuste de menor Criterio de Información de Akaike~(AIC).
-  La discrepancia en Metalurgia ($N_{80}^{\mathrm{MM}}=319$ vs.\
-  $N_{80}^{\mathrm{obs}}=50$) refleja extrapolación fuera del dominio físico:
+  La discrepancia en Metalurgia ($N_{80}^{\mathrm{MM}}=201$ vs.\
+  $N_{80}^{\mathrm{obs}}=20$) refleja extrapolación fuera del dominio físico:
   la curva no alcanza saturación, por lo que el modelo Michaelis-Menten~(MM)
   proyecta~$N_{80}$ a un valor irreal.
   \emph{Derecha:} diferencia de AIC entre modelos
@@ -2670,10 +2958,10 @@ $N_{80}^{\mathrm{obs}}$, el indicador de política:
   discontinua es el ajuste de Michaelis-Menten (MM) o exponencial según el
   plan; el rombo rojo marca $N_{80}^{\mathrm{obs}}$ (número mínimo de aristas
   para capturar el 80\% de la ganancia máxima observada~$G_{\max}$).
-  \emph{Izquierda}: Electrónica, $G_{\max}=2.18$~trim, $N_{80}=8$~aristas
+  \emph{Izquierda}: Electrónica, $G_{\max}=2.04$~trim, $N_{80}=8$~aristas
   (15\% del plan).
-  \emph{Centro}: Química, $G_{\max}=1.49$~trim, $N_{80}=5$~aristas (9\%).
-  \emph{Derecha}: Metalurgia, $G_{\max}=1.56$~trim, $N_{80}=50$~aristas (100\%).
+  \emph{Centro}: Química, $G_{\max}=1.33$~trim, $N_{80}=5$~aristas (9\%).
+  \emph{Derecha}: Metalurgia, $G_{\max}=1.74$~trim, $N_{80}=20$~aristas (40\%).
   \textbf{La morfología radicalmente distinta ilustra dos perfiles estratégicos:
   Electrónica y Química permiten una reforma quirúrgica acotada (pocas aristas
   capturan casi todo el beneficio), mientras Metalurgia requiere intervenir la
@@ -2685,10 +2973,17 @@ La Figura~\ref{fig:curvas_top3} amplía los tres planes de mayor ganancia.
 En Electrónica y Química la curva se aplana de forma nítida alrededor
 de~$N_{80}$ y las réplicas convergen: cada arista adicional más allá de ese
 umbral aporta menos de 0.05~trim.
-En Metalurgia la curva crece de manera aproximadamente lineal hasta $N = 50$
-sin mostrar saturación, lo que implica que el beneficio de la reforma crece
-con el alcance de la intervención y que cualquier subconjunto de seriaciones
-será subóptimo.
+En Metalurgia la curva satura de forma mucho más gradual: el 80\% de la
+ganancia máxima se alcanza hasta $N=20$ (40\% de sus seriaciones), muy por
+encima del umbral de Electrónica o Química pero por debajo de la totalidad
+del plan.
+El ajuste exponencial subyacente extrapola una saturación aún más lenta
+(el 95\% del beneficio requeriría, según el modelo, cerca de 98~aristas,
+fuera del dominio físico de 50), lo que confirma que $G_{\max}^{\mathrm{obs}}$
+---no el parámetro ajustado del modelo--- es la magnitud relevante para la
+política: una reforma acotada a las 20~aristas de mayor impacto captura ya la
+mayor parte del beneficio alcanzable, aunque el margen restante siga siendo
+mayor que en los planes de saturación abrupta.
 
 \subsection{Portfolio quirúrgico: aristas prioritarias para intervención}
 \label{sec:portfolio}
@@ -2808,13 +3103,17 @@ en el DAG; eliminar la primera arista libera parte del cuello de botella y la
 segunda, que comparte ese nodo fuente, aporta un beneficio ya parcialmente
 capturado.
 
-\noindent\textbf{Universalidad de la subaditividad.}
-En todos los planes y para todo~$N > 1$ la subaditividad es estadísticamente
-significativa.
+\noindent\textbf{Predominio de la subaditividad.}
+En nueve de los diez planes y para todo~$N > 1$ la subaditividad es
+estadísticamente significativa.
 Los índices evaluados en $N_{80}^{\mathrm{obs}}$ oscilan entre
-$\mathcal{A} = 0.23$ (Mecánica) y $\mathcal{A} = 0.89$ (Metalurgia): la suma
-de los impactos marginales individuales sobreestima el beneficio combinado en
-un factor de 1.1 a 4.3 según el plan.
+$\mathcal{A} = 0.24$ (Computación) y $\mathcal{A} = 0.61$ (Metalurgia) en esos
+nueve planes: la suma de los impactos marginales individuales sobreestima el
+beneficio combinado en un factor de hasta~4.
+Civil es la única excepción: en $N_{80}^{\mathrm{obs}}=2$ sus dos aristas de
+mayor impacto no comparten nodo fuente ni destino, de modo que
+$\mathcal{A}=1.23$ y la suma de marginales \emph{subestima} el beneficio
+combinado observado.
 
 \noindent\textbf{Variación con~$N$.}
 La Figura~\ref{fig:mapa_aditividad} muestra cómo evoluciona $\mathcal{A}(N)$
@@ -2906,15 +3205,18 @@ institucional debe escalarse por~$\mathcal{A}$.
 La Figura~\ref{fig:remocion_resumen} sintetiza los resultados en cuatro
 paneles.
 El panel~(A) confirma la escala de las ganancias: Electrónica lidera
-(2.18~trim), seguida por Química y Metalurgia ($\approx 1.5$~trim), mientras
-que Computación e Industrial presentan la ganancia potencial más baja
+(2.04~trim), seguida por Metalurgia (1.74~trim) y Química (1.33~trim), mientras
+que Física y Civil presentan la ganancia potencial más baja
 ($< 0.5$~trim).
 El panel~(B) muestra que la fracción $N_{80}/n_{\mathrm{ser}}$ no guarda
 relación con el tamaño total del plan: un plan grande no es necesariamente más
 fácil de reformar de forma quirúrgica.
-El panel~(C) confirma que todos los índices $\mathcal{A}(N_{80})$ se sitúan
-por debajo de la unidad --- subaditividad universal --- con Mecánica en el
-extremo inferior (0.23) y Metalurgia en el superior (0.89).
+El panel~(C) muestra que la mayoría de los índices $\mathcal{A}(N_{80})$ se
+sitúan por debajo de la unidad --- subaditividad predominante, con Computación
+en el extremo inferior (0.24) ---, salvo Civil, que resulta \emph{superaditivo}
+($\mathcal{A}=1.23$): sus dos aristas de mayor impacto en~$N_{80}$ no se
+solapan y la ganancia combinada observada supera la suma de los efectos
+marginales individuales.
 El panel~(D) es el más informativo para la política: las curvas de Lorenz de
 Electrónica y Química se alejan pronunciadamente de la diagonal, señal de que
 un conjunto pequeño de aristas captura casi toda la mejora y la reforma puede
@@ -2923,13 +3225,18 @@ señal de que el beneficio está distribuido y la reforma efectiva requiere una
 intervención mucho más amplia.
 
 \begin{notabox}
-La subaditividad es una propiedad topológica inevitable: las aristas de mayor
+La subaditividad es la regla en la mayoría de los planes: las aristas de mayor
 impacto individual convergen en los mismos nodos fuente (EDO, Termodinámica)
 y sus efectos se solapan cuando se eliminan juntas.
 Sumar los impactos marginales individuales sobreestima el beneficio de la
-remoción conjunta en un factor de 1.1 a 4.3 según el plan.
-El índice $\mathcal{A}$ corrige esta sobreestimación; debe aplicarse siempre
-antes de presentar proyecciones de ganancia como compromiso institucional.
+remoción conjunta en un factor de hasta~4.2 (Computación, el caso más
+solapado).
+Civil es la excepción: sus dos aristas de~$N_{80}$ no comparten nodo fuente
+ni destino, de modo que la suma de marginales \emph{subestima} en~18\% la
+ganancia combinada observada ($\mathcal{A}=1.23$).
+El índice $\mathcal{A}$ corrige esta desviación en ambos sentidos; debe
+aplicarse siempre antes de presentar proyecciones de ganancia como compromiso
+institucional.
 \end{notabox}
 
 \subsection{Optimizador de portfolio para planes con curvas no-monótonas}
@@ -3067,36 +3374,48 @@ menor número de cambios curriculares.
   aristas).
   Las líneas discontinuas son las medianas de cada eje sobre los diez planes.
   \textbf{El cuadrante superior izquierdo (alta ganancia + intervención
-  concentrada) es el de mayor retorno institucional: Electrónica y Química
-  se ubican aquí, con ganancias de 2.18 y 1.49~trimestres alcanzables con
-  solo 8 y 5~seriaciones respectivamente, lo que los convierte en los
-  candidatos prioritarios para una reforma quirúrgica de los planes 2020.}}
+  concentrada) es el de mayor retorno institucional: Electrónica, Química,
+  Ambiental y Eléctrica se ubican aquí, con ganancias de entre 0.83 y
+  2.04~trimestres alcanzables con 15\% o menos de sus seriaciones (Ambiental
+  y Eléctrica quedan en este mismo cuadrante pese a su menor ganancia
+  absoluta, porque concentran el beneficio en una fracción reducida de
+  aristas), lo que los convierte en los candidatos prioritarios para una
+  reforma quirúrgica de los planes 2020.}}
 \label{fig:clasificacion}
 \end{figure}
 
-\textbf{Electrónica} y \textbf{Química} (cuadrante
-\emph{quirúrgico}): ganancia alta ($G_{\max} > 1.4$~trim) con
-$N_{80} < 16\,\text{\%}$ del total.
-Son los candidatos prioritarios de la División para reforma focalizada.
+\textbf{Electrónica}, \textbf{Química}, \textbf{Ambiental} y
+\textbf{Eléctrica} (cuadrante \emph{quirúrgico}, por encima de la mediana
+divisional de ganancia y por debajo de la mediana de esfuerzo de
+intervención): ganancia de 0.83 a 2.04~trim con $N_{80} \leq 29\,\text{\%}$
+del total.
+Son los cuatro candidatos prioritarios de la División para reforma
+focalizada; Electrónica y Química ofrecen la mayor ganancia absoluta
+(2.04 y 1.33~trim con apenas 15\% y 9\% de sus seriaciones), mientras que
+Ambiental y Eléctrica alcanzan ganancias más modestas pero igualmente
+concentradas (6\% y 29\% de sus seriaciones, respectivamente).
 
-\textbf{Ambiental}, \textbf{Eléctrica} y \textbf{Metalurgia} (cuadrante de
-\emph{reforma amplia}): ganancias sustanciales (1.04--1.56~trim) pero
-$N_{80} \geq 20\,\text{\%}$, lo que exige intervenir una fracción considerable
-de las seriaciones.
-En Metalurgia, $N_{80} = 100\,\text{\%}$ y la disponibilidad de la estancia
-industrial añade una restricción extracurricular al alcance de la reforma.
+\textbf{Metalurgia} (cuadrante de \emph{reforma amplia}, único plan en este
+cuadrante): ganancia sustancial (1.74~trim) pero $N_{80}=40\,\text{\%}$, lo
+que exige intervenir una fracción considerable de las seriaciones; la
+disponibilidad de la estancia industrial añade además una restricción
+extracurricular al alcance de la reforma.
 
-\textbf{Civil}, \textbf{Computación} e \textbf{Industrial} (cuadrante
-\emph{focal}): ganancia baja (0.30--0.50~trim) con $N_{80} < 20\,\text{\%}$.
-En Computación, dos aristas concentran el máximo beneficio topológico
-($G_{\max} = 0.30$~trim, $N_{80} = 4\,\text{\%}$); la restricción dominante
-es la carga crediticia histórica.
+\textbf{Civil} (cuadrante \emph{focal}): ganancia baja (0.36~trim) con
+$N_{80}=4\,\text{\%}$ del total --- dos aristas concentran el máximo
+beneficio topológico alcanzable, pero la ganancia absoluta es pequeña; la
+restricción dominante en Civil es la carga crediticia histórica, no las
+seriaciones.
 
-\textbf{Física} y \textbf{Mecánica} (cuadrante \emph{distribuido}): ganancia
-baja (0.58--0.63~trim) con $N_{80} \geq 31\,\text{\%}$.
-En estos planes la inversión en reforma topológica produce retornos menores que
-en los cuadrantes quirúrgico o de reforma amplia; la prioridad debería
-orientarse a la carga académica y al apoyo en UEAs críticas.
+\textbf{Mecánica}, \textbf{Industrial}, \textbf{Computación} y
+\textbf{Física} (cuadrante \emph{distribuido}): ganancia baja (0.46 a
+0.59~trim) con $N_{80} \geq 51\,\text{\%}$ del total (100\% en Mecánica,
+Computación y Física).
+En estos cuatro planes el beneficio topológico está disperso entre muchas
+aristas y la inversión en reforma de seriaciones produce retornos menores
+que en los otros tres cuadrantes; la prioridad debería orientarse a la carga
+académica y al apoyo en UEAs críticas antes que a la remoción de
+seriaciones.
 
 %══════════════════════════════════════════════════════
 \section{Índices de prelación: incentivos de inscripción y penalización topológica}
@@ -3995,7 +4314,7 @@ homogeneización docente no están reflejados en las proyecciones de~$\ETtit$.
 El módulo~21 (\S\ref{sec:varianza_docente}) cuantifica este efecto mediante un
 modelo extendido que sortea docente por UEA$\times$trimestre.
 
-\subsection*{Alcance jurídico}
+\subsection{Alcance jurídico}
 \label{sec:alcance_juridico}
 
 El presente reporte es un diagnóstico técnico interno elaborado con fines de
@@ -4274,18 +4593,20 @@ La intervención más rentable combina por tanto \emph{reducción de seriaciones
 salientes} con \emph{homogeneización de la práctica docente} en estos nodos.
 
 \textbf{Sexto}: el impacto de las seriaciones sigue una distribución de Pareto
-marcada: el 26.5\% de las aristas (132 de 499) concentra el 80\% del impacto
+marcada: el 26.5\% de las aristas (132 de 498) concentra el 80\% del impacto
 total sobre~$\ETtit$.
 Esto hace posible concentrar la revisión curricular en un conjunto reducido de
 seriaciones de alto impacto en lugar de revisar las más de 1\,200~relaciones del
 currículo completo.
 
-\textbf{Séptimo}: la remoción \emph{simultánea} de seriaciones es siempre
-subaaditiva (§\ref{sec:dosis_respuesta}): el beneficio combinado de eliminar
-$N$~aristas a la vez es una fracción~$\mathcal{A}\in[0.23,\,0.89]$ del resultado
-que predice la suma de los efectos marginales individuales.
+\textbf{Séptimo}: la remoción \emph{simultánea} de seriaciones es subaditiva en
+nueve de los diez planes (§\ref{sec:dosis_respuesta}): el beneficio combinado
+de eliminar $N$~aristas a la vez es una fracción~$\mathcal{A}\in[0.24,\,0.61]$
+del resultado que predice la suma de los efectos marginales individuales en
+nueve de los diez planes, salvo en Civil, donde resulta superaditivo
+($\mathcal{A}=1.23$).
 Sin embargo, la curva dosis-respuesta muestra saturación temprana en los planes más
-críticos: en Electrónica se captura el 80\% de la ganancia máxima (2.18~trim) con
+críticos: en Electrónica se captura el 80\% de la ganancia máxima (2.04~trim) con
 sólo 8~seriaciones (15\% del total); en Química, con apenas 5~seriaciones (9\%).
 Las curvas de Lorenz (Figura~\ref{fig:remocion_resumen}D) cuantifican este efecto
 de concentración para cada plan y permiten diseñar reformas quirúrgicas con tamaño
@@ -4428,7 +4749,7 @@ Los cinco son necesarios; ninguno es suficiente de forma aislada.
 \addcontentsline{toc}{section}{Glosario de abreviaturas y notación}
 %══════════════════════════════════════════════════════
 
-\subsection*{Siglas institucionales y de proceso académico}
+\subsection{Siglas institucionales y de proceso académico}
 
 \begin{tabularx}{\linewidth}{@{}lX@{}}
 \toprule
@@ -4483,7 +4804,7 @@ UEA     & Unidad de Enseñanza-Aprendizaje; la asignatura o materia en la
 \end{tabularx}
 
 \bigskip
-\subsection*{Notación matemática principal}
+\subsection{Notación matemática principal}
 
 \begin{tabularx}{\linewidth}{@{}lX@{}}
 \toprule
@@ -4541,7 +4862,7 @@ $\delta a = a_i(\mathrm{rec})-a_i(\mathrm{eval})$
 \end{tabularx}
 
 \bigskip
-\subsection*{Factores del análisis factorial de UEA (\S\ref{sec:factores_uea})}
+\subsection{Factores del análisis factorial de UEA (\S\ref{sec:factores_uea})}
 
 \begin{tabularx}{\linewidth}{@{}lX@{}}
 \toprule
@@ -4802,7 +5123,17 @@ MR5 & Recuperabilidad y peso crediticio: carga alta en fracción de
 \section*{Apéndice A\@.~Inventario de scripts de análisis}
 \addcontentsline{toc}{section}{Apéndice A. Inventario de scripts de análisis}
 %══════════════════════════════════════════════════════
-
+% sloppypar (identidad v3, ajuste tipográfico puro, sin tocar una sola
+% palabra del inventario): esta sección alterna nombres de script en
+% \texttt{} --- sin puntos de guionado --- con prosa descriptiva; bajo la
+% tipografía Helvetica Neue del cuerpo, varios de esos párrafos producían
+% \texttt{Overfull \\hbox} de hasta 8.3cm (237pt) porque un token
+% \texttt{} largo sin punto de quiebre no encuentra dónde romper línea.
+% \texttt{sloppypar} (entorno del núcleo de LaTeX, sin paquete adicional)
+% permite que TeX estire el espaciado entre palabras con más margen antes
+% de forzar una caja desbordada --- solo afecta el interlineado/espaciado,
+% nunca el texto.
+\begin{sloppypar}
 Los scripts residen en \texttt{Admin\_duties/Metanalisis/Analisis/}.
 Los prefijos numéricos indican el orden de ejecución; los scripts
 R~\cite{RCoreTeam2024} son independientes entre sí y pueden ejecutarse en
@@ -4813,7 +5144,7 @@ compartido \texttt{simulacion.py}), 6~scripts R de análisis estadístico
 consolidados, 5~scripts de gestión institucional en \texttt{delivery/}
 y 4~utilidades en \texttt{utils/}.
 
-\subsection*{Módulo compartido}
+\subsection{Módulo compartido}
 
 \texttt{simulacion.py}
 es el núcleo importable del sistema: implementa el motor Monte Carlo trimestre
@@ -4826,7 +5157,7 @@ $c_0=45$~cr/trim y $\sigma_0=0.6$, así como las rutas canónicas
 Todos los scripts de análisis (05--37) lo importan; la modificación de
 cualquier parámetro en este módulo propaga automáticamente a todo el sistema.
 
-\subsection*{Núcleo del análisis (scripts 01--10, 18, 30)}
+\subsection{Núcleo del análisis (scripts 01--10, 18, 30)}
 
 \texttt{01\_extraer\_seriaciones.py}
 construye el grafo canónico de seriaciones de los diez planes~2020:
@@ -4893,7 +5224,7 @@ de carga no modelada (\S\ref{sec:hallazgo}).
 Salida: \texttt{Output/datos/simulacion/incertidumbre\_ET12.csv},
         \texttt{Output/figuras/fig\_incertidumbre\_ET12.pdf}.
 
-\subsection*{Módulos de análisis cuantitativo (scripts 20--24)}
+\subsection{Módulos de análisis cuantitativo (scripts 20--24)}
 
 \texttt{20\_descomposicion\_carga.py}
 descompone la carga efectiva histórica~$c_s$ en componente estructural
@@ -4928,7 +5259,7 @@ segundo panel de comparación de parámetros.
 Salida: \texttt{Output/figuras\_correlaciones/fig\_sat\_curvas.pdf},
         \texttt{fig\_sat\_params.pdf}.
 
-\subsection*{Módulos de índices de desempeño y prelación (\S\ref{sec:indice_desempenio})}
+\subsection{Módulos de índices de desempeño y prelación (\S\ref{sec:indice_desempenio})}
 
 \texttt{31\_indice\_desempenio\_simulacion.py}
 simula trayectorias del índice~$P$ vigente (Acuerdo~551.4.4.1-2015) y del
@@ -4968,7 +5299,7 @@ Consolida los scripts previamente independientes
 \texttt{32\_analisis\_indice\_P.R}, \texttt{34\_analisis\_estrategias.R}
 y~\texttt{36\_analisis\_indice\_h.R}.
 
-\subsection*{Módulo de complejidad sistémica (\S\ref{sec:complejidad})}
+\subsection{Módulo de complejidad sistémica (\S\ref{sec:complejidad})}
 
 \texttt{37\_complejidad\_global.py}
 construye el índice compuesto de complejidad sistémica~$C\in[0,1]$ sobre
@@ -4990,7 +5321,7 @@ frente a~$\ETtit$ y tasa de egreso, matriz de acoplamiento inter-dimensional
 (Spearman) y descomposición apilada de~$C$ por plan.
 Salida: \texttt{Output/figuras\_correlaciones/fig\_37a}--\texttt{fig\_37e.pdf}.
 
-\subsection*{Scripts R de análisis estadístico consolidados}
+\subsection{Scripts R de análisis estadístico consolidados}
 
 Los dieciocho scripts R independientes originales (08--19 y 23R) fueron
 consolidados en cinco archivos temáticos; cada archivo puede ejecutarse
@@ -4999,7 +5330,7 @@ de forma autónoma una vez disponibles los CSV de simulación en
 
 \texttt{01\_correlaciones.R}
 realiza el análisis estadístico de correlaciones a tres niveles
----plan ($N=10$), UEA ($N=689$) y arista ($N=499$)---:
+---plan ($N=10$), UEA ($N=688$) y arista ($N=498$)---:
 correlaciones de Spearman con prueba de permutaciones, regresión
 multivariada e identificación de los predictores estructurales
 de~$\mathrm{ET}$; genera los dispersogramas plan~vs.~$\mathrm{ET}$
@@ -5048,7 +5379,7 @@ de índices $P$~vs.~$h$.
 Salida: \texttt{Output/figuras\_correlaciones/fig\_17\_clasificacion\_planes\_info.pdf},
         \texttt{fig\_17\_clasificacion\_planes\_lm.pdf} y equivalentes.
 
-\subsection*{Scripts de análisis institucional y gestión (\texttt{delivery/})}
+\subsection{Scripts de análisis institucional y gestión (\texttt{delivery/})}
 
 Estos cinco scripts residen en \texttt{Analisis/delivery/} y producen
 documentos de gestión y comunicación; no forman parte del pipeline
@@ -5088,7 +5419,7 @@ de tres intervenciones (tutorías tempranas, recuperación extendida, incremento
 de carga) con estimación del número de estudiantes beneficiados y costo
 en grupos adicionales.
 
-\subsection*{Utilidades (\texttt{utils/})}
+\subsection{Utilidades (\texttt{utils/})}
 
 Los cuatro scripts en \texttt{Analisis/utils/} son herramientas de
 mantenimiento de calidad textual; no generan datos ni figuras.
@@ -5110,5 +5441,6 @@ usen la numeración oficial vigente y aplica correcciones en bloque.
 \texttt{check\_ortografia\_scripts.py}
 revisa los comentarios y cadenas de texto de los propios scripts Python
 y~R en busca de inconsistencias ortográficas y terminológicas.
+\end{sloppypar}
 
 \end{document}
